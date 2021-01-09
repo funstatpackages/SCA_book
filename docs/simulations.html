@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Simulations | Statistical Computing Using R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Simulations | Statistical Computing Using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Simulations | Statistical Computing Using R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Lily Wang" />
+
+
+<meta name="date" content="2021-01-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="advanced-programming-in-r.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#r-and-statistics"><i class="fa fa-check"></i><b>2.2</b> R and Statistics</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#obtaining-r-and-installation"><i class="fa fa-check"></i><b>2.3.1</b> Obtaining R and installation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#starting-r"><i class="fa fa-check"></i><b>2.4</b> Starting R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#description-of-three-panels-in-user-interface"><i class="fa fa-check"></i><b>2.4.1</b> Description of three panels in user interface</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#r-help"><i class="fa fa-check"></i><b>2.4.2</b> R help</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.4.3</b> Packages</a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro.html"><a href="intro.html#creating-a-project-and-setting-working-directory"><i class="fa fa-check"></i><b>2.4.4</b> Creating a project and setting working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html"><i class="fa fa-check"></i><b>3</b> Simple Manipulations — Numbers and Vectors</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vectors-and-assignment"><i class="fa fa-check"></i><b>3.1</b> Vectors and Assignment</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#generating-regular-sequences"><i class="fa fa-check"></i><b>3.3</b> Generating Regular Sequences</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#logical-vectors"><i class="fa fa-check"></i><b>3.4</b> Logical Vectors</a></li>
+<li class="chapter" data-level="3.5" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing values</a></li>
+<li class="chapter" data-level="3.6" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#character-vectors"><i class="fa fa-check"></i><b>3.6</b> Character Vectors</a></li>
+<li class="chapter" data-level="3.7" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#index-vectors"><i class="fa fa-check"></i><b>3.7</b> Index Vectors</a></li>
+<li class="chapter" data-level="3.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.8</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-objects.html"><a href="r-objects.html#introduction-of-r-objects"><i class="fa fa-check"></i><b>4.1</b> Introduction of R Objects</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-objects.html"><a href="r-objects.html#mode-of-objects"><i class="fa fa-check"></i><b>4.1.1</b> Mode of Objects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-objects.html"><a href="r-objects.html#length-of-objects"><i class="fa fa-check"></i><b>4.1.2</b> Length of Objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-objects.html"><a href="r-objects.html#getting-and-setting-attributes"><i class="fa fa-check"></i><b>4.1.3</b> Getting and Setting Attributes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-objects.html"><a href="r-objects.html#the-class-of-an-object"><i class="fa fa-check"></i><b>4.1.4</b> The class of an object</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-objects.html"><a href="r-objects.html#data-structures"><i class="fa fa-check"></i><b>4.2</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-objects.html"><a href="r-objects.html#arrays"><i class="fa fa-check"></i><b>4.2.1</b> Arrays</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>4.2.2</b> Lists</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-objects.html"><a href="r-objects.html#data-frames"><i class="fa fa-check"></i><b>4.2.3</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-objects.html"><a href="r-objects.html#frequency-tables-from-factors"><i class="fa fa-check"></i><b>4.2.4</b> Frequency Tables From Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exportimport-data.html"><a href="exportimport-data.html"><i class="fa fa-check"></i><b>5</b> Export/Import Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="exportimport-data.html"><a href="exportimport-data.html#data-export"><i class="fa fa-check"></i><b>5.1</b> Data Export</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="exportimport-data.html"><a href="exportimport-data.html#rdata-files"><i class="fa fa-check"></i><b>5.1.1</b> <code>.RData</code> files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="exportimport-data.html"><a href="exportimport-data.html#data-import"><i class="fa fa-check"></i><b>5.2</b> Data Import</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="exportimport-data.html"><a href="exportimport-data.html#the-load-function"><i class="fa fa-check"></i><b>5.2.1</b> The <code>load()</code> function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.table-function"><i class="fa fa-check"></i><b>5.2.2</b> The <code>read.table()</code> function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="exportimport-data.html"><a href="exportimport-data.html#the-scan-function"><i class="fa fa-check"></i><b>5.2.3</b> The <code>scan()</code> function</a></li>
+<li class="chapter" data-level="5.2.4" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.csv-function"><i class="fa fa-check"></i><b>5.2.4</b> The <code>read.csv()</code> function</a></li>
+<li class="chapter" data-level="5.2.5" data-path="exportimport-data.html"><a href="exportimport-data.html#import-an-excel-file-into-r"><i class="fa fa-check"></i><b>5.2.5</b> Import an Excel file into R</a></li>
+<li class="chapter" data-level="5.2.6" data-path="exportimport-data.html"><a href="exportimport-data.html#accessing-built-in-datasets"><i class="fa fa-check"></i><b>5.2.6</b> Accessing built-in datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>6</b> Visualization</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization.html"><a href="visualization.html#bar-chart"><i class="fa fa-check"></i><b>6.1</b> Bar Chart</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization.html"><a href="visualization.html#pie-charts"><i class="fa fa-check"></i><b>6.2</b> Pie charts</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization.html"><a href="visualization.html#stem-and-leaf-charts"><i class="fa fa-check"></i><b>6.3</b> Stem-and-leaf Charts</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization.html"><a href="visualization.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization.html"><a href="visualization.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="visualization.html"><a href="visualization.html#boxplot-one-sample"><i class="fa fa-check"></i><b>6.5.1</b> Boxplot: one sample</a></li>
+<li class="chapter" data-level="6.5.2" data-path="visualization.html"><a href="visualization.html#plotting-several-samples"><i class="fa fa-check"></i><b>6.5.2</b> Plotting several samples</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="visualization.html"><a href="visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.6</b> Scatterplot</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="visualization.html"><a href="visualization.html#basic-command"><i class="fa fa-check"></i><b>6.6.1</b> Basic command</a></li>
+<li class="chapter" data-level="6.6.2" data-path="visualization.html"><a href="visualization.html#more-useful-commands"><i class="fa fa-check"></i><b>6.6.2</b> More useful commands</a></li>
+<li class="chapter" data-level="6.6.3" data-path="visualization.html"><a href="visualization.html#an-example-with-multiple-symbols"><i class="fa fa-check"></i><b>6.6.3</b> An example with multiple symbols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="visualization.html"><a href="visualization.html#line-plots-and-time-series-plots"><i class="fa fa-check"></i><b>6.7</b> Line plots and Time series plots</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="visualization.html"><a href="visualization.html#plot-types"><i class="fa fa-check"></i><b>6.7.1</b> Plot types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="visualization.html"><a href="visualization.html#time-series"><i class="fa fa-check"></i><b>6.7.2</b> Time Series</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="visualization.html"><a href="visualization.html#visualization-using-ggplot2"><i class="fa fa-check"></i><b>6.8</b> Visualization using <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.8.1" data-path="visualization.html"><a href="visualization.html#scatter-plots"><i class="fa fa-check"></i><b>6.8.1</b> Scatter plots</a></li>
+<li class="chapter" data-level="6.8.2" data-path="visualization.html"><a href="visualization.html#creating-maps-with-ggplot2"><i class="fa fa-check"></i><b>6.8.2</b> Creating maps with <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>7</b> R Markdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-markdown.html"><a href="r-markdown.html#getting-started-with-r-markdown"><i class="fa fa-check"></i><b>7.1</b> Getting Started with R Markdown</a></li>
+<li class="chapter" data-level="7.2" data-path="r-markdown.html"><a href="r-markdown.html#formatting-your-document"><i class="fa fa-check"></i><b>7.2</b> Formatting Your Document</a></li>
+<li class="chapter" data-level="7.3" data-path="r-markdown.html"><a href="r-markdown.html#text-formatting"><i class="fa fa-check"></i><b>7.3</b> Text Formatting</a></li>
+<li class="chapter" data-level="7.4" data-path="r-markdown.html"><a href="r-markdown.html#greek-alphabet"><i class="fa fa-check"></i><b>7.4</b> Greek Alphabet</a></li>
+<li class="chapter" data-level="7.5" data-path="r-markdown.html"><a href="r-markdown.html#r-code-chunks-and-inline-r-code"><i class="fa fa-check"></i><b>7.5</b> R code chunks and inline R code</a></li>
+<li class="chapter" data-level="7.6" data-path="r-markdown.html"><a href="r-markdown.html#including-plots-and-adding-captions"><i class="fa fa-check"></i><b>7.6</b> Including Plots and Adding Captions</a></li>
+<li class="chapter" data-level="7.7" data-path="r-markdown.html"><a href="r-markdown.html#modifying-figures"><i class="fa fa-check"></i><b>7.7</b> Modifying Figures</a></li>
+<li class="chapter" data-level="7.8" data-path="r-markdown.html"><a href="r-markdown.html#displaying-data-with-kable"><i class="fa fa-check"></i><b>7.8</b> Displaying Data with kable</a></li>
+<li class="chapter" data-level="7.9" data-path="r-markdown.html"><a href="r-markdown.html#compiling-r-markdown-documents"><i class="fa fa-check"></i><b>7.9</b> Compiling R Markdown Documents</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling with <code>dplyr</code> and <code>tidyr</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#learning-dplyr"><i class="fa fa-check"></i><b>8.1</b> Learning <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>8.2</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#pipes"><i class="fa fa-check"></i><b>8.3</b> Pipes</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#select-and-order-top-n-entries-by-group-if-grouped-data."><i class="fa fa-check"></i><b>8.4</b> Select and order top n entries (by group if grouped data).</a></li>
+<li class="chapter" data-level="8.5" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#mutate"><i class="fa fa-check"></i><b>8.5</b> Mutate</a></li>
+<li class="chapter" data-level="8.6" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>8.6</b> Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
+<li class="chapter" data-level="8.7" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#joins-with-dplyr"><i class="fa fa-check"></i><b>8.7</b> Joins with <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#reshaping-data---change-the-layout-of-a-data-set"><i class="fa fa-check"></i><b>8.8</b> Reshaping Data - Change the layout of a data set</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-wide-to-long"><i class="fa fa-check"></i><b>8.8.1</b> From wide to long</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-long-to-wide"><i class="fa fa-check"></i><b>8.8.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html"><i class="fa fa-check"></i><b>9</b> Advanced Programming in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#grouped-expressions"><i class="fa fa-check"></i><b>9.1</b> Grouped expressions</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#conditional-execution-if-statements"><i class="fa fa-check"></i><b>9.2</b> Conditional execution: <code>if</code> statements</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#iterations"><i class="fa fa-check"></i><b>9.2.1</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#writing-functions"><i class="fa fa-check"></i><b>9.3</b> Writing Functions</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#simple-examples"><i class="fa fa-check"></i><b>9.3.1</b> Simple examples</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#named-arguments-and-defaults"><i class="fa fa-check"></i><b>9.3.2</b> Named arguments and defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#lexical-vs.-dynamic-scoping"><i class="fa fa-check"></i><b>9.4</b> Lexical vs. Dynamic Scoping</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#scoping-rules"><i class="fa fa-check"></i><b>9.4.1</b> Scoping rules</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#an-environment"><i class="fa fa-check"></i><b>9.4.2</b> An Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>10</b> Simulations</a><ul>
+<li class="chapter" data-level="10.1" data-path="simulations.html"><a href="simulations.html#probability-distributions-and-generating-random-variables"><i class="fa fa-check"></i><b>10.1</b> Probability Distributions and Generating Random Variables</a></li>
+<li class="chapter" data-level="10.2" data-path="simulations.html"><a href="simulations.html#more-examples"><i class="fa fa-check"></i><b>10.2</b> More Examples</a></li>
+<li class="chapter" data-level="10.3" data-path="simulations.html"><a href="simulations.html#setting-random-number-seed"><i class="fa fa-check"></i><b>10.3</b> Setting Random Number Seed</a></li>
+<li class="chapter" data-level="10.4" data-path="simulations.html"><a href="simulations.html#example-normal-approximation-to-the-binomials"><i class="fa fa-check"></i><b>10.4</b> Example: Normal Approximation to the Binomials</a></li>
+<li class="chapter" data-level="10.5" data-path="simulations.html"><a href="simulations.html#random-sampling-using-sample"><i class="fa fa-check"></i><b>10.5</b> Random Sampling using <code>sample</code></a></li>
+<li class="chapter" data-level="10.6" data-path="simulations.html"><a href="simulations.html#a-simulation-example"><i class="fa fa-check"></i><b>10.6</b> A Simulation Example</a></li>
+<li class="chapter" data-level="10.7" data-path="simulations.html"><a href="simulations.html#basics-of-simulation"><i class="fa fa-check"></i><b>10.7</b> Basics of Simulation</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="simulations.html"><a href="simulations.html#repetition"><i class="fa fa-check"></i><b>10.7.1</b> Repetition</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>10.8</b> Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Computing Using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulations" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Simulations</h1>
+<p>Simulation is an important (and big) topic for both statistics and for a variety of other areas where there is a need to introduce randomness. Sometimes you want to implement a statistical procedure that requires random number generation or sampling (i.e. Markov chain Monte Carlo, the bootstrap, random forests, bagging) and sometimes you want to simulate a system and random number generators can be used to model random inputs.</p>
+<p>R comes with a set of pseuodo-random number generators that allow you to simulate from well-known probability distributions like the Normal, Poisson, and binomial. Some example functions for probability distributions in R.</p>
+<div id="probability-distributions-and-generating-random-variables" class="section level2">
+<h2><span class="header-section-number">10.1</span> Probability Distributions and Generating Random Variables</h2>
+<p>One convenient use of R is to provide a comprehensive set of statistical tables. Functions are provided to evaluate the cumulative distribution function <span class="math inline">\(P(X \leq x)\)</span>, the probability density function and the quantile function (given q, the smallest x such that <span class="math inline">\(P(X \leq x) &gt; q\)</span>), and to simulate from the distribution.</p>
+<p>R provides four types of functions for dealing with distributions. Each type begins with a letter designating its purpose, followed by
+a name specifying the distribution.</p>
+<ul>
+<li><code>p</code> - probability (argument is deviate, returns probability)</li>
+<li><code>d</code> - density (argument is deviate, returns density value)</li>
+<li><code>q</code> - quantile function (argument is probability - returns deviate)</li>
+<li><code>r</code> - random numbers (argument is n, returns vector of random numbers)</li>
+</ul>
+<p><strong>Popular Distributions</strong></p>
+<p>Figure <a href="simulations.html#fig:popdist">10.1</a> shows some popular distributions that we might use them often.</p>
+<div class="figure" style="text-align: center"><span id="fig:popdist"></span>
+<img src="figures/popdist.png" alt="Popular distributions." width="60%" />
+<p class="caption">
+Figure 10.1: Popular distributions.
+</p>
+</div>
+<p>Prefix the name given here by ‘d’ for the density, ‘p’ for the CDF, ‘q’ for the quantile function and ‘r’ for simulation (random deviates). The first argument is <code>x</code> for <code>dxxx</code>, q for <code>pxxx</code>, <code>p</code> for <code>qxxx</code> and <code>n</code> for <code>rxxx</code> (except for <code>rhyper</code> and <code>rwilcox</code>, for which it is <code>nn</code>, for example, <code>rwilcox(nn,m,n)</code>). In not quite all cases is the non-centrality parameter ncp are currently available: see the on-line help for details.</p>
+<p>In not quite all cases is the non-centrality parameter <code>ncp</code> are currently available: see the on-line help for details.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="simulations.html#cb315-1"></a><span class="co"># 2-tailed p-value for t distribution</span></span>
+<span id="cb315-2"><a href="simulations.html#cb315-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pt</span>(<span class="op">-</span><span class="fl">2.43</span>, <span class="dt">df =</span> <span class="dv">13</span>)</span>
+<span id="cb315-3"><a href="simulations.html#cb315-3"></a><span class="co">## [1] 0.0303309</span></span>
+<span id="cb315-4"><a href="simulations.html#cb315-4"></a><span class="co"># upper 1% point for an F(2, 7) distribution</span></span>
+<span id="cb315-5"><a href="simulations.html#cb315-5"></a><span class="kw">qf</span>(<span class="fl">0.01</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb315-6"><a href="simulations.html#cb315-6"></a><span class="co">## [1] 9.546578</span></span></code></pre></div>
+</div>
+<div id="more-examples" class="section level2">
+<h2><span class="header-section-number">10.2</span> More Examples</h2>
+<p>The following are some simple examples.</p>
+<ol style="list-style-type: decimal">
+<li>Uniform</li>
+</ol>
+<p>Uniform numbers are ones that are “equally likely” to be in the specified range. Often these numbers are in [0, 1] for computers, but in practice can be between [a, b] where a, b depend upon the problem. An example might be the time you wait at a traffic light. This might be uniform on [0, 2].</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="simulations.html#cb316-1"></a><span class="kw">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at light</span></span>
+<span id="cb316-2"><a href="simulations.html#cb316-2"></a><span class="co">## [1] 0.7824067</span></span>
+<span id="cb316-3"><a href="simulations.html#cb316-3"></a><span class="kw">runif</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at 5 lights</span></span>
+<span id="cb316-4"><a href="simulations.html#cb316-4"></a><span class="co">## [1] 0.9249893 0.7762880 0.8049703 0.3579272 1.9033175</span></span>
+<span id="cb316-5"><a href="simulations.html#cb316-5"></a><span class="kw">runif</span>(<span class="dv">5</span>) <span class="co"># 5 random numbers in [0,1]</span></span>
+<span id="cb316-6"><a href="simulations.html#cb316-6"></a><span class="co">## [1] 0.4537281 0.3267524 0.9654153 0.7074819 0.6445426</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Binomial</li>
+</ol>
+<p>The binomial random numbers are discrete random numbers. They have the distribution of the number of successes in <code>n</code> independent Bernoulli trials where a Bernoulli trial results in success or failure, success with probability <code>p</code>.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="simulations.html#cb317-1"></a><span class="co"># Compute P(X &lt;= 5) for X Binomial(8, 0.9)</span></span>
+<span id="cb317-2"><a href="simulations.html#cb317-2"></a><span class="kw">pbinom</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="fl">0.9</span>)</span>
+<span id="cb317-3"><a href="simulations.html#cb317-3"></a><span class="co">## [1] 0.03809179</span></span>
+<span id="cb317-4"><a href="simulations.html#cb317-4"></a><span class="co"># Compute P(45 &lt; X &lt; 55) for X Binomial(100, 0.5)</span></span>
+<span id="cb317-5"><a href="simulations.html#cb317-5"></a><span class="kw">pbinom</span>(<span class="dv">54</span>, <span class="dv">100</span>, <span class="fl">0.5</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
+<span id="cb317-6"><a href="simulations.html#cb317-6"></a><span class="co">## [1] 0.6317984</span></span>
+<span id="cb317-7"><a href="simulations.html#cb317-7"></a><span class="co"># Find the 0.05 quantile for X Binomial(16, 0.5)</span></span>
+<span id="cb317-8"><a href="simulations.html#cb317-8"></a><span class="kw">qbinom</span>(<span class="fl">0.05</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
+<span id="cb317-9"><a href="simulations.html#cb317-9"></a><span class="co">## [1] 42</span></span>
+<span id="cb317-10"><a href="simulations.html#cb317-10"></a><span class="co"># Generate 100 random variables from Binomial(20, 0.2)</span></span>
+<span id="cb317-11"><a href="simulations.html#cb317-11"></a><span class="kw">rbinom</span>(<span class="dv">100</span>, <span class="dv">20</span>, <span class="fl">0.2</span>)</span>
+<span id="cb317-12"><a href="simulations.html#cb317-12"></a><span class="co">##   [1] 3 5 4 3 4 5 0 2 5 3 3 6 6 4 2 5 4 7 5 3 3 1 1 1 4 7 6</span></span>
+<span id="cb317-13"><a href="simulations.html#cb317-13"></a><span class="co">##  [28] 3 3 5 4 5 2 4 3 5 3 8 5 8 3 7 2 4 7 5 4 3 3 1 4 7 5 4</span></span>
+<span id="cb317-14"><a href="simulations.html#cb317-14"></a><span class="co">##  [55] 2 6 4 0 1 2 3 6 4 5 1 7 6 2 4 5 4 5 5 2 3 3 4 8 4 4 6</span></span>
+<span id="cb317-15"><a href="simulations.html#cb317-15"></a><span class="co">##  [82] 5 6 3 3 4 3 5 3 5 6 8 4 0 3 4 4 2 5 5</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Normal</li>
+</ol>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="simulations.html#cb318-1"></a><span class="co"># Find P(Z &lt;= 1.5). </span></span>
+<span id="cb318-2"><a href="simulations.html#cb318-2"></a><span class="kw">pnorm</span>(<span class="fl">1.5</span>)</span>
+<span id="cb318-3"><a href="simulations.html#cb318-3"></a><span class="co">## [1] 0.9331928</span></span>
+<span id="cb318-4"><a href="simulations.html#cb318-4"></a><span class="co"># Find the 0.05-quantile for N(0, 1) </span></span>
+<span id="cb318-5"><a href="simulations.html#cb318-5"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>)</span>
+<span id="cb318-6"><a href="simulations.html#cb318-6"></a><span class="co">## [1] -1.644854</span></span>
+<span id="cb318-7"><a href="simulations.html#cb318-7"></a><span class="co">#Find the 0.05-quantile for N(1, 4) </span></span>
+<span id="cb318-8"><a href="simulations.html#cb318-8"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb318-9"><a href="simulations.html#cb318-9"></a><span class="co">## [1] -2.289707</span></span>
+<span id="cb318-10"><a href="simulations.html#cb318-10"></a><span class="co"># Generate 50 random variables from N(4, 2)</span></span>
+<span id="cb318-11"><a href="simulations.html#cb318-11"></a><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb318-12"><a href="simulations.html#cb318-12"></a><span class="co">##  [1]  5.6848973  2.2193532  5.5059217  4.8904319  4.8422124</span></span>
+<span id="cb318-13"><a href="simulations.html#cb318-13"></a><span class="co">##  [6]  6.2991845  2.2073596  5.7393427  5.0118233  4.6634041</span></span>
+<span id="cb318-14"><a href="simulations.html#cb318-14"></a><span class="co">## [11]  7.4799994  3.9821491  3.3475663  4.2970864  3.2402642</span></span>
+<span id="cb318-15"><a href="simulations.html#cb318-15"></a><span class="co">## [16]  5.5768822  3.6574869  4.5167635  4.4803464  5.7847276</span></span>
+<span id="cb318-16"><a href="simulations.html#cb318-16"></a><span class="co">## [21]  3.9614367  2.1237451  3.4716128  2.2309502  2.9996141</span></span>
+<span id="cb318-17"><a href="simulations.html#cb318-17"></a><span class="co">## [26]  5.3538034  6.8181437  5.9010480  3.5447031  2.7096113</span></span>
+<span id="cb318-18"><a href="simulations.html#cb318-18"></a><span class="co">## [31]  5.7679356  7.0820644  1.9846826  6.4115762  3.0144272</span></span>
+<span id="cb318-19"><a href="simulations.html#cb318-19"></a><span class="co">## [36] -0.9218229  5.6693115  3.7904313  6.4808597  4.0667339</span></span>
+<span id="cb318-20"><a href="simulations.html#cb318-20"></a><span class="co">## [41]  5.4484878  1.0128678  4.7777647  5.0230307  2.7192348</span></span>
+<span id="cb318-21"><a href="simulations.html#cb318-21"></a><span class="co">## [46]  3.6517822  4.1752274  2.0950020  1.5177391  4.1735536</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>The Poisson distribution is commonly used to model data that come in the form of counts.</li>
+</ol>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="simulations.html#cb319-1"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">1</span>)    <span class="co">## Counts with a mean of 1</span></span>
+<span id="cb319-2"><a href="simulations.html#cb319-2"></a><span class="co">##  [1] 1 2 1 1 1 0 1 1 1 1</span></span>
+<span id="cb319-3"><a href="simulations.html#cb319-3"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">2</span>)    <span class="co">## Counts with a mean of 2</span></span>
+<span id="cb319-4"><a href="simulations.html#cb319-4"></a><span class="co">##  [1] 2 6 4 2 1 4 4 4 3 2</span></span>
+<span id="cb319-5"><a href="simulations.html#cb319-5"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">20</span>)   <span class="co">## Counts with a mean of 20</span></span>
+<span id="cb319-6"><a href="simulations.html#cb319-6"></a><span class="co">##  [1] 22 20 23 27 17 33 26 13 31 15</span></span></code></pre></div>
+</div>
+<div id="setting-random-number-seed" class="section level2">
+<h2><span class="header-section-number">10.3</span> Setting Random Number Seed</h2>
+<p>When simulating any random numbers it is essential to set the random number seed. Setting the random number seed with set.seed() ensures reproducibility of the sequence of random numbers.</p>
+<p>For example, I can generate 5 Normal random numbers with <code>rnorm()</code>.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="simulations.html#cb320-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb320-2"><a href="simulations.html#cb320-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
+<span id="cb320-3"><a href="simulations.html#cb320-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
+<p>Note that if I call <code>rnorm()</code> again I will of course get a different set of 5 random numbers.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="simulations.html#cb321-1"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
+<span id="cb321-2"><a href="simulations.html#cb321-2"></a><span class="co">## [1] -0.8204684  0.4874291  0.7383247  0.5757814 -0.3053884</span></span></code></pre></div>
+<p>If I want to reproduce the original set of random numbers, I can just reset the seed with <code>set.seed()</code>.</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="simulations.html#cb322-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb322-2"><a href="simulations.html#cb322-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)    <span class="co">## Same as before</span></span>
+<span id="cb322-3"><a href="simulations.html#cb322-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
+<p>In general, you should always set the random number seed when conducting a simulation! Otherwise, you will not be able to reconstruct the exact numbers that you produced in an analysis.</p>
+</div>
+<div id="example-normal-approximation-to-the-binomials" class="section level2">
+<h2><span class="header-section-number">10.4</span> Example: Normal Approximation to the Binomials</h2>
+<p>In our introductory level statistics, we know that we can use normal to approximate binomials. For example, X ~ BINOM(100, 0.4), let us use the binomial functions and normal approximations in R to compute <span class="math inline">\(P(35 &lt; X \leq 45)\)</span>.</p>
+<p>We first use the binomial functions in R to compute <span class="math inline">\(P(35 &lt; X \leq 45)\)</span></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="simulations.html#cb323-1"></a><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">.4</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">35</span>, <span class="dv">100</span>, <span class="fl">.4</span>)</span></code></pre></div>
+<pre><code>## [1] 0.6894402</code></pre>
+<p>Now according to the normal approximation and the continuity correction, we can use the normal functions in R to compute P(35.5 &lt; X ≤ 45.5):</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="simulations.html#cb325-1"></a>mu &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span></span>
+<span id="cb325-2"><a href="simulations.html#cb325-2"></a>sig &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">.4</span>))</span>
+<span id="cb325-3"><a href="simulations.html#cb325-3"></a><span class="kw">pnorm</span>(<span class="fl">45.5</span>, mu, sig) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">35.5</span>, mu, sig)</span></code></pre></div>
+<pre><code>## [1] 0.6900506</code></pre>
+</div>
+<div id="random-sampling-using-sample" class="section level2">
+<h2><span class="header-section-number">10.5</span> Random Sampling using <code>sample</code></h2>
+<p>R has the ability to sample with and without replacement. That is, choose at random from a collection of things such as the numbers 1 through 6 in the dice rolling example. The sampling can be done with replacement (like dice rolling) or without replacement (like a lottery). By default sample samples without replacement each object having equal chance of being picked. You need to specify replace=TRUE if you want to sample with replacement. Furthermore, you can specify separate probabilities for each if desired.</p>
+<p>The <code>sample()</code> function draws randomly from a specified set of (scalar) objects allowing you to sample from arbitrary distributions of numbers.</p>
+<p>Here are some examples:</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="simulations.html#cb327-1"></a><span class="co"># Roll a die</span></span>
+<span id="cb327-2"><a href="simulations.html#cb327-2"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb327-3"><a href="simulations.html#cb327-3"></a><span class="co">##  [1] 3 3 1 5 5 2 6 6 2 1</span></span>
+<span id="cb327-4"><a href="simulations.html#cb327-4"></a><span class="co">## toss a coin</span></span>
+<span id="cb327-5"><a href="simulations.html#cb327-5"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb327-6"><a href="simulations.html#cb327-6"></a><span class="co">##  [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;</span></span>
+<span id="cb327-7"><a href="simulations.html#cb327-7"></a><span class="co">## pick 6 of 54 (a lottery)</span></span>
+<span id="cb327-8"><a href="simulations.html#cb327-8"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">54</span>, <span class="dv">6</span>) <span class="co"># no replacement</span></span>
+<span id="cb327-9"><a href="simulations.html#cb327-9"></a><span class="co">## [1] 25 44 15 33 20 35</span></span>
+<span id="cb327-10"><a href="simulations.html#cb327-10"></a><span class="co">## pick a card. (Fancy! Uses paste, rep)</span></span>
+<span id="cb327-11"><a href="simulations.html#cb327-11"></a>cards &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;J&quot;</span>, <span class="st">&quot;Q&quot;</span>, <span class="st">&quot;K&quot;</span>), <span class="dv">4</span>),</span>
+<span id="cb327-12"><a href="simulations.html#cb327-12"></a>               <span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb327-13"><a href="simulations.html#cb327-13"></a><span class="co"># a pair of jacks, no replacement</span></span>
+<span id="cb327-14"><a href="simulations.html#cb327-14"></a><span class="kw">sample</span>(cards, <span class="dv">5</span>) </span>
+<span id="cb327-15"><a href="simulations.html#cb327-15"></a><span class="co">## [1] &quot;6 D&quot;  &quot;10 D&quot; &quot;3 D&quot;  &quot;Q D&quot;  &quot;8 S&quot;</span></span></code></pre></div>
+</div>
+<div id="a-simulation-example" class="section level2">
+<h2><span class="header-section-number">10.6</span> A Simulation Example</h2>
+<ol style="list-style-type: decimal">
+<li>Toss a single die 1000 times, each time note down the number that showed up. Find the distribution of the 1000 observations</li>
+</ol>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="simulations.html#cb328-1"></a><span class="co"># distributions of a single six sided die</span></span>
+<span id="cb328-2"><a href="simulations.html#cb328-2"></a><span class="co"># generate a uniform random distribution from min to max</span></span>
+<span id="cb328-3"><a href="simulations.html#cb328-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>    <span class="co">#how many cases to generate</span></span>
+<span id="cb328-4"><a href="simulations.html#cb328-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>            <span class="co">#set parameters</span></span>
+<span id="cb328-5"><a href="simulations.html#cb328-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb328-6"><a href="simulations.html#cb328-6"></a><span class="co"># generate random uniform numcases numbers from min to max </span></span>
+<span id="cb328-7"><a href="simulations.html#cb328-7"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace =</span> <span class="ot">TRUE</span>)    </span>
+<span id="cb328-8"><a href="simulations.html#cb328-8"></a><span class="co"># show the histogram</span></span>
+<span id="cb328-9"><a href="simulations.html#cb328-9"></a><span class="kw">hist</span>(x,<span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb328-10"><a href="simulations.html#cb328-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases,<span class="st">&quot; roles of a single die&quot;</span>),</span>
+<span id="cb328-11"><a href="simulations.html#cb328-11"></a>     <span class="dt">breaks =</span> <span class="kw">seq</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>, <span class="dv">1</span>))  </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:hh1"></span>
+<img src="SCA_book_files/figure-html/hh1-1.png" alt="A histogram based on 1000 roles of a single die." width="75%" />
+<p class="caption">
+Figure 10.2: A histogram based on 1000 roles of a single die.
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Toss two dice 1000 times, each time note down the number that showed up and compute the average of the two dice. Find the distribution of the 1000 sample means</li>
+</ol>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="simulations.html#cb329-1"></a><span class="co"># generate a uniform random distribution from min to max </span></span>
+<span id="cb329-2"><a href="simulations.html#cb329-2"></a><span class="co"># for numcases sample size 2</span></span>
+<span id="cb329-3"><a href="simulations.html#cb329-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>      <span class="co">#how many cases to generate</span></span>
+<span id="cb329-4"><a href="simulations.html#cb329-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>              <span class="co">#set parameters</span></span>
+<span id="cb329-5"><a href="simulations.html#cb329-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb329-6"><a href="simulations.html#cb329-6"></a>x1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb329-7"><a href="simulations.html#cb329-7"></a>x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)       </span>
+<span id="cb329-8"><a href="simulations.html#cb329-8"></a>x.bar &lt;-<span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb329-9"><a href="simulations.html#cb329-9"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb329-10"><a href="simulations.html#cb329-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases, <span class="st">&quot; roles of a pair of dice&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:hh2"></span>
+<img src="SCA_book_files/figure-html/hh2-1.png" alt="A histogram based on 1000 roles of a pair of dice." width="75%" />
+<p class="caption">
+Figure 10.3: A histogram based on 1000 roles of a pair of dice.
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Toss k dice 1000 times, each time note down the number that showed up and compute the average of the k dice. Find the distribution of the 1000 sample means</li>
+</ol>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="simulations.html#cb330-1"></a><span class="co"># Toss k=100 dice</span></span>
+<span id="cb330-2"><a href="simulations.html#cb330-2"></a>k &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb330-3"><a href="simulations.html#cb330-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>               <span class="co">#how many samples to take? </span></span>
+<span id="cb330-4"><a href="simulations.html#cb330-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>                       <span class="co">#lowest value</span></span>
+<span id="cb330-5"><a href="simulations.html#cb330-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb330-6"><a href="simulations.html#cb330-6"></a>sum &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,numcases)</span>
+<span id="cb330-7"><a href="simulations.html#cb330-7"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
+<span id="cb330-8"><a href="simulations.html#cb330-8"></a>	dice &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb330-9"><a href="simulations.html#cb330-9"></a>	sum &lt;-<span class="st"> </span>sum <span class="op">+</span><span class="st"> </span>dice</span>
+<span id="cb330-10"><a href="simulations.html#cb330-10"></a>}</span>
+<span id="cb330-11"><a href="simulations.html#cb330-11"></a>x.bar &lt;-<span class="st"> </span>sum <span class="op">/</span><span class="st"> </span>k</span>
+<span id="cb330-12"><a href="simulations.html#cb330-12"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb330-13"><a href="simulations.html#cb330-13"></a>     <span class="dt">main =</span> <span class="kw">paste</span>( numcases,<span class="st">&quot; roles of 100 dice&quot;</span>)) </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:hh3"></span>
+<img src="SCA_book_files/figure-html/hh3-1.png" alt="A histogram based on 1000 roles of 100 dice." width="75%" />
+<p class="caption">
+Figure 10.4: A histogram based on 1000 roles of 100 dice.
+</p>
+</div>
+</div>
+<div id="basics-of-simulation" class="section level2">
+<h2><span class="header-section-number">10.7</span> Basics of Simulation</h2>
+<p>We have seen that we can use <code>runif</code> (uniform), <code>rpois</code> (poisson), <code>rnorm</code> (normal), <code>rbinom</code> (binomial), <code>rgamma</code> (gamma), <code>rbeta</code> (beta), …, to generate random numbers from known distribution.</p>
+<ul>
+<li>First argument for all is <code>n</code>, number of samples to generate.</li>
+<li>Then, parameters of the distribution (always check that the distribution is parameterised the way you expect).</li>
+</ul>
+<p>In this section, we focus on repeating the simulation multiple times.</p>
+<div id="repetition" class="section level3">
+<h3><span class="header-section-number">10.7.1</span> Repetition</h3>
+<ol style="list-style-type: decimal">
+<li>Use the <code>replicate</code> function</li>
+</ol>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="simulations.html#cb331-1"></a><span class="kw">replicate</span>(n, expression)</span></code></pre></div>
+<p>Find the mean of 100 random standard normal numbers, and repeat it 10 times</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="simulations.html#cb332-1"></a><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>)))</span></code></pre></div>
+<pre><code>##  [1] -0.080971362 -0.087927875  0.215721843 -0.151144052
+##  [5]  0.064324835 -0.065627610  0.228410840 -0.006319742
+##  [9] -0.032525699 -0.101028481</code></pre>
+<p>Find the mean of 10 random standard normal numbers, repeat it 100 times, and draw the histgram of 100 means</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="simulations.html#cb334-1"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>))))</span></code></pre></div>
+<div class="figure"><span id="fig:hh4"></span>
+<img src="SCA_book_files/figure-html/hh4-1.png" alt="Histogram of the mean of 10 random standard normal numbers based on 100 replications." width="75%" />
+<p class="caption">
+Figure 10.5: Histogram of the mean of 10 random standard normal numbers based on 100 replications.
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Simulation – The Central Limit Theorem</li>
+</ol>
+<p>In our introductory level statistics, we also learned the central limit theorem (CLT): if <span class="math inline">\(X_i\)</span> are drawn independently from a population where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are known, then
+<span class="math display">\[
+\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}
+\]</span>
+is asymptotically normal with mean 0 and variance 1. That is, if <span class="math inline">\(n\)</span> is large enough the average is approximately normal with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p>How can we check this? <strong>Simulation</strong> is an excellent way. Let’s investigate. Suppose we start with a skewed distribution, the CLT says that the average will eventually look normal. That is, it is approximately normal for large <span class="math inline">\(n\)</span>. What does “eventually” mean? What does “large” mean?</p>
+<p>An example of a skewed distribution is the exponential. Note that the exponential distribution has standard deviation equal to its mean, so we only need to specify the mean. To generate a function of exponential distribution with mean 10 (standard deviation is also 10 then)</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="simulations.html#cb335-1"></a><span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">10</span>)</span></code></pre></div>
+<p>Here is a function to create a single standardized average based on <span class="math inline">\(n=5\)</span> exponential random variables with mean 10:</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="simulations.html#cb336-1"></a>f  &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mu =</span> <span class="dv">10</span>) {</span>
+<span id="cb336-2"><a href="simulations.html#cb336-2"></a>  (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
+<span id="cb336-3"><a href="simulations.html#cb336-3"></a>}</span></code></pre></div>
+<p>But that is only one of these random numbers. We really want lots of them to see their distribution. How can we create 100 of them? We can use <code>for</code> loops.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="simulations.html#cb337-1"></a>results  &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span></code></pre></div>
+<p>We can view the results with a histogram:</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="simulations.html#cb338-1"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb338-2"><a href="simulations.html#cb338-2"></a><span class="kw">hist</span>(results, <span class="dt">probability =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb338-3"><a href="simulations.html#cb338-3"></a><span class="co"># plot normal curve</span></span>
+<span id="cb338-4"><a href="simulations.html#cb338-4"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>) </span></code></pre></div>
+<div class="figure"><span id="fig:hh5"></span>
+<img src="SCA_book_files/figure-html/hh5-1.png" alt="Histogram of the mean of 5 random exponential variables with mean 10 based on 100 replications." width="75%" />
+<p class="caption">
+Figure 10.6: Histogram of the mean of 5 random exponential variables with mean 10 based on 100 replications.
+</p>
+</div>
+<p>Repeat the above for <span class="math inline">\(n=15,~30,~50,~100\)</span>. The histogram becomes very bell shaped between <span class="math inline">\(n=15\)</span> and <span class="math inline">\(n=50\)</span>, although even at <span class="math inline">\(n=50\)</span> it appears to still be a little
+skewed.</p>
+<p>Let us put the above together.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="simulations.html#cb339-1"></a><span class="co"># create a single standardized average based on n exponential  </span></span>
+<span id="cb339-2"><a href="simulations.html#cb339-2"></a><span class="co"># random variables with mean mu:</span></span>
+<span id="cb339-3"><a href="simulations.html#cb339-3"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb339-4"><a href="simulations.html#cb339-4"></a></span>
+<span id="cb339-5"><a href="simulations.html#cb339-5"></a>f =<span class="st"> </span><span class="cf">function</span>(n, mu) {</span>
+<span id="cb339-6"><a href="simulations.html#cb339-6"></a> (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n))</span>
+<span id="cb339-7"><a href="simulations.html#cb339-7"></a>}</span>
+<span id="cb339-8"><a href="simulations.html#cb339-8"></a></span>
+<span id="cb339-9"><a href="simulations.html#cb339-9"></a><span class="co"># sample size n=5, mu=10, repeat 100 times</span></span>
+<span id="cb339-10"><a href="simulations.html#cb339-10"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb339-11"><a href="simulations.html#cb339-11"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb339-12"><a href="simulations.html#cb339-12"></a>     <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb339-13"><a href="simulations.html#cb339-13"></a><span class="co"># plot normal curve</span></span>
+<span id="cb339-14"><a href="simulations.html#cb339-14"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span>
+<span id="cb339-15"><a href="simulations.html#cb339-15"></a></span>
+<span id="cb339-16"><a href="simulations.html#cb339-16"></a><span class="co"># sample size n=50, repeat 100 times </span></span>
+<span id="cb339-17"><a href="simulations.html#cb339-17"></a>xvals =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb339-18"><a href="simulations.html#cb339-18"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">50</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb339-19"><a href="simulations.html#cb339-19"></a>     <span class="dt">main =</span> <span class="st">&quot;n=50&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb339-20"><a href="simulations.html#cb339-20"></a><span class="co"># plot normal curve</span></span>
+<span id="cb339-21"><a href="simulations.html#cb339-21"></a><span class="kw">points</span>(xvals,<span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span></code></pre></div>
+<div class="figure"><span id="fig:hh6"></span>
+<img src="SCA_book_files/figure-html/hh6-1.png" alt="Histogram of the mean of 5 (left) or 50 (right) random exponential variables with mean 10 based on 100 replications." width="75%" />
+<p class="caption">
+Figure 10.7: Histogram of the mean of 5 (left) or 50 (right) random exponential variables with mean 10 based on 100 replications.
+</p>
+</div>
+<p>You can also build up a function to achieve the above simulation goals.</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="simulations.html#cb340-1"></a>sim1 =<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb340-2"><a href="simulations.html#cb340-2"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))))</span>
+<span id="cb340-3"><a href="simulations.html#cb340-3"></a>}</span>
+<span id="cb340-4"><a href="simulations.html#cb340-4"></a></span>
+<span id="cb340-5"><a href="simulations.html#cb340-5"></a>sim2 =<span class="st"> </span><span class="cf">function</span>(n, m){</span>
+<span id="cb340-6"><a href="simulations.html#cb340-6"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
+<span id="cb340-7"><a href="simulations.html#cb340-7"></a>}</span>
+<span id="cb340-8"><a href="simulations.html#cb340-8"></a></span>
+<span id="cb340-9"><a href="simulations.html#cb340-9"></a>sim3 =<span class="st"> </span><span class="cf">function</span>(n, m, d){</span>
+<span id="cb340-10"><a href="simulations.html#cb340-10"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;gaussian&quot;</span>){</span>
+<span id="cb340-11"><a href="simulations.html#cb340-11"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
+<span id="cb340-12"><a href="simulations.html#cb340-12"></a>	}</span>
+<span id="cb340-13"><a href="simulations.html#cb340-13"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;uniform&quot;</span>){</span>
+<span id="cb340-14"><a href="simulations.html#cb340-14"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">runif</span>(m))))</span>
+<span id="cb340-15"><a href="simulations.html#cb340-15"></a>	}</span>
+<span id="cb340-16"><a href="simulations.html#cb340-16"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">10.8</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Generate 10 random numbers from a uniform<span class="math inline">\((0,10)\)</span>. Use R to find the maximum and minimum values.</p></li>
+<li><p>Generate 10 random normal numbers with mean 5 and standard deviation 5 (<span class="math inline">\(N(5,5^2)\)</span>). How many are less than 0? (Use R)</p></li>
+<li><p>Select 6 numbers from a lottery containing 49 balls. What is the largest number? What is the smallest? [Hint: <code>sample(1:49,6)</code>]</p></li>
+<li><p>Answer these using R.</p>
+<ol style="list-style-type: lower-alpha">
+<li>For normal<span class="math inline">\((0,1)\)</span>, find a number <span class="math inline">\(z^{\ast}\)</span> solving <span class="math inline">\(P (Z &lt; z^{\ast}) = 0.05\)</span> (use <code>qnorm</code>).</li>
+<li>For normal<span class="math inline">\((0,1)\)</span>, find a number <span class="math inline">\(z^{\ast}\)</span> solving <span class="math inline">\(P (-z^{\ast}&lt; Z&lt; z^{\ast}) = 0.05\)</span> (use <code>qnorm</code> and symmetry).</li>
+<li>How much area (probability) is to the right of 1.5 for a <span class="math inline">\(N(0,2^2)\)</span>?</li>
+</ol></li>
+<li><p>Toss a fair coin 50 times (using R). How many heads do you have?</p></li>
+<li><p>Generate the data from normal distribution: one dataset with <span class="math inline">\(n =100\)</span>, mean = 10 and standard deviation = 10, the other dataset with <span class="math inline">\(n =100\)</span>, mean = 100 and standard deviation = 100. Make the histograms for the two datasets and compare the two distributions. How are they different? How are they similar? Are both approximately normal?</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="advanced-programming-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SCA_book.pdf", "SCA_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Export/Import Data | Statistical Computing Using R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Export/Import Data | Statistical Computing Using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Export/Import Data | Statistical Computing Using R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Lily Wang" />
+
+
+<meta name="date" content="2021-01-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-objects.html"/>
+<link rel="next" href="visualization.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#r-and-statistics"><i class="fa fa-check"></i><b>2.2</b> R and Statistics</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#obtaining-r-and-installation"><i class="fa fa-check"></i><b>2.3.1</b> Obtaining R and installation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#starting-r"><i class="fa fa-check"></i><b>2.4</b> Starting R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#description-of-three-panels-in-user-interface"><i class="fa fa-check"></i><b>2.4.1</b> Description of three panels in user interface</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#r-help"><i class="fa fa-check"></i><b>2.4.2</b> R help</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.4.3</b> Packages</a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro.html"><a href="intro.html#creating-a-project-and-setting-working-directory"><i class="fa fa-check"></i><b>2.4.4</b> Creating a project and setting working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html"><i class="fa fa-check"></i><b>3</b> Simple Manipulations — Numbers and Vectors</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vectors-and-assignment"><i class="fa fa-check"></i><b>3.1</b> Vectors and Assignment</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#generating-regular-sequences"><i class="fa fa-check"></i><b>3.3</b> Generating Regular Sequences</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#logical-vectors"><i class="fa fa-check"></i><b>3.4</b> Logical Vectors</a></li>
+<li class="chapter" data-level="3.5" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing values</a></li>
+<li class="chapter" data-level="3.6" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#character-vectors"><i class="fa fa-check"></i><b>3.6</b> Character Vectors</a></li>
+<li class="chapter" data-level="3.7" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#index-vectors"><i class="fa fa-check"></i><b>3.7</b> Index Vectors</a></li>
+<li class="chapter" data-level="3.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.8</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-objects.html"><a href="r-objects.html#introduction-of-r-objects"><i class="fa fa-check"></i><b>4.1</b> Introduction of R Objects</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-objects.html"><a href="r-objects.html#mode-of-objects"><i class="fa fa-check"></i><b>4.1.1</b> Mode of Objects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-objects.html"><a href="r-objects.html#length-of-objects"><i class="fa fa-check"></i><b>4.1.2</b> Length of Objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-objects.html"><a href="r-objects.html#getting-and-setting-attributes"><i class="fa fa-check"></i><b>4.1.3</b> Getting and Setting Attributes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-objects.html"><a href="r-objects.html#the-class-of-an-object"><i class="fa fa-check"></i><b>4.1.4</b> The class of an object</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-objects.html"><a href="r-objects.html#data-structures"><i class="fa fa-check"></i><b>4.2</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-objects.html"><a href="r-objects.html#arrays"><i class="fa fa-check"></i><b>4.2.1</b> Arrays</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>4.2.2</b> Lists</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-objects.html"><a href="r-objects.html#data-frames"><i class="fa fa-check"></i><b>4.2.3</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-objects.html"><a href="r-objects.html#frequency-tables-from-factors"><i class="fa fa-check"></i><b>4.2.4</b> Frequency Tables From Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exportimport-data.html"><a href="exportimport-data.html"><i class="fa fa-check"></i><b>5</b> Export/Import Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="exportimport-data.html"><a href="exportimport-data.html#data-export"><i class="fa fa-check"></i><b>5.1</b> Data Export</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="exportimport-data.html"><a href="exportimport-data.html#rdata-files"><i class="fa fa-check"></i><b>5.1.1</b> <code>.RData</code> files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="exportimport-data.html"><a href="exportimport-data.html#data-import"><i class="fa fa-check"></i><b>5.2</b> Data Import</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="exportimport-data.html"><a href="exportimport-data.html#the-load-function"><i class="fa fa-check"></i><b>5.2.1</b> The <code>load()</code> function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.table-function"><i class="fa fa-check"></i><b>5.2.2</b> The <code>read.table()</code> function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="exportimport-data.html"><a href="exportimport-data.html#the-scan-function"><i class="fa fa-check"></i><b>5.2.3</b> The <code>scan()</code> function</a></li>
+<li class="chapter" data-level="5.2.4" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.csv-function"><i class="fa fa-check"></i><b>5.2.4</b> The <code>read.csv()</code> function</a></li>
+<li class="chapter" data-level="5.2.5" data-path="exportimport-data.html"><a href="exportimport-data.html#import-an-excel-file-into-r"><i class="fa fa-check"></i><b>5.2.5</b> Import an Excel file into R</a></li>
+<li class="chapter" data-level="5.2.6" data-path="exportimport-data.html"><a href="exportimport-data.html#accessing-built-in-datasets"><i class="fa fa-check"></i><b>5.2.6</b> Accessing built-in datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>6</b> Visualization</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization.html"><a href="visualization.html#bar-chart"><i class="fa fa-check"></i><b>6.1</b> Bar Chart</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization.html"><a href="visualization.html#pie-charts"><i class="fa fa-check"></i><b>6.2</b> Pie charts</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization.html"><a href="visualization.html#stem-and-leaf-charts"><i class="fa fa-check"></i><b>6.3</b> Stem-and-leaf Charts</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization.html"><a href="visualization.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization.html"><a href="visualization.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="visualization.html"><a href="visualization.html#boxplot-one-sample"><i class="fa fa-check"></i><b>6.5.1</b> Boxplot: one sample</a></li>
+<li class="chapter" data-level="6.5.2" data-path="visualization.html"><a href="visualization.html#plotting-several-samples"><i class="fa fa-check"></i><b>6.5.2</b> Plotting several samples</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="visualization.html"><a href="visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.6</b> Scatterplot</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="visualization.html"><a href="visualization.html#basic-command"><i class="fa fa-check"></i><b>6.6.1</b> Basic command</a></li>
+<li class="chapter" data-level="6.6.2" data-path="visualization.html"><a href="visualization.html#more-useful-commands"><i class="fa fa-check"></i><b>6.6.2</b> More useful commands</a></li>
+<li class="chapter" data-level="6.6.3" data-path="visualization.html"><a href="visualization.html#an-example-with-multiple-symbols"><i class="fa fa-check"></i><b>6.6.3</b> An example with multiple symbols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="visualization.html"><a href="visualization.html#line-plots-and-time-series-plots"><i class="fa fa-check"></i><b>6.7</b> Line plots and Time series plots</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="visualization.html"><a href="visualization.html#plot-types"><i class="fa fa-check"></i><b>6.7.1</b> Plot types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="visualization.html"><a href="visualization.html#time-series"><i class="fa fa-check"></i><b>6.7.2</b> Time Series</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="visualization.html"><a href="visualization.html#visualization-using-ggplot2"><i class="fa fa-check"></i><b>6.8</b> Visualization using <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.8.1" data-path="visualization.html"><a href="visualization.html#scatter-plots"><i class="fa fa-check"></i><b>6.8.1</b> Scatter plots</a></li>
+<li class="chapter" data-level="6.8.2" data-path="visualization.html"><a href="visualization.html#creating-maps-with-ggplot2"><i class="fa fa-check"></i><b>6.8.2</b> Creating maps with <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>7</b> R Markdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-markdown.html"><a href="r-markdown.html#getting-started-with-r-markdown"><i class="fa fa-check"></i><b>7.1</b> Getting Started with R Markdown</a></li>
+<li class="chapter" data-level="7.2" data-path="r-markdown.html"><a href="r-markdown.html#formatting-your-document"><i class="fa fa-check"></i><b>7.2</b> Formatting Your Document</a></li>
+<li class="chapter" data-level="7.3" data-path="r-markdown.html"><a href="r-markdown.html#text-formatting"><i class="fa fa-check"></i><b>7.3</b> Text Formatting</a></li>
+<li class="chapter" data-level="7.4" data-path="r-markdown.html"><a href="r-markdown.html#greek-alphabet"><i class="fa fa-check"></i><b>7.4</b> Greek Alphabet</a></li>
+<li class="chapter" data-level="7.5" data-path="r-markdown.html"><a href="r-markdown.html#r-code-chunks-and-inline-r-code"><i class="fa fa-check"></i><b>7.5</b> R code chunks and inline R code</a></li>
+<li class="chapter" data-level="7.6" data-path="r-markdown.html"><a href="r-markdown.html#including-plots-and-adding-captions"><i class="fa fa-check"></i><b>7.6</b> Including Plots and Adding Captions</a></li>
+<li class="chapter" data-level="7.7" data-path="r-markdown.html"><a href="r-markdown.html#modifying-figures"><i class="fa fa-check"></i><b>7.7</b> Modifying Figures</a></li>
+<li class="chapter" data-level="7.8" data-path="r-markdown.html"><a href="r-markdown.html#displaying-data-with-kable"><i class="fa fa-check"></i><b>7.8</b> Displaying Data with kable</a></li>
+<li class="chapter" data-level="7.9" data-path="r-markdown.html"><a href="r-markdown.html#compiling-r-markdown-documents"><i class="fa fa-check"></i><b>7.9</b> Compiling R Markdown Documents</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling with <code>dplyr</code> and <code>tidyr</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#learning-dplyr"><i class="fa fa-check"></i><b>8.1</b> Learning <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>8.2</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#pipes"><i class="fa fa-check"></i><b>8.3</b> Pipes</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#select-and-order-top-n-entries-by-group-if-grouped-data."><i class="fa fa-check"></i><b>8.4</b> Select and order top n entries (by group if grouped data).</a></li>
+<li class="chapter" data-level="8.5" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#mutate"><i class="fa fa-check"></i><b>8.5</b> Mutate</a></li>
+<li class="chapter" data-level="8.6" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>8.6</b> Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
+<li class="chapter" data-level="8.7" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#joins-with-dplyr"><i class="fa fa-check"></i><b>8.7</b> Joins with <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#reshaping-data---change-the-layout-of-a-data-set"><i class="fa fa-check"></i><b>8.8</b> Reshaping Data - Change the layout of a data set</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-wide-to-long"><i class="fa fa-check"></i><b>8.8.1</b> From wide to long</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-long-to-wide"><i class="fa fa-check"></i><b>8.8.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html"><i class="fa fa-check"></i><b>9</b> Advanced Programming in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#grouped-expressions"><i class="fa fa-check"></i><b>9.1</b> Grouped expressions</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#conditional-execution-if-statements"><i class="fa fa-check"></i><b>9.2</b> Conditional execution: <code>if</code> statements</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#iterations"><i class="fa fa-check"></i><b>9.2.1</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#writing-functions"><i class="fa fa-check"></i><b>9.3</b> Writing Functions</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#simple-examples"><i class="fa fa-check"></i><b>9.3.1</b> Simple examples</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#named-arguments-and-defaults"><i class="fa fa-check"></i><b>9.3.2</b> Named arguments and defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#lexical-vs.-dynamic-scoping"><i class="fa fa-check"></i><b>9.4</b> Lexical vs. Dynamic Scoping</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#scoping-rules"><i class="fa fa-check"></i><b>9.4.1</b> Scoping rules</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#an-environment"><i class="fa fa-check"></i><b>9.4.2</b> An Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>10</b> Simulations</a><ul>
+<li class="chapter" data-level="10.1" data-path="simulations.html"><a href="simulations.html#probability-distributions-and-generating-random-variables"><i class="fa fa-check"></i><b>10.1</b> Probability Distributions and Generating Random Variables</a></li>
+<li class="chapter" data-level="10.2" data-path="simulations.html"><a href="simulations.html#more-examples"><i class="fa fa-check"></i><b>10.2</b> More Examples</a></li>
+<li class="chapter" data-level="10.3" data-path="simulations.html"><a href="simulations.html#setting-random-number-seed"><i class="fa fa-check"></i><b>10.3</b> Setting Random Number Seed</a></li>
+<li class="chapter" data-level="10.4" data-path="simulations.html"><a href="simulations.html#example-normal-approximation-to-the-binomials"><i class="fa fa-check"></i><b>10.4</b> Example: Normal Approximation to the Binomials</a></li>
+<li class="chapter" data-level="10.5" data-path="simulations.html"><a href="simulations.html#random-sampling-using-sample"><i class="fa fa-check"></i><b>10.5</b> Random Sampling using <code>sample</code></a></li>
+<li class="chapter" data-level="10.6" data-path="simulations.html"><a href="simulations.html#a-simulation-example"><i class="fa fa-check"></i><b>10.6</b> A Simulation Example</a></li>
+<li class="chapter" data-level="10.7" data-path="simulations.html"><a href="simulations.html#basics-of-simulation"><i class="fa fa-check"></i><b>10.7</b> Basics of Simulation</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="simulations.html"><a href="simulations.html#repetition"><i class="fa fa-check"></i><b>10.7.1</b> Repetition</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>10.8</b> Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Computing Using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exportimport-data" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Export/Import Data</h1>
+<p>In this chapter, you’ll learn how to read plain-text rectangular files into R, and how to export data from R to txt, csv, and R data file formats.</p>
+<div id="data-export" class="section level2">
+<h2><span class="header-section-number">5.1</span> Data Export</h2>
+<p><strong>Using function <code>cat()</code></strong></p>
+<p>The function <code>cat</code> is useful for producing output in user-defined functions.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="exportimport-data.html#cb130-1"></a><span class="kw">cat</span>(<span class="st">&quot;Good morning!&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="co">#\n: newline</span></span></code></pre></div>
+<pre><code>## Good morning!</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="exportimport-data.html#cb132-1"></a><span class="kw">cat</span>(<span class="dt">file =</span> <span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;123456&quot;</span>, <span class="st">&quot;987654&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p><strong>Using function <code>print()</code></strong></p>
+<p>The function <code>print</code> prints its argument. It is a generic function which means that new printing methods can be easily added for new classes.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="exportimport-data.html#cb133-1"></a><span class="kw">print</span>(<span class="st">&quot;Good morning!&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Good morning!&quot;</code></pre>
+<p><strong>Write a matrix or data frame to file</strong></p>
+<p>The commonest task is to write a matrix or data frame to file as a rectangular grid of numbers, possibly with row and column labels. This can be done by the functions <code>write.table</code> and <code>write</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Command to copy and paste from R into Excel or other programs. It writes the data of an R data frame object into the clipboard from where it can be pasted into other applications.</li>
+</ol>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="exportimport-data.html#cb135-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
+<span id="cb135-2"><a href="exportimport-data.html#cb135-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
+<span id="cb135-3"><a href="exportimport-data.html#cb135-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
+<span id="cb135-4"><a href="exportimport-data.html#cb135-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age,<span class="dt">height =</span> height) </span>
+<span id="cb135-5"><a href="exportimport-data.html#cb135-5"></a></span>
+<span id="cb135-6"><a href="exportimport-data.html#cb135-6"></a><span class="co"># Write village into clipboard</span></span>
+<span id="cb135-7"><a href="exportimport-data.html#cb135-7"></a><span class="kw">write.table</span>(village, <span class="st">&quot;clipboard&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">col.names =</span> <span class="ot">NA</span>, </span>
+<span id="cb135-8"><a href="exportimport-data.html#cb135-8"></a>            <span class="dt">quote =</span> F) </span></code></pre></div>
+<p><strong>Remark:</strong></p>
+<ul>
+<li><p>The argument quote is a logical value (<code>TRUE</code> or <code>FALSE</code>) or a numeric vector. If <code>TRUE</code>, any character or factor columns will be surrounded by double quotes. If <code>FALSE</code>, nothing is quoted.</p></li>
+<li><p>The argument <code>col.names= NA</code> makes sure that the titles align with columns when row/index names are exported (default).</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Write data frame to a tab-delimited text file.</li>
+</ol>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="exportimport-data.html#cb136-1"></a><span class="kw">write.delim</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>)</span>
+<span id="cb136-2"><a href="exportimport-data.html#cb136-2"></a><span class="co"># provides same results as read.delim</span></span>
+<span id="cb136-3"><a href="exportimport-data.html#cb136-3"></a><span class="kw">write.table</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Write data to csv files:</li>
+</ol>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="exportimport-data.html#cb137-1"></a><span class="kw">write.csv</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.csv&quot;</span>)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Write matrix data to a file.</li>
+</ol>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="exportimport-data.html#cb138-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb138-2"><a href="exportimport-data.html#cb138-2"></a><span class="kw">write</span>(x, <span class="dt">file =</span> <span class="st">&quot;file path&quot;</span>, <span class="dt">ncolumns =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p>Remark: <code>write.table()</code> is the multipurpose work-horse function in base R for exporting data. The functions <code>write.csv()</code> and <code>write.delim()</code> are special cases of <code>write.table()</code> in which the defaults have been adjusted for efficiency.</p>
+<div id="rdata-files" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> <code>.RData</code> files</h3>
+<p>The best way to store objects from R is with <code>.RData</code> files. <code>.RData</code> files are specific to R and can store as many objects as you’d like within a single file.</p>
+<p>** The <code>save()</code> function</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="exportimport-data.html#cb139-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
+<span id="cb139-2"><a href="exportimport-data.html#cb139-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
+<span id="cb139-3"><a href="exportimport-data.html#cb139-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
+<span id="cb139-4"><a href="exportimport-data.html#cb139-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">height =</span> height)</span>
+<span id="cb139-5"><a href="exportimport-data.html#cb139-5"></a></span>
+<span id="cb139-6"><a href="exportimport-data.html#cb139-6"></a><span class="co"># Save the object as a new .RData file</span></span>
+<span id="cb139-7"><a href="exportimport-data.html#cb139-7"></a><span class="kw">save</span>(village, <span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
+<p>To save selected objects into one <code>.RData</code> file, use the <code>save()</code> function. When you run the <code>save()</code> function with specific objects as arguments, (like <code>save(a, b, c, file = "myobjects.RData")</code> all of those objects will be saved in a single file called <code>myobjects.RData</code>. For example, let’s create a few objects corresponding to a study.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="exportimport-data.html#cb140-1"></a><span class="co"># Create two objects</span></span>
+<span id="cb140-2"><a href="exportimport-data.html#cb140-2"></a>student.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
+<span id="cb140-3"><a href="exportimport-data.html#cb140-3"></a>                        <span class="dt">sex =</span> <span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), </span>
+<span id="cb140-4"><a href="exportimport-data.html#cb140-4"></a>                        <span class="dt">score =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">97</span>, <span class="dv">62</span>, <span class="dv">82</span>))</span>
+<span id="cb140-5"><a href="exportimport-data.html#cb140-5"></a></span>
+<span id="cb140-6"><a href="exportimport-data.html#cb140-6"></a>score.by.sex &lt;-<span class="st"> </span><span class="kw">aggregate</span>(score <span class="op">~</span><span class="st"> </span>sex, </span>
+<span id="cb140-7"><a href="exportimport-data.html#cb140-7"></a>                          <span class="dt">FUN =</span> mean, </span>
+<span id="cb140-8"><a href="exportimport-data.html#cb140-8"></a>                          <span class="dt">data =</span> student.df)</span>
+<span id="cb140-9"><a href="exportimport-data.html#cb140-9"></a></span>
+<span id="cb140-10"><a href="exportimport-data.html#cb140-10"></a><span class="co"># Save two objects as a new .RData file</span></span>
+<span id="cb140-11"><a href="exportimport-data.html#cb140-11"></a><span class="kw">save</span>(student.df, score.by.sex, <span class="dt">file =</span> <span class="st">&quot;data/student.rda&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="data-import" class="section level2">
+<h2><span class="header-section-number">5.2</span> Data Import</h2>
+<div id="the-load-function" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> The <code>load()</code> function</h3>
+<p>To load an <code>.RData</code> file, that is, to import all of the objects contained in the .RData file into your current workspace, use the <code>load()</code> function. For example, to load the three specific objects that I saved earlier (<code>study1.df</code>, <code>score.by.sex</code>) in <code>study1.rda</code>, I’d run the following:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="exportimport-data.html#cb141-1"></a><span class="co"># Load objects in village.rda into my workspace</span></span>
+<span id="cb141-2"><a href="exportimport-data.html#cb141-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
+<p>To load all of the objects in the workspace that we have saved to the data folder in a working directory named <code>projectnew.rda</code>, we can run the following:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="exportimport-data.html#cb142-1"></a><span class="co"># Load objects in projectnew.rda into my workspace</span></span>
+<span id="cb142-2"><a href="exportimport-data.html#cb142-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/projectnew.rda&quot;</span>)</span></code></pre></div>
+</div>
+<div id="the-read.table-function" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> The <code>read.table()</code> function</h3>
+<p>Large data objects will usually be read as values from external files rather than entered during an R session at the keyboard. R input facilities are simple, and their requirements are fairly strict and even rather inflexible.
+If variables are to be held mainly in data frames, as we strongly suggest they should be, an entire data frame can be read directly with the <code>read.table()</code> function. There is also a more primitive input function, <code>scan()</code>, that can be called directly. For more details on importing data into R and also exporting data, see the R Data Import/Export manual.</p>
+<p>To read an entire data frame directly, the external file will typically have a special form.</p>
+<ul>
+<li>The first line of the file should have a name for each variable in the data frame.</li>
+<li>Each additional line of the file has its first item, a row label, and the values for each variable.</li>
+</ul>
+<p>By default, numeric items (except row labels) are read as numeric variables and non-numeric variables, such as name and gender in the above example, as factors.</p>
+<p>The function <code>read.table()</code> can then be used to read the data frame directly. For the file, scores_names.txt, you might want to omit, including the row labels, directly and use the default labels.
+In this case, the file may omit the row label column as in the following.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="exportimport-data.html#cb143-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb143-2"><a href="exportimport-data.html#cb143-2"></a>scores[[<span class="st">&#39;gender&#39;</span>]]</span>
+<span id="cb143-3"><a href="exportimport-data.html#cb143-3"></a>scores[[<span class="st">&#39;aptitude&#39;</span>]]</span></code></pre></div>
+<p>where the <code>header=TRUE</code> option specifies that the first line is a line of headings, and hence, by implication from the form of the file, that no explicit row labels are given. This can be changed if necessary.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="exportimport-data.html#cb144-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, </span>
+<span id="cb144-2"><a href="exportimport-data.html#cb144-2"></a>                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>, </span>
+<span id="cb144-3"><a href="exportimport-data.html#cb144-3"></a>                                    <span class="st">&quot;integer&quot;</span>, <span class="st">&quot;integer&quot;</span>), </span>
+<span id="cb144-4"><a href="exportimport-data.html#cb144-4"></a>                     <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb144-5"><a href="exportimport-data.html#cb144-5"></a><span class="op">&gt;</span><span class="st"> </span>scores[[<span class="st">&#39;gender&#39;</span>]]</span></code></pre></div>
+<p>If the values are separated by commas or another “delimiter,” we have to specify the delaminating character(s). For example, look at the file <code>reading.txt</code> on the Blackboard folder.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="exportimport-data.html#cb145-1"></a>reading &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;reading.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb145-2"><a href="exportimport-data.html#cb145-2"></a></span>
+<span id="cb145-3"><a href="exportimport-data.html#cb145-3"></a><span class="co"># names() is to get or set the names of an object.</span></span>
+<span id="cb145-4"><a href="exportimport-data.html#cb145-4"></a><span class="kw">names</span>(reading) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Week1&quot;</span>, <span class="st">&quot;Week2&quot;</span>, <span class="st">&quot;Week3&quot;</span>, </span>
+<span id="cb145-5"><a href="exportimport-data.html#cb145-5"></a>                   <span class="st">&quot;Week4&quot;</span>, <span class="st">&quot;Week5&quot;</span>) </span>
+<span id="cb145-6"><a href="exportimport-data.html#cb145-6"></a><span class="kw">print</span>(reading)</span></code></pre></div>
+<p>If <code>sep = ""</code> (the default for read.table) the separator is ‘white space’, that is one or more spaces, tabs, newlines or carriage returns.</p>
+</div>
+<div id="the-scan-function" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> The <code>scan()</code> function</h3>
+<p>In fact <code>read.table()</code> uses <code>scan()</code> to read the file, and then process the results of scan. It is very convenient, but sometimes it is better to use <code>scan()</code> directly.</p>
+<ol style="list-style-type: decimal">
+<li>The function <code>scan()</code> at its simplest can do the same as c. It saves you having to type the commas though:</li>
+</ol>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="exportimport-data.html#cb146-1"></a>z &lt;-<span class="st"> </span><span class="kw">scan</span>()</span>
+<span id="cb146-2"><a href="exportimport-data.html#cb146-2"></a>z</span></code></pre></div>
+<p>Note that we start typing the numbers in <code>z</code>. If we hit the return key once we continue on a new row, if we hit it twice in a row, the scan stops. This can be fairly convenient when entering in a few data points (10-40 say).</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Using scan with a file</li>
+</ol>
+<p>The file <code>ReadWithScan.txt</code> in your drive has contents</p>
+<pre><code>1 2 3
+4</code></pre>
+<p>Then, the command</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="exportimport-data.html#cb148-1"></a>x =<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>)</span></code></pre></div>
+<p>will read the contents into your R session.
+Now suppose you had some formatting between the numbers you want to get rid of for example this is now your file <code>ReadWithScan.txt</code></p>
+<pre><code>1, 2, 3,
+4</code></pre>
+<p>then</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exportimport-data.html#cb150-1"></a>x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>works.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>The function scan has many arguments in common with <code>read.table</code>. One additional argument is what, which specifies a list of modes of variables to be read from the file. If the list is named, the names are used for the components of the returned list. Modes can be numeric, character or complex, and are usually specified by an example, e.g., 0 or "".</li>
+</ol>
+<p>Suppose the data vectors are of equal length and are to be read in parallel. Further, suppose that there are three vectors, the first of mode character and the remaining two of mode numeric, and the file is ‘input.dat’. The first step is to use scan() to read in the three vectors as a list, as follows:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exportimport-data.html#cb151-1"></a>inp &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="st">&quot;&quot;</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span></code></pre></div>
+<p>Read 3 records:</p>
+<pre><code>[[1]]
+[1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
+
+[[2]]
+[1] 2 2 6
+
+[[3]]
+[1] 1 3 7</code></pre>
+<p>The second argument is a dummy list structure that establishes the mode of the three vectors to be read. The result, held in <code>inp</code>, is a list whose components are the three vectors read in. To separate the data items into three separate vectors, use assignments like</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exportimport-data.html#cb153-1"></a>label &lt;-<span class="st"> </span>inp[[<span class="dv">1</span>]]; x &lt;-<span class="st"> </span>inp[[<span class="dv">2</span>]]; y &lt;-<span class="st"> </span>inp[[<span class="dv">3</span>]]</span></code></pre></div>
+<p>More conveniently, the dummy list can have named components, in which case the names can be used to access the vectors read in. For example,</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exportimport-data.html#cb154-1"></a><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="dt">id =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>))</span></code></pre></div>
+<p>There are more elaborate input facilities available and these are detailed in the manuals.</p>
+</div>
+<div id="the-read.csv-function" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> The <code>read.csv()</code> function</h3>
+<p>Alternatively, you may have data from a spreadsheet. The simplest way to enter this into R is through a file format. Typically, this is a CSV format (comma-separated values). First, save the data from the spreadsheet as a CSV file say <code>data.csv</code>. Then the R command <code>read.csv</code> will read it in as follows</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exportimport-data.html#cb155-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+<p>CSV file can be comma delimited or tab or any other delimiter specified by parameter <code>sep =</code>. If the parameter <code>header =</code> is <code>TRUE</code>, then the first row will be treated as the row names.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exportimport-data.html#cb156-1"></a><span class="kw">read.csv</span>(file, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, </span>
+<span id="cb156-2"><a href="exportimport-data.html#cb156-2"></a>         <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...) </span>
+<span id="cb156-3"><a href="exportimport-data.html#cb156-3"></a><span class="kw">read.csv2</span>(file, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, </span>
+<span id="cb156-4"><a href="exportimport-data.html#cb156-4"></a>          <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...)		    </span></code></pre></div>
+<ul>
+<li><code>file</code>: file name</li>
+<li><code>header</code>: 1st line as header or not, logical</li>
+<li><code>sep</code>: field separator</li>
+<li><code>quote</code>: quoting characters
+…</li>
+</ul>
+<p>The difference between <code>read.csv</code> and <code>read.csv2</code> is the default field seperator, as “,” and “;” respectively. Following is a csv file example:</p>
+<pre><code>t1	t2	t3	t4	t5	t6	t7	t8
+r1	1	0	1	0	0	1	0	2
+r2	1	2	2	1	2	1	2	1
+r3	0	0	0	2	1	1	0	1
+r4	0	0	1	1	2	0	0	0
+r5	0	2	1	1	1	0	0	0
+r6	2	2	0	1	1	1	0	0
+r7	2	2	0	1	1	1	0	1
+r8	0	2	1	0	1	1	2	0
+r9	1	0	1	2	0	1	0	1
+r10	1	0	2	1	2	2	1	0
+r11	1	0	0	0	1	2	1	2
+r12	1	2	0	0	0	1	2	1
+r13	2	0	0	1	0	2	1	0
+r14	0	2	0	2	1	2	0	2
+r15	0	0	0	2	0	2	2	1
+r16	0	0	0	1	2	0	1	0
+r17	2	1	0	1	2	0	1	0
+r18	1	1	0	0	1	0	1	2
+r19	0	1	1	1	1	0	0	1
+r20	0	0	2	1	1	0	0	1</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="exportimport-data.html#cb158-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;readcsv.csv&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) </span>
+<span id="cb158-2"><a href="exportimport-data.html#cb158-2"></a><span class="kw">is.data.frame</span>(x) </span></code></pre></div>
+</div>
+<div id="import-an-excel-file-into-r" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> Import an Excel file into R</h3>
+<p>You can import an excel file using the <code>readxl</code> package. To start, here is a template that you can use to import an Excel file into R:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="exportimport-data.html#cb159-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb159-2"><a href="exportimport-data.html#cb159-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>)</span></code></pre></div>
+<p>If you want to import a specific sheet within the Excel file, you may use this template:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="exportimport-data.html#cb160-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb160-2"><a href="exportimport-data.html#cb160-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of the file&gt;&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;sheet name&quot;</span>) </span></code></pre></div>
+<p>If you want to set a three column excel sheet to contain the data as dates in the first column, characters in the second, and numeric values in the third, you would need the following lines of code:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="exportimport-data.html#cb161-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb161-2"><a href="exportimport-data.html#cb161-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>,</span>
+<span id="cb161-3"><a href="exportimport-data.html#cb161-3"></a>           <span class="dt">col_types =</span> <span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;text&quot;</span>))</span></code></pre></div>
+</div>
+<div id="accessing-built-in-datasets" class="section level3">
+<h3><span class="header-section-number">5.2.6</span> Accessing built-in datasets</h3>
+<p>Around 100 datasets are supplied with R (in package datasets), and others are available in packages (including the recommended packages supplied with R). To see the list of datasets currently available use <code>data()</code>.</p>
+<p>As from R version 2.0.0 all the datasets supplied with R are available directly by name.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="exportimport-data.html#cb162-1"></a>AirPassengers</span></code></pre></div>
+<p>However, many packages still use the earlier convention in which data was also used to load datasets into R, for example,</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="exportimport-data.html#cb163-1"></a><span class="kw">data</span>(AirPassengers)</span></code></pre></div>
+<p>and this can still be used with the standard packages. In most cases this will load an R object of the same name. However, in a few cases it loads several objects, so see the on-line help for the object to see what to expect.</p>
+<p><strong>Loading data from other R packages</strong></p>
+<p>To access data from a particular package, use the package argument, for example,</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="exportimport-data.html#cb164-1"></a><span class="kw">data</span>(<span class="dt">package =</span> <span class="st">&quot;rpart&quot;</span>)</span>
+<span id="cb164-2"><a href="exportimport-data.html#cb164-2"></a><span class="kw">data</span>(Puromycin, <span class="dt">package =</span> <span class="st">&quot;datasets&quot;</span>)</span></code></pre></div>
+<p>Figure <a href="exportimport-data.html#fig:import">5.1</a> shows a subset oof supported file formats.</p>
+<div class="figure" style="text-align: center"><span id="fig:import"></span>
+<img src="figures/import.png" alt="A non-inclusive list of supported file formats." width="90%" />
+<p class="caption">
+Figure 5.1: A non-inclusive list of supported file formats.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SCA_book.pdf", "SCA_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

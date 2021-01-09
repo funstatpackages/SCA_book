@@ -1,0 +1,14 @@
+base
+readxl
+ggplot2
+maps
+dplyr
+knitr
+tidyverse
+tibble
+tidyr
+readr
+purrr
+stringr
+forcats
+slid

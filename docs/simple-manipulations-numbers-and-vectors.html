@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Simple Manipulations — Numbers and Vectors | Statistical Computing Using R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Simple Manipulations — Numbers and Vectors | Statistical Computing Using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Simple Manipulations — Numbers and Vectors | Statistical Computing Using R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Lily Wang" />
+
+
+<meta name="date" content="2021-01-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="r-objects.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#r-and-statistics"><i class="fa fa-check"></i><b>2.2</b> R and Statistics</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#obtaining-r-and-installation"><i class="fa fa-check"></i><b>2.3.1</b> Obtaining R and installation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#starting-r"><i class="fa fa-check"></i><b>2.4</b> Starting R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#description-of-three-panels-in-user-interface"><i class="fa fa-check"></i><b>2.4.1</b> Description of three panels in user interface</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#r-help"><i class="fa fa-check"></i><b>2.4.2</b> R help</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.4.3</b> Packages</a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro.html"><a href="intro.html#creating-a-project-and-setting-working-directory"><i class="fa fa-check"></i><b>2.4.4</b> Creating a project and setting working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html"><i class="fa fa-check"></i><b>3</b> Simple Manipulations — Numbers and Vectors</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vectors-and-assignment"><i class="fa fa-check"></i><b>3.1</b> Vectors and Assignment</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#generating-regular-sequences"><i class="fa fa-check"></i><b>3.3</b> Generating Regular Sequences</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#logical-vectors"><i class="fa fa-check"></i><b>3.4</b> Logical Vectors</a></li>
+<li class="chapter" data-level="3.5" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing values</a></li>
+<li class="chapter" data-level="3.6" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#character-vectors"><i class="fa fa-check"></i><b>3.6</b> Character Vectors</a></li>
+<li class="chapter" data-level="3.7" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#index-vectors"><i class="fa fa-check"></i><b>3.7</b> Index Vectors</a></li>
+<li class="chapter" data-level="3.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.8</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-objects.html"><a href="r-objects.html#introduction-of-r-objects"><i class="fa fa-check"></i><b>4.1</b> Introduction of R Objects</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-objects.html"><a href="r-objects.html#mode-of-objects"><i class="fa fa-check"></i><b>4.1.1</b> Mode of Objects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-objects.html"><a href="r-objects.html#length-of-objects"><i class="fa fa-check"></i><b>4.1.2</b> Length of Objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-objects.html"><a href="r-objects.html#getting-and-setting-attributes"><i class="fa fa-check"></i><b>4.1.3</b> Getting and Setting Attributes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-objects.html"><a href="r-objects.html#the-class-of-an-object"><i class="fa fa-check"></i><b>4.1.4</b> The class of an object</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-objects.html"><a href="r-objects.html#data-structures"><i class="fa fa-check"></i><b>4.2</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-objects.html"><a href="r-objects.html#arrays"><i class="fa fa-check"></i><b>4.2.1</b> Arrays</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>4.2.2</b> Lists</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-objects.html"><a href="r-objects.html#data-frames"><i class="fa fa-check"></i><b>4.2.3</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-objects.html"><a href="r-objects.html#frequency-tables-from-factors"><i class="fa fa-check"></i><b>4.2.4</b> Frequency Tables From Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exportimport-data.html"><a href="exportimport-data.html"><i class="fa fa-check"></i><b>5</b> Export/Import Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="exportimport-data.html"><a href="exportimport-data.html#data-export"><i class="fa fa-check"></i><b>5.1</b> Data Export</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="exportimport-data.html"><a href="exportimport-data.html#rdata-files"><i class="fa fa-check"></i><b>5.1.1</b> <code>.RData</code> files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="exportimport-data.html"><a href="exportimport-data.html#data-import"><i class="fa fa-check"></i><b>5.2</b> Data Import</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="exportimport-data.html"><a href="exportimport-data.html#the-load-function"><i class="fa fa-check"></i><b>5.2.1</b> The <code>load()</code> function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.table-function"><i class="fa fa-check"></i><b>5.2.2</b> The <code>read.table()</code> function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="exportimport-data.html"><a href="exportimport-data.html#the-scan-function"><i class="fa fa-check"></i><b>5.2.3</b> The <code>scan()</code> function</a></li>
+<li class="chapter" data-level="5.2.4" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.csv-function"><i class="fa fa-check"></i><b>5.2.4</b> The <code>read.csv()</code> function</a></li>
+<li class="chapter" data-level="5.2.5" data-path="exportimport-data.html"><a href="exportimport-data.html#import-an-excel-file-into-r"><i class="fa fa-check"></i><b>5.2.5</b> Import an Excel file into R</a></li>
+<li class="chapter" data-level="5.2.6" data-path="exportimport-data.html"><a href="exportimport-data.html#accessing-built-in-datasets"><i class="fa fa-check"></i><b>5.2.6</b> Accessing built-in datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>6</b> Visualization</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization.html"><a href="visualization.html#bar-chart"><i class="fa fa-check"></i><b>6.1</b> Bar Chart</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization.html"><a href="visualization.html#pie-charts"><i class="fa fa-check"></i><b>6.2</b> Pie charts</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization.html"><a href="visualization.html#stem-and-leaf-charts"><i class="fa fa-check"></i><b>6.3</b> Stem-and-leaf Charts</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization.html"><a href="visualization.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization.html"><a href="visualization.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="visualization.html"><a href="visualization.html#boxplot-one-sample"><i class="fa fa-check"></i><b>6.5.1</b> Boxplot: one sample</a></li>
+<li class="chapter" data-level="6.5.2" data-path="visualization.html"><a href="visualization.html#plotting-several-samples"><i class="fa fa-check"></i><b>6.5.2</b> Plotting several samples</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="visualization.html"><a href="visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.6</b> Scatterplot</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="visualization.html"><a href="visualization.html#basic-command"><i class="fa fa-check"></i><b>6.6.1</b> Basic command</a></li>
+<li class="chapter" data-level="6.6.2" data-path="visualization.html"><a href="visualization.html#more-useful-commands"><i class="fa fa-check"></i><b>6.6.2</b> More useful commands</a></li>
+<li class="chapter" data-level="6.6.3" data-path="visualization.html"><a href="visualization.html#an-example-with-multiple-symbols"><i class="fa fa-check"></i><b>6.6.3</b> An example with multiple symbols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="visualization.html"><a href="visualization.html#line-plots-and-time-series-plots"><i class="fa fa-check"></i><b>6.7</b> Line plots and Time series plots</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="visualization.html"><a href="visualization.html#plot-types"><i class="fa fa-check"></i><b>6.7.1</b> Plot types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="visualization.html"><a href="visualization.html#time-series"><i class="fa fa-check"></i><b>6.7.2</b> Time Series</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="visualization.html"><a href="visualization.html#visualization-using-ggplot2"><i class="fa fa-check"></i><b>6.8</b> Visualization using <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.8.1" data-path="visualization.html"><a href="visualization.html#scatter-plots"><i class="fa fa-check"></i><b>6.8.1</b> Scatter plots</a></li>
+<li class="chapter" data-level="6.8.2" data-path="visualization.html"><a href="visualization.html#creating-maps-with-ggplot2"><i class="fa fa-check"></i><b>6.8.2</b> Creating maps with <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>7</b> R Markdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-markdown.html"><a href="r-markdown.html#getting-started-with-r-markdown"><i class="fa fa-check"></i><b>7.1</b> Getting Started with R Markdown</a></li>
+<li class="chapter" data-level="7.2" data-path="r-markdown.html"><a href="r-markdown.html#formatting-your-document"><i class="fa fa-check"></i><b>7.2</b> Formatting Your Document</a></li>
+<li class="chapter" data-level="7.3" data-path="r-markdown.html"><a href="r-markdown.html#text-formatting"><i class="fa fa-check"></i><b>7.3</b> Text Formatting</a></li>
+<li class="chapter" data-level="7.4" data-path="r-markdown.html"><a href="r-markdown.html#greek-alphabet"><i class="fa fa-check"></i><b>7.4</b> Greek Alphabet</a></li>
+<li class="chapter" data-level="7.5" data-path="r-markdown.html"><a href="r-markdown.html#r-code-chunks-and-inline-r-code"><i class="fa fa-check"></i><b>7.5</b> R code chunks and inline R code</a></li>
+<li class="chapter" data-level="7.6" data-path="r-markdown.html"><a href="r-markdown.html#including-plots-and-adding-captions"><i class="fa fa-check"></i><b>7.6</b> Including Plots and Adding Captions</a></li>
+<li class="chapter" data-level="7.7" data-path="r-markdown.html"><a href="r-markdown.html#modifying-figures"><i class="fa fa-check"></i><b>7.7</b> Modifying Figures</a></li>
+<li class="chapter" data-level="7.8" data-path="r-markdown.html"><a href="r-markdown.html#displaying-data-with-kable"><i class="fa fa-check"></i><b>7.8</b> Displaying Data with kable</a></li>
+<li class="chapter" data-level="7.9" data-path="r-markdown.html"><a href="r-markdown.html#compiling-r-markdown-documents"><i class="fa fa-check"></i><b>7.9</b> Compiling R Markdown Documents</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling with <code>dplyr</code> and <code>tidyr</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#learning-dplyr"><i class="fa fa-check"></i><b>8.1</b> Learning <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>8.2</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#pipes"><i class="fa fa-check"></i><b>8.3</b> Pipes</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#select-and-order-top-n-entries-by-group-if-grouped-data."><i class="fa fa-check"></i><b>8.4</b> Select and order top n entries (by group if grouped data).</a></li>
+<li class="chapter" data-level="8.5" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#mutate"><i class="fa fa-check"></i><b>8.5</b> Mutate</a></li>
+<li class="chapter" data-level="8.6" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>8.6</b> Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
+<li class="chapter" data-level="8.7" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#joins-with-dplyr"><i class="fa fa-check"></i><b>8.7</b> Joins with <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#reshaping-data---change-the-layout-of-a-data-set"><i class="fa fa-check"></i><b>8.8</b> Reshaping Data - Change the layout of a data set</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-wide-to-long"><i class="fa fa-check"></i><b>8.8.1</b> From wide to long</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-long-to-wide"><i class="fa fa-check"></i><b>8.8.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html"><i class="fa fa-check"></i><b>9</b> Advanced Programming in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#grouped-expressions"><i class="fa fa-check"></i><b>9.1</b> Grouped expressions</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#conditional-execution-if-statements"><i class="fa fa-check"></i><b>9.2</b> Conditional execution: <code>if</code> statements</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#iterations"><i class="fa fa-check"></i><b>9.2.1</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#writing-functions"><i class="fa fa-check"></i><b>9.3</b> Writing Functions</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#simple-examples"><i class="fa fa-check"></i><b>9.3.1</b> Simple examples</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#named-arguments-and-defaults"><i class="fa fa-check"></i><b>9.3.2</b> Named arguments and defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#lexical-vs.-dynamic-scoping"><i class="fa fa-check"></i><b>9.4</b> Lexical vs. Dynamic Scoping</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#scoping-rules"><i class="fa fa-check"></i><b>9.4.1</b> Scoping rules</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#an-environment"><i class="fa fa-check"></i><b>9.4.2</b> An Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>10</b> Simulations</a><ul>
+<li class="chapter" data-level="10.1" data-path="simulations.html"><a href="simulations.html#probability-distributions-and-generating-random-variables"><i class="fa fa-check"></i><b>10.1</b> Probability Distributions and Generating Random Variables</a></li>
+<li class="chapter" data-level="10.2" data-path="simulations.html"><a href="simulations.html#more-examples"><i class="fa fa-check"></i><b>10.2</b> More Examples</a></li>
+<li class="chapter" data-level="10.3" data-path="simulations.html"><a href="simulations.html#setting-random-number-seed"><i class="fa fa-check"></i><b>10.3</b> Setting Random Number Seed</a></li>
+<li class="chapter" data-level="10.4" data-path="simulations.html"><a href="simulations.html#example-normal-approximation-to-the-binomials"><i class="fa fa-check"></i><b>10.4</b> Example: Normal Approximation to the Binomials</a></li>
+<li class="chapter" data-level="10.5" data-path="simulations.html"><a href="simulations.html#random-sampling-using-sample"><i class="fa fa-check"></i><b>10.5</b> Random Sampling using <code>sample</code></a></li>
+<li class="chapter" data-level="10.6" data-path="simulations.html"><a href="simulations.html#a-simulation-example"><i class="fa fa-check"></i><b>10.6</b> A Simulation Example</a></li>
+<li class="chapter" data-level="10.7" data-path="simulations.html"><a href="simulations.html#basics-of-simulation"><i class="fa fa-check"></i><b>10.7</b> Basics of Simulation</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="simulations.html"><a href="simulations.html#repetition"><i class="fa fa-check"></i><b>10.7.1</b> Repetition</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>10.8</b> Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Computing Using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simple-manipulations-numbers-and-vectors" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Simple Manipulations — Numbers and Vectors</h1>
+<div id="vectors-and-assignment" class="section level2">
+<h2><span class="header-section-number">3.1</span> Vectors and Assignment</h2>
+<p>R operates on named data structures. The simplest such structure is the numeric vector, a single entity consisting of an ordered collection of numbers. To set up a vector named x, say, consisting of five numbers, namely 10.4, 5.6, 3.1, 6.4, and 21.7, use the R command:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="simple-manipulations-numbers-and-vectors.html#cb17-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) <span class="co">#set up a vector</span></span>
+<span id="cb17-2"><a href="simple-manipulations-numbers-and-vectors.html#cb17-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 10.4  5.6  3.1  6.4 21.7</code></pre>
+<p>This is an assignment statement using the function <code>c()</code>, which can take an arbitrary number of vector arguments and whose value is a vector got by concatenating its arguments end to end.</p>
+<p><strong>A few remarks:</strong></p>
+<ul>
+<li>We assigned the values to a variable called <code>x</code>.</li>
+<li>The assignment operator is a <code>&lt;-</code> , which consists of the two characters <code>&lt;</code> (“less than”) and <code>-</code> (“minus”) occurring strictly side-by-side, and it ‘points’ to the object receiving the value of the expression. In most contexts, the ‘=’ operator can be used as an alternative. Both will be used, although you should learn one and stick with it.</li>
+<li>The value of the <code>x</code> doesn’t automatically print out. It does when we type just the name though, as the last input line indicates.</li>
+<li>The value of <code>x</code> is prefaced with a funny looking <code>[1]</code>. This indicates that the value is a vector. More on that later.</li>
+<li>A number occurring by itself in an expression is taken as a vector of length one.</li>
+<li>Assignment can also be made using the function <code>assign()</code>. An equivalent way of making the same assignment as above is with:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="simple-manipulations-numbers-and-vectors.html#cb19-1"></a><span class="kw">assign</span>(<span class="st">&quot;x&quot;</span>, <span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>))</span></code></pre></div>
+<p>The usual operator, <code>&lt;-</code>, can be thought of as a syntactic short-cut to this.</p>
+<ul>
+<li>Assignments can also be made in the other direction, using the obvious change “-&gt;” in the assignment operator. So the same assignment could be made using</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="simple-manipulations-numbers-and-vectors.html#cb20-1"></a><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) -&gt;<span class="st"> </span>x</span>
+<span id="cb20-2"><a href="simple-manipulations-numbers-and-vectors.html#cb20-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 10.4  5.6  3.1  6.4 21.7</code></pre>
+<p>If an expression is used as a complete command, the value is printed and lost. So now if we were to use the command</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="simple-manipulations-numbers-and-vectors.html#cb22-1"></a><span class="dv">1</span><span class="op">/</span>x <span class="co">#reciprocal of x</span></span></code></pre></div>
+<pre><code>## [1] 0.09615385 0.17857143 0.32258065 0.15625000 0.04608295</code></pre>
+<p>the reciprocals of the five values would be printed at the terminal (and the value of <code>x</code>, of course, unchanged), but <code>1/x</code> will be lost in R.</p>
+<p><strong>More example:</strong></p>
+<p>The following assignment</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="simple-manipulations-numbers-and-vectors.html#cb24-1"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(x, <span class="dv">0</span>, x)</span>
+<span id="cb24-2"><a href="simple-manipulations-numbers-and-vectors.html#cb24-2"></a>y</span></code></pre></div>
+<pre><code>##  [1] 10.4  5.6  3.1  6.4 21.7  0.0 10.4  5.6  3.1  6.4 21.7</code></pre>
+<p>would create a vector <code>y</code> with 11 entries consisting of two copies of x with a zero in the middle place.</p>
+</div>
+<div id="vector-arithmetic" class="section level2">
+<h2><span class="header-section-number">3.2</span> Vector Arithmetic</h2>
+<ol style="list-style-type: decimal">
+<li>Vectors can be used in arithmetic expressions, in which case the operations are performed element by element.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="simple-manipulations-numbers-and-vectors.html#cb26-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span>
+<span id="cb26-2"><a href="simple-manipulations-numbers-and-vectors.html#cb26-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb26-3"><a href="simple-manipulations-numbers-and-vectors.html#cb26-3"></a>v =<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<p><strong>Note:</strong> Vectors occurring in the same expression need not all be of the same length. If they are not, the value of the expression is a vector with the same length as the longest vector which occurs in the expression. Shorter vectors in the expression are recycled as often as need be (perhaps fractionally) until they match the length of the longest vector. In particular, a constant is simply repeated.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="simple-manipulations-numbers-and-vectors.html#cb27-1"></a>x1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb27-2"><a href="simple-manipulations-numbers-and-vectors.html#cb27-2"></a>y1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb27-3"><a href="simple-manipulations-numbers-and-vectors.html#cb27-3"></a>x1 <span class="op">+</span><span class="st"> </span>y1</span></code></pre></div>
+<pre><code>## [1]  4  7  7 10</code></pre>
+<p>Try this yourself.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>The elementary arithmetic operators are the usual <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> and <code>^</code> for raising to a power.</p></li>
+<li><p>In addition all of the common arithmetic functions are available.</p></li>
+</ol>
+<ul>
+<li><code>log</code>, <code>exp</code>, <code>sin</code>, <code>cos</code>, <code>tan</code>, <code>sqrt</code>, and so on, all have their usual meaning.</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="simple-manipulations-numbers-and-vectors.html#cb29-1"></a><span class="kw">exp</span>((x <span class="op">+</span><span class="st"> </span>y)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((x <span class="op">*</span><span class="st"> </span>y))</span></code></pre></div>
+<ul>
+<li><code>length(x)</code> is the number of elements in <code>x</code>, <code>sum(x)</code> gives the total of the elements in <code>x</code>.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Quick guide to soome built-in statistical functions in R</li>
+</ol>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="simple-manipulations-numbers-and-vectors.html#cb30-1"></a><span class="kw">mean</span>(x) <span class="co"># compute mean of variable x</span></span>
+<span id="cb30-2"><a href="simple-manipulations-numbers-and-vectors.html#cb30-2"></a><span class="kw">median</span>(x) <span class="co"># compute median of variable x</span></span>
+<span id="cb30-3"><a href="simple-manipulations-numbers-and-vectors.html#cb30-3"></a><span class="kw">sd</span>(x) <span class="co"># compute standard deviation of numbers in vector x</span></span>
+<span id="cb30-4"><a href="simple-manipulations-numbers-and-vectors.html#cb30-4"></a><span class="kw">scale</span>(x) <span class="co"># compute z-scores of numbers in vector x</span></span>
+<span id="cb30-5"><a href="simple-manipulations-numbers-and-vectors.html#cb30-5"></a><span class="kw">quantile</span>(x) <span class="co"># compute the quartiles or percentiles of vector x</span></span>
+<span id="cb30-6"><a href="simple-manipulations-numbers-and-vectors.html#cb30-6"></a><span class="kw">var</span>(x) <span class="co"># computes variance of variable x</span></span>
+<span id="cb30-7"><a href="simple-manipulations-numbers-and-vectors.html#cb30-7"></a><span class="kw">cov</span>(x,y) <span class="co"># computes variance of variables x and y</span></span>
+<span id="cb30-8"><a href="simple-manipulations-numbers-and-vectors.html#cb30-8"></a><span class="kw">cor</span>(x,y) <span class="co"># computes correlation of variables x and y</span></span></code></pre></div>
+<p>For example,</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="simple-manipulations-numbers-and-vectors.html#cb31-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">35</span>)</span>
+<span id="cb31-2"><a href="simple-manipulations-numbers-and-vectors.html#cb31-2"></a><span class="kw">length</span>(x)</span>
+<span id="cb31-3"><a href="simple-manipulations-numbers-and-vectors.html#cb31-3"></a><span class="co">## [1] 5</span></span>
+<span id="cb31-4"><a href="simple-manipulations-numbers-and-vectors.html#cb31-4"></a><span class="kw">sum</span>(x)</span>
+<span id="cb31-5"><a href="simple-manipulations-numbers-and-vectors.html#cb31-5"></a><span class="co">## [1] 61</span></span>
+<span id="cb31-6"><a href="simple-manipulations-numbers-and-vectors.html#cb31-6"></a>xm &lt;-<span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb31-7"><a href="simple-manipulations-numbers-and-vectors.html#cb31-7"></a>xsd &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(x))</span></code></pre></div>
+</div>
+<div id="generating-regular-sequences" class="section level2">
+<h2><span class="header-section-number">3.3</span> Generating Regular Sequences</h2>
+<p>R has many facilities for generating commonly used sequences of numbers. For example <code>1:30</code> is the vector <code>c(1, 2, ..., 29, 30)</code>.</p>
+<ol style="list-style-type: decimal">
+<li><p>The colon operator has a high priority within an expression, so, for example, <code>2*1:15</code> is really <code>2*(1:15)</code>, so we have the vector <code>c(2, 4, ..., 28, 30)</code>.
+Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code> and <code>1:(n-1)</code>.</p></li>
+<li><p>The construction <code>30:1</code> may be used to generate a sequence backward.</p></li>
+<li><p>The function <code>seq()</code> is a more general facility for generating sequences. It has five arguments, only some of which may be specified in any one call.</p></li>
+</ol>
+<ul>
+<li>The first two arguments, if given, specify the beginning and end of the sequence, and if these are the only two arguments given, the result is the same as the colon operator. That is, <code>seq(2,10)</code> is the same vector as <code>2:10</code>.</li>
+<li>Parameters to <code>seq()</code>, and to many other R functions, can also be given in named form, in which case the order in which they appear is irrelevant. The first two parameters may be named <code>from=value</code> and <code>to=value</code>; thus <code>seq(1,30)</code>, <code>seq(from=1, to=30)</code> and <code>seq(to=30, from=1)</code> are all the same as <code>1:30</code>.</li>
+<li>The next two parameters to <code>seq()</code> may be named <code>by=value</code> and <code>length=value</code>, which specify a step size and a length for the sequence, respectively. If neither of these is given, the default <code>by=1</code> is assumed.</li>
+</ul>
+<p>For example,</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="simple-manipulations-numbers-and-vectors.html#cb32-1"></a><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">.2</span>) -&gt;<span class="st"> </span>s3</span>
+<span id="cb32-2"><a href="simple-manipulations-numbers-and-vectors.html#cb32-2"></a>s3</span>
+<span id="cb32-3"><a href="simple-manipulations-numbers-and-vectors.html#cb32-3"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
+<span id="cb32-4"><a href="simple-manipulations-numbers-and-vectors.html#cb32-4"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
+<span id="cb32-5"><a href="simple-manipulations-numbers-and-vectors.html#cb32-5"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
+<span id="cb32-6"><a href="simple-manipulations-numbers-and-vectors.html#cb32-6"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
+<span id="cb32-7"><a href="simple-manipulations-numbers-and-vectors.html#cb32-7"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span>
+<span id="cb32-8"><a href="simple-manipulations-numbers-and-vectors.html#cb32-8"></a>s4 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">length =</span> <span class="dv">51</span>, <span class="dt">from =</span> <span class="dv">-5</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</span>
+<span id="cb32-9"><a href="simple-manipulations-numbers-and-vectors.html#cb32-9"></a>s4</span>
+<span id="cb32-10"><a href="simple-manipulations-numbers-and-vectors.html#cb32-10"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
+<span id="cb32-11"><a href="simple-manipulations-numbers-and-vectors.html#cb32-11"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
+<span id="cb32-12"><a href="simple-manipulations-numbers-and-vectors.html#cb32-12"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
+<span id="cb32-13"><a href="simple-manipulations-numbers-and-vectors.html#cb32-13"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
+<span id="cb32-14"><a href="simple-manipulations-numbers-and-vectors.html#cb32-14"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span></code></pre></div>
+<ul>
+<li>The fifth parameter may be named along=vector, which, if used must be the only parameter, and creates a sequence <code>1, 2, ..., length(vector)</code>, or the empty sequence if the vector is empty (as it can be).</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>A related function is <code>rep()</code>, which can be used for replicating an object in various complicated ways. The simplest form is</li>
+</ol>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="simple-manipulations-numbers-and-vectors.html#cb33-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb33-2"><a href="simple-manipulations-numbers-and-vectors.html#cb33-2"></a></span>
+<span id="cb33-3"><a href="simple-manipulations-numbers-and-vectors.html#cb33-3"></a>s5 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">times =</span> <span class="dv">5</span>)</span>
+<span id="cb33-4"><a href="simple-manipulations-numbers-and-vectors.html#cb33-4"></a>s5</span></code></pre></div>
+<pre><code>##  [1]  0  5  9 12 35  0  5  9 12 35  0  5  9 12 35  0  5  9
+## [19] 12 35  0  5  9 12 35</code></pre>
+<p>which will put five copies of <code>x</code> end-to-end in <code>s5</code>. Another useful version is</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="simple-manipulations-numbers-and-vectors.html#cb35-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb35-2"><a href="simple-manipulations-numbers-and-vectors.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="simple-manipulations-numbers-and-vectors.html#cb35-3"></a>s6 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">each =</span> <span class="dv">5</span>)</span>
+<span id="cb35-4"><a href="simple-manipulations-numbers-and-vectors.html#cb35-4"></a>s6</span></code></pre></div>
+<pre><code>##  [1]  0  0  0  0  0  5  5  5  5  5  9  9  9  9  9 12 12 12
+## [19] 12 12 35 35 35 35 35</code></pre>
+<p>which repeats each element of <code>x</code> five times before moving on to the next.</p>
+</div>
+<div id="logical-vectors" class="section level2">
+<h2><span class="header-section-number">3.4</span> Logical Vectors</h2>
+<p>As well as numerical vectors, R allows manipulation of logical quantities.</p>
+<ol style="list-style-type: decimal">
+<li>The elements of a logical vector can have the values <code>TRUE</code>, <code>FALSE</code>, and <code>NA</code> (for “not available”, see below).
+<ul>
+<li>The first two are often abbreviated as <code>T</code> and <code>F</code>, respectively.</li>
+<li>Note, however, that <code>T</code> and <code>F</code> are just variables that are set to <code>TRUE</code> and <code>FALSE</code> by default, but are not reserved words and hence can be overwritten by the user. Therefore, you should always use <code>TRUE</code> and <code>FALSE</code>.</li>
+</ul></li>
+<li>Logical vectors are generated by conditions.</li>
+</ol>
+<p>For example,</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="simple-manipulations-numbers-and-vectors.html#cb37-1"></a>temp &lt;-<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span></code></pre></div>
+<p>sets <code>temp</code> as a vector of the same length as <code>x</code> with values <code>FALSE</code> corresponding to elements of <code>x</code> where the condition is not met and TRUE where it is.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>The logical operators are <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code> for exact equality and <code>!=</code> for inequality. In addition if <code>c1</code> and <code>c2</code> are logical expressions, then <code>c1&amp;c2</code> is their intersection (“and”), <code>c1|c2</code> is their union (“or”), and <code>!c1</code> is the negation of <code>c1</code>.</li>
+</ol>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="simple-manipulations-numbers-and-vectors.html#cb38-1"></a>z =<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb38-2"><a href="simple-manipulations-numbers-and-vectors.html#cb38-2"></a>(<span class="dv">8</span> <span class="op">&lt;</span><span class="st"> </span>z) <span class="op">&amp;</span><span class="st"> </span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">15</span>) <span class="co">#Does z belong the interval (8,15)</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Logical vectors may be used in ordinary arithmetic, in which case they are coerced into numeric vectors, <code>FALSE</code> becoming 0 and <code>TRUE</code> becoming 1.</li>
+</ol>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="simple-manipulations-numbers-and-vectors.html#cb40-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">1</span>)</span>
+<span id="cb40-2"><a href="simple-manipulations-numbers-and-vectors.html#cb40-2"></a><span class="kw">sum</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="co">#number of &quot;1&quot; in x</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="missing-values" class="section level2">
+<h2><span class="header-section-number">3.5</span> Missing values</h2>
+<ol style="list-style-type: decimal">
+<li>In some cases, the components of a vector may not be completely known. When an element or value is “not available” or a “missing value” in the statistical sense, a place within a vector may be reserved for it by assigning it the special value <code>NA</code>. In general, any operation is incomplete; the result cannot be known, and hence is not available.
+<ul>
+<li>The function <code>is.na(x)</code> gives a logical vector of the same size as <code>x</code> with value TRUE if and only if the corresponding element in <code>x</code> is <code>NA</code>.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="simple-manipulations-numbers-and-vectors.html#cb42-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="ot">NA</span>)</span>
+<span id="cb42-2"><a href="simple-manipulations-numbers-and-vectors.html#cb42-2"></a>ind &lt;-<span class="st"> </span><span class="kw">is.na</span>(z)</span></code></pre></div>
+<ul>
+<li>Notice that the logical expression <code>x == NA</code> is quite different from <code>is.na(x)</code> since <code>N</code>A is not really a value but a marker for a quantity that is not available. Thus, <code>x == NA</code> is a vector of the same length as <code>x</code>, all of whose values are <code>NA</code> as the logical expression itself is incomplete and hence undecidable.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Note that there is a second kind of “missing” values which are produced by numerical computation, the so-called Not a Number, NaN values. Examples are</li>
+</ol>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="simple-manipulations-numbers-and-vectors.html#cb43-1"></a><span class="dv">0</span> <span class="op">/</span><span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="simple-manipulations-numbers-and-vectors.html#cb45-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="ot">Inf</span></span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>which both give <code>NaN</code> since the result cannot be defined sensibly.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>In summary, <code>is.na(xx)</code> is TRUE both for <code>NA</code> and <code>NaN</code> values. To differentiate these, <code>is.nan(xx)</code> is only <code>TRUE</code> for NaNs. Missing values are sometimes printed as <NA> when character vectors are printed without quotes.</li>
+</ol>
+</div>
+<div id="character-vectors" class="section level2">
+<h2><span class="header-section-number">3.6</span> Character Vectors</h2>
+<ol style="list-style-type: decimal">
+<li><p>Character quantities and character vectors are used frequently in R, for example, as plot labels. Where needed, they are denoted by a sequence of characters delimited by the double-quote character, e.g., “x-values”, “New iteration results”.</p></li>
+<li><p>Character strings are entered using either matching double (”) or single (’) quotes, but are printed using double quotes (or sometimes without quotes).</p></li>
+<li><p>Character vectors may be concatenated into a vector by the <code>c()</code> function; examples of their use will emerge frequently.</p></li>
+<li><p>The <code>paste()</code> function takes an arbitrary number of arguments and concatenates them one by one into character strings. Any numbers given among the arguments are coerced into character strings in an evident way, that is, in the same way, they would be if they were printed. The arguments are by default separated in the result by a single blank character, but this can be changed by the named parameter, sep=string, which changes it to string, possibly empty.</p></li>
+</ol>
+<p>For example,</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="simple-manipulations-numbers-and-vectors.html#cb47-1"></a><span class="kw">paste</span>(<span class="st">&quot;I like&quot;</span>, <span class="st">&quot;Statistics&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;I like Statistics&quot;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="simple-manipulations-numbers-and-vectors.html#cb49-1"></a>x =<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb49-2"><a href="simple-manipulations-numbers-and-vectors.html#cb49-2"></a><span class="kw">paste</span>(<span class="st">&quot;the value of x is&quot;</span>, x)</span></code></pre></div>
+<pre><code>## [1] &quot;the value of x is 2&quot;</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="simple-manipulations-numbers-and-vectors.html#cb51-1"></a>labs &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>), <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb51-2"><a href="simple-manipulations-numbers-and-vectors.html#cb51-2"></a>labs</span></code></pre></div>
+<pre><code>##  [1] &quot;X1&quot;  &quot;Y2&quot;  &quot;X3&quot;  &quot;Y4&quot;  &quot;X5&quot;  &quot;Y6&quot;  &quot;X7&quot;  &quot;Y8&quot;  &quot;X9&quot; 
+## [10] &quot;Y10&quot;</code></pre>
+<p>This makes <code>labs</code> into the vector repeated 5 times to match the sequence <code>1:10</code>.</p>
+</div>
+<div id="index-vectors" class="section level2">
+<h2><span class="header-section-number">3.7</span> Index Vectors</h2>
+<p>Subsets of a vector’s elements may be selected by appending to the name of the vector an index vector in square brackets. More generally, any expression that evaluates to a vector may have subsets of its elements similarly selected by appending an index vector in square brackets immediately after the expression. Such index vectors can be any of four distinct types.</p>
+<ol style="list-style-type: decimal">
+<li>A logical vector.
+In this case, the index vector must be of the same length as the vector from which elements are to be selected. Values corresponding to <code>TRUE</code> in the index vector are selected, and those corresponding to <code>FALSE</code> are omitted. For example</li>
+</ol>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="simple-manipulations-numbers-and-vectors.html#cb53-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">!</span><span class="kw">is.na</span>(x)]</span></code></pre></div>
+<p>creates (or re-creates) an object <code>y</code> which will contain the non-missing values of <code>x</code>, in the same order. Note that if <code>x</code> has missing values, <code>y</code> will be shorter than <code>x</code>.</p>
+<p>Also,</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="simple-manipulations-numbers-and-vectors.html#cb54-1"></a>(x<span class="op">+</span><span class="dv">1</span>)[(<span class="op">!</span><span class="kw">is.na</span>(x)) <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] -&gt;<span class="st"> </span>z</span></code></pre></div>
+<p>creates an object <code>z</code> and places in it the values of the vector <code>x+1</code> for which the corresponding value in <code>x</code> was both non-missing and positive.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>A vector of positive integral quantities.</li>
+</ol>
+<p>In this case, the index vector’s values must lie in the set {1, 2, …, <code>length(x)</code>}. The corresponding elements of the vector are selected and concatenated, in that order, in the result. The index vector can be of any length, and the result is of the same length as the index vector. For example, <code>x[6]</code> is the sixth component of <code>x</code> and</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="simple-manipulations-numbers-and-vectors.html#cb55-1"></a>x[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<p>selects the first 10 elements of <code>x</code> (assuming <code>length(x)</code> is not less than 10). Also,</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="simple-manipulations-numbers-and-vectors.html#cb56-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb56-2"><a href="simple-manipulations-numbers-and-vectors.html#cb56-2"></a></span>
+<span id="cb56-3"><a href="simple-manipulations-numbers-and-vectors.html#cb56-3"></a><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)[<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">times =</span> <span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>##  [1] &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot;
+## [15] &quot;y&quot; &quot;x&quot;</code></pre>
+<p>produces a character vector of length 16 consisting of “x”, “y”, “y”, “x” repeated four times.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>A vector of negative integral quantities.
+Such an index vector specifies the values to be excluded rather than included. Thus</li>
+</ol>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="simple-manipulations-numbers-and-vectors.html#cb58-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)]</span></code></pre></div>
+<p>gives <code>y</code> all but the first five elements of <code>x</code>.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>A vector of character strings.</li>
+</ol>
+<p>This possibility only applies where an object has a names attribute to identify its components. In this case, a sub-vector of the names vector may be used in the same way as the positive integral labels in item 2 further above.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="simple-manipulations-numbers-and-vectors.html#cb59-1"></a>fruit &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb59-2"><a href="simple-manipulations-numbers-and-vectors.html#cb59-2"></a><span class="kw">names</span>(fruit) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;peach&quot;</span>)</span>
+<span id="cb59-3"><a href="simple-manipulations-numbers-and-vectors.html#cb59-3"></a>fruit</span>
+<span id="cb59-4"><a href="simple-manipulations-numbers-and-vectors.html#cb59-4"></a><span class="co">## orange banana  apple  peach </span></span>
+<span id="cb59-5"><a href="simple-manipulations-numbers-and-vectors.html#cb59-5"></a><span class="co">##      5     10      1     20</span></span>
+<span id="cb59-6"><a href="simple-manipulations-numbers-and-vectors.html#cb59-6"></a>fruit[<span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;orange&quot;</span>)]</span>
+<span id="cb59-7"><a href="simple-manipulations-numbers-and-vectors.html#cb59-7"></a><span class="co">##  apple orange </span></span>
+<span id="cb59-8"><a href="simple-manipulations-numbers-and-vectors.html#cb59-8"></a><span class="co">##      1      5</span></span></code></pre></div>
+<p>The advantage is that alphanumeric names are often easier to remember than numeric indices. This option is particularly useful in connection with data frames, as we shall see later.</p>
+<p>An indexed expression can also appear on the receiving end of an assignment, in which case the assignment operation is performed only on those elements of the vector. The expression must be of the form <code>vector[index_vector]</code> as having an arbitrary expression in place of the vector name does not make much sense here.</p>
+<p>The vector assigned must match the length of the index vector, and in the case of a logical index vector, it must again be the same length as the vector it is indexing. For example,</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="simple-manipulations-numbers-and-vectors.html#cb60-1"></a>x[<span class="kw">is.na</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<p>replaces any missing values in <code>x</code> by zeros and</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="simple-manipulations-numbers-and-vectors.html#cb61-1"></a>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="op">-</span>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>]</span></code></pre></div>
+<p>has the same effect as</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="simple-manipulations-numbers-and-vectors.html#cb62-1"></a>y &lt;-<span class="st"> </span><span class="kw">abs</span>(y)</span></code></pre></div>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">3.8</span> Exercises:</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create the vectors.</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>(1, 2, 3, ..., 19, 20)</code></li>
+<li><code>(20, 19, ..., 2, 1)</code></li>
+<li><code>(1, 2, 3, ..., 19, 20, 19, 18, . . . , 2, 1)</code></li>
+<li><code>(4, 6, 3)</code> and assign it to the vector <code>tmp</code>.</li>
+</ol></li>
+<li><p>Create a vector of the values of excos(x) at x = 3, 3.1, 3.2, …, 6</p></li>
+<li><p>Create the following vectors.</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>(0.13, 0.16, 0.19, ..., 0.136)</code></li>
+<li><code>(2, 22/2, 23/3, ..., 225/25)</code></li>
+</ol></li>
+<li><p>Use the function <code>paste()</code> to create the following character vectors of length 30:
+<code>("label 1", "label 2", ....., "label 30")</code>.</p></li>
+<li><p>Note that there is a single space between label and the number following:
+<code>("fn1", "fn2", ..., "fn30").</code>
+In this case, there is no space between fn and the number following.</p></li>
+</ol>
+<p>6.Calculate the following:
+<span class="math display">\[
+\Sigma_{i=10}^{100} i^3+4i^2
+\]</span></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Without using R, determine the result of the following computation:</li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="simple-manipulations-numbers-and-vectors.html#cb63-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb63-2"><a href="simple-manipulations-numbers-and-vectors.html#cb63-2"></a>x[<span class="dv">1</span>]<span class="op">/</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>x[<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb63-3"><a href="simple-manipulations-numbers-and-vectors.html#cb63-3"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb63-4"><a href="simple-manipulations-numbers-and-vectors.html#cb63-4"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">7</span>)</span>
+<span id="cb63-5"><a href="simple-manipulations-numbers-and-vectors.html#cb63-5"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;NA&quot;</span>)</span>
+<span id="cb63-6"><a href="simple-manipulations-numbers-and-vectors.html#cb63-6"></a><span class="kw">is.na</span>(x1)</span>
+<span id="cb63-7"><a href="simple-manipulations-numbers-and-vectors.html#cb63-7"></a><span class="kw">is.na</span>(x2)</span>
+<span id="cb63-8"><a href="simple-manipulations-numbers-and-vectors.html#cb63-8"></a><span class="kw">is.na</span>(<span class="kw">paste</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">NA</span>)))</span>
+<span id="cb63-9"><a href="simple-manipulations-numbers-and-vectors.html#cb63-9"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb63-10"><a href="simple-manipulations-numbers-and-vectors.html#cb63-10"></a><span class="kw">mean</span>(x)</span>
+<span id="cb63-11"><a href="simple-manipulations-numbers-and-vectors.html#cb63-11"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb63-12"><a href="simple-manipulations-numbers-and-vectors.html#cb63-12"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)[<span class="dv">4</span>]</span></code></pre></div>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Compute the real roots of the quadratic equation
+<span class="math display">\[
+x^2+x+1=0
+\]</span>
+Recall the formula for the roots of a quadratic
+<span class="math display">\[
+ x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\]</span></p></li>
+<li><p>Do the following for logical variables</p>
+<ol style="list-style-type: lower-alpha">
+<li>Create a logical vector</li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="simple-manipulations-numbers-and-vectors.html#cb64-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">length =</span> <span class="dv">200</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span>
+<span id="cb64-2"><a href="simple-manipulations-numbers-and-vectors.html#cb64-2"></a><span class="co"># negate this vector</span></span>
+<span id="cb64-3"><a href="simple-manipulations-numbers-and-vectors.html#cb64-3"></a><span class="op">!</span>x</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Compute the truth table for logical AND</li>
+</ol>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="simple-manipulations-numbers-and-vectors.html#cb65-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
+<pre><code> (c) Compute the truth table for logical OR</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="simple-manipulations-numbers-and-vectors.html#cb67-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Explore arithmetic with logical and numeric</li>
+</ol>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="simple-manipulations-numbers-and-vectors.html#cb68-1"></a><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(T, F, T)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SCA_book.pdf", "SCA_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

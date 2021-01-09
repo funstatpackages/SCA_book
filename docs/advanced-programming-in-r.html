@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Advanced Programming in R | Statistical Computing Using R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Advanced Programming in R | Statistical Computing Using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Advanced Programming in R | Statistical Computing Using R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Lily Wang" />
+
+
+<meta name="date" content="2021-01-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-wrangling-with-dplyr-and-tidyr.html"/>
+<link rel="next" href="simulations.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#r-and-statistics"><i class="fa fa-check"></i><b>2.2</b> R and Statistics</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>2.3</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#obtaining-r-and-installation"><i class="fa fa-check"></i><b>2.3.1</b> Obtaining R and installation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#starting-r"><i class="fa fa-check"></i><b>2.4</b> Starting R</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#description-of-three-panels-in-user-interface"><i class="fa fa-check"></i><b>2.4.1</b> Description of three panels in user interface</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#r-help"><i class="fa fa-check"></i><b>2.4.2</b> R help</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.4.3</b> Packages</a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro.html"><a href="intro.html#creating-a-project-and-setting-working-directory"><i class="fa fa-check"></i><b>2.4.4</b> Creating a project and setting working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html"><i class="fa fa-check"></i><b>3</b> Simple Manipulations — Numbers and Vectors</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vectors-and-assignment"><i class="fa fa-check"></i><b>3.1</b> Vectors and Assignment</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.2</b> Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#generating-regular-sequences"><i class="fa fa-check"></i><b>3.3</b> Generating Regular Sequences</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#logical-vectors"><i class="fa fa-check"></i><b>3.4</b> Logical Vectors</a></li>
+<li class="chapter" data-level="3.5" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#missing-values"><i class="fa fa-check"></i><b>3.5</b> Missing values</a></li>
+<li class="chapter" data-level="3.6" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#character-vectors"><i class="fa fa-check"></i><b>3.6</b> Character Vectors</a></li>
+<li class="chapter" data-level="3.7" data-path="simple-manipulations-numbers-and-vectors.html"><a href="simple-manipulations-numbers-and-vectors.html#index-vectors"><i class="fa fa-check"></i><b>3.7</b> Index Vectors</a></li>
+<li class="chapter" data-level="3.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.8</b> Exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-objects.html"><a href="r-objects.html#introduction-of-r-objects"><i class="fa fa-check"></i><b>4.1</b> Introduction of R Objects</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-objects.html"><a href="r-objects.html#mode-of-objects"><i class="fa fa-check"></i><b>4.1.1</b> Mode of Objects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-objects.html"><a href="r-objects.html#length-of-objects"><i class="fa fa-check"></i><b>4.1.2</b> Length of Objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-objects.html"><a href="r-objects.html#getting-and-setting-attributes"><i class="fa fa-check"></i><b>4.1.3</b> Getting and Setting Attributes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-objects.html"><a href="r-objects.html#the-class-of-an-object"><i class="fa fa-check"></i><b>4.1.4</b> The class of an object</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-objects.html"><a href="r-objects.html#data-structures"><i class="fa fa-check"></i><b>4.2</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-objects.html"><a href="r-objects.html#arrays"><i class="fa fa-check"></i><b>4.2.1</b> Arrays</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>4.2.2</b> Lists</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-objects.html"><a href="r-objects.html#data-frames"><i class="fa fa-check"></i><b>4.2.3</b> Data Frames</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-objects.html"><a href="r-objects.html#frequency-tables-from-factors"><i class="fa fa-check"></i><b>4.2.4</b> Frequency Tables From Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exportimport-data.html"><a href="exportimport-data.html"><i class="fa fa-check"></i><b>5</b> Export/Import Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="exportimport-data.html"><a href="exportimport-data.html#data-export"><i class="fa fa-check"></i><b>5.1</b> Data Export</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="exportimport-data.html"><a href="exportimport-data.html#rdata-files"><i class="fa fa-check"></i><b>5.1.1</b> <code>.RData</code> files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="exportimport-data.html"><a href="exportimport-data.html#data-import"><i class="fa fa-check"></i><b>5.2</b> Data Import</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="exportimport-data.html"><a href="exportimport-data.html#the-load-function"><i class="fa fa-check"></i><b>5.2.1</b> The <code>load()</code> function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.table-function"><i class="fa fa-check"></i><b>5.2.2</b> The <code>read.table()</code> function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="exportimport-data.html"><a href="exportimport-data.html#the-scan-function"><i class="fa fa-check"></i><b>5.2.3</b> The <code>scan()</code> function</a></li>
+<li class="chapter" data-level="5.2.4" data-path="exportimport-data.html"><a href="exportimport-data.html#the-read.csv-function"><i class="fa fa-check"></i><b>5.2.4</b> The <code>read.csv()</code> function</a></li>
+<li class="chapter" data-level="5.2.5" data-path="exportimport-data.html"><a href="exportimport-data.html#import-an-excel-file-into-r"><i class="fa fa-check"></i><b>5.2.5</b> Import an Excel file into R</a></li>
+<li class="chapter" data-level="5.2.6" data-path="exportimport-data.html"><a href="exportimport-data.html#accessing-built-in-datasets"><i class="fa fa-check"></i><b>5.2.6</b> Accessing built-in datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>6</b> Visualization</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization.html"><a href="visualization.html#bar-chart"><i class="fa fa-check"></i><b>6.1</b> Bar Chart</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization.html"><a href="visualization.html#pie-charts"><i class="fa fa-check"></i><b>6.2</b> Pie charts</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization.html"><a href="visualization.html#stem-and-leaf-charts"><i class="fa fa-check"></i><b>6.3</b> Stem-and-leaf Charts</a></li>
+<li class="chapter" data-level="6.4" data-path="visualization.html"><a href="visualization.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a></li>
+<li class="chapter" data-level="6.5" data-path="visualization.html"><a href="visualization.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="visualization.html"><a href="visualization.html#boxplot-one-sample"><i class="fa fa-check"></i><b>6.5.1</b> Boxplot: one sample</a></li>
+<li class="chapter" data-level="6.5.2" data-path="visualization.html"><a href="visualization.html#plotting-several-samples"><i class="fa fa-check"></i><b>6.5.2</b> Plotting several samples</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="visualization.html"><a href="visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.6</b> Scatterplot</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="visualization.html"><a href="visualization.html#basic-command"><i class="fa fa-check"></i><b>6.6.1</b> Basic command</a></li>
+<li class="chapter" data-level="6.6.2" data-path="visualization.html"><a href="visualization.html#more-useful-commands"><i class="fa fa-check"></i><b>6.6.2</b> More useful commands</a></li>
+<li class="chapter" data-level="6.6.3" data-path="visualization.html"><a href="visualization.html#an-example-with-multiple-symbols"><i class="fa fa-check"></i><b>6.6.3</b> An example with multiple symbols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="visualization.html"><a href="visualization.html#line-plots-and-time-series-plots"><i class="fa fa-check"></i><b>6.7</b> Line plots and Time series plots</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="visualization.html"><a href="visualization.html#plot-types"><i class="fa fa-check"></i><b>6.7.1</b> Plot types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="visualization.html"><a href="visualization.html#time-series"><i class="fa fa-check"></i><b>6.7.2</b> Time Series</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="visualization.html"><a href="visualization.html#visualization-using-ggplot2"><i class="fa fa-check"></i><b>6.8</b> Visualization using <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="6.8.1" data-path="visualization.html"><a href="visualization.html#scatter-plots"><i class="fa fa-check"></i><b>6.8.1</b> Scatter plots</a></li>
+<li class="chapter" data-level="6.8.2" data-path="visualization.html"><a href="visualization.html#creating-maps-with-ggplot2"><i class="fa fa-check"></i><b>6.8.2</b> Creating maps with <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>7</b> R Markdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-markdown.html"><a href="r-markdown.html#getting-started-with-r-markdown"><i class="fa fa-check"></i><b>7.1</b> Getting Started with R Markdown</a></li>
+<li class="chapter" data-level="7.2" data-path="r-markdown.html"><a href="r-markdown.html#formatting-your-document"><i class="fa fa-check"></i><b>7.2</b> Formatting Your Document</a></li>
+<li class="chapter" data-level="7.3" data-path="r-markdown.html"><a href="r-markdown.html#text-formatting"><i class="fa fa-check"></i><b>7.3</b> Text Formatting</a></li>
+<li class="chapter" data-level="7.4" data-path="r-markdown.html"><a href="r-markdown.html#greek-alphabet"><i class="fa fa-check"></i><b>7.4</b> Greek Alphabet</a></li>
+<li class="chapter" data-level="7.5" data-path="r-markdown.html"><a href="r-markdown.html#r-code-chunks-and-inline-r-code"><i class="fa fa-check"></i><b>7.5</b> R code chunks and inline R code</a></li>
+<li class="chapter" data-level="7.6" data-path="r-markdown.html"><a href="r-markdown.html#including-plots-and-adding-captions"><i class="fa fa-check"></i><b>7.6</b> Including Plots and Adding Captions</a></li>
+<li class="chapter" data-level="7.7" data-path="r-markdown.html"><a href="r-markdown.html#modifying-figures"><i class="fa fa-check"></i><b>7.7</b> Modifying Figures</a></li>
+<li class="chapter" data-level="7.8" data-path="r-markdown.html"><a href="r-markdown.html#displaying-data-with-kable"><i class="fa fa-check"></i><b>7.8</b> Displaying Data with kable</a></li>
+<li class="chapter" data-level="7.9" data-path="r-markdown.html"><a href="r-markdown.html#compiling-r-markdown-documents"><i class="fa fa-check"></i><b>7.9</b> Compiling R Markdown Documents</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling with <code>dplyr</code> and <code>tidyr</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#learning-dplyr"><i class="fa fa-check"></i><b>8.1</b> Learning <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>8.2</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#pipes"><i class="fa fa-check"></i><b>8.3</b> Pipes</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#select-and-order-top-n-entries-by-group-if-grouped-data."><i class="fa fa-check"></i><b>8.4</b> Select and order top n entries (by group if grouped data).</a></li>
+<li class="chapter" data-level="8.5" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#mutate"><i class="fa fa-check"></i><b>8.5</b> Mutate</a></li>
+<li class="chapter" data-level="8.6" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>8.6</b> Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
+<li class="chapter" data-level="8.7" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#joins-with-dplyr"><i class="fa fa-check"></i><b>8.7</b> Joins with <code>dplyr</code></a></li>
+<li class="chapter" data-level="8.8" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#reshaping-data---change-the-layout-of-a-data-set"><i class="fa fa-check"></i><b>8.8</b> Reshaping Data - Change the layout of a data set</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-wide-to-long"><i class="fa fa-check"></i><b>8.8.1</b> From wide to long</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-wrangling-with-dplyr-and-tidyr.html"><a href="data-wrangling-with-dplyr-and-tidyr.html#from-long-to-wide"><i class="fa fa-check"></i><b>8.8.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html"><i class="fa fa-check"></i><b>9</b> Advanced Programming in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#grouped-expressions"><i class="fa fa-check"></i><b>9.1</b> Grouped expressions</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#conditional-execution-if-statements"><i class="fa fa-check"></i><b>9.2</b> Conditional execution: <code>if</code> statements</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#iterations"><i class="fa fa-check"></i><b>9.2.1</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#writing-functions"><i class="fa fa-check"></i><b>9.3</b> Writing Functions</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#simple-examples"><i class="fa fa-check"></i><b>9.3.1</b> Simple examples</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#named-arguments-and-defaults"><i class="fa fa-check"></i><b>9.3.2</b> Named arguments and defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#lexical-vs.-dynamic-scoping"><i class="fa fa-check"></i><b>9.4</b> Lexical vs. Dynamic Scoping</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#scoping-rules"><i class="fa fa-check"></i><b>9.4.1</b> Scoping rules</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-programming-in-r.html"><a href="advanced-programming-in-r.html#an-environment"><i class="fa fa-check"></i><b>9.4.2</b> An Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>9.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>10</b> Simulations</a><ul>
+<li class="chapter" data-level="10.1" data-path="simulations.html"><a href="simulations.html#probability-distributions-and-generating-random-variables"><i class="fa fa-check"></i><b>10.1</b> Probability Distributions and Generating Random Variables</a></li>
+<li class="chapter" data-level="10.2" data-path="simulations.html"><a href="simulations.html#more-examples"><i class="fa fa-check"></i><b>10.2</b> More Examples</a></li>
+<li class="chapter" data-level="10.3" data-path="simulations.html"><a href="simulations.html#setting-random-number-seed"><i class="fa fa-check"></i><b>10.3</b> Setting Random Number Seed</a></li>
+<li class="chapter" data-level="10.4" data-path="simulations.html"><a href="simulations.html#example-normal-approximation-to-the-binomials"><i class="fa fa-check"></i><b>10.4</b> Example: Normal Approximation to the Binomials</a></li>
+<li class="chapter" data-level="10.5" data-path="simulations.html"><a href="simulations.html#random-sampling-using-sample"><i class="fa fa-check"></i><b>10.5</b> Random Sampling using <code>sample</code></a></li>
+<li class="chapter" data-level="10.6" data-path="simulations.html"><a href="simulations.html#a-simulation-example"><i class="fa fa-check"></i><b>10.6</b> A Simulation Example</a></li>
+<li class="chapter" data-level="10.7" data-path="simulations.html"><a href="simulations.html#basics-of-simulation"><i class="fa fa-check"></i><b>10.7</b> Basics of Simulation</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="simulations.html"><a href="simulations.html#repetition"><i class="fa fa-check"></i><b>10.7.1</b> Repetition</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>10.8</b> Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Computing Using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="advanced-programming-in-r" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Advanced Programming in R</h1>
+<p>Now that you have learned the elementary commands in R and many ways of applying them, it is time to discover its advanced functionalities. This chapter introduces grouped expressions, conditional execution, loops, and deals more intensively with writing functions.</p>
+<div id="grouped-expressions" class="section level2">
+<h2><span class="header-section-number">9.1</span> Grouped expressions</h2>
+<p>R is an expression language in the sense that its only command type is a function or expression which returns a result. Even an assignment is an expression whose result is the value assigned, and it may be used wherever any expression may be used; in particular multiple assignments are possible.</p>
+<p>Commands may be grouped together in braces,</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="advanced-programming-in-r.html#cb284-1"></a>{expr1 ; expr2 ;...; exprm}</span></code></pre></div>
+<p>in which case the value of the group is the result of the last expression in the group evaluated. Since such a group is also an expression it may, for example, be itself included in parentheses and used a part of an even larger expression, and so on.</p>
+</div>
+<div id="conditional-execution-if-statements" class="section level2">
+<h2><span class="header-section-number">9.2</span> Conditional execution: <code>if</code> statements</h2>
+<ol style="list-style-type: decimal">
+<li>The language has available a conditional construction of the form</li>
+</ol>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="advanced-programming-in-r.html#cb285-1"></a><span class="cf">if</span> (expr_<span class="dv">1</span>) expr_<span class="dv">2</span> <span class="cf">else</span> expr_<span class="dv">3</span></span></code></pre></div>
+<p>where <code>expr_1</code> must evaluate to a single logical value and the result of the entire expression is then evident.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Here is an example of an <code>if</code> statement:</li>
+</ol>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="advanced-programming-in-r.html#cb286-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) <span class="kw">print</span>(<span class="st">&quot;x less than 3&quot;</span>) <span class="cf">else</span> <span class="kw">print</span> (<span class="st">&quot;x not less than 3&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The “short-circuit” operators <code>&amp;&amp;</code> and <code>||</code> are often used as part of the condition in an if statement. Whereas <code>&amp;</code> and <code>|</code> apply element-wise to vectors, <code>&amp;&amp;</code> and <code>||</code> apply to vectors of length one, and only evaluate their second argument if necessary.</p></li>
+<li><p>If you want <code>statement 1</code> and / or <code>statement 2</code> to consist of more than one statement, then the if construct looks like this:</p></li>
+</ol>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="advanced-programming-in-r.html#cb287-1"></a><span class="cf">if</span> (condition) { </span>
+<span id="cb287-2"><a href="advanced-programming-in-r.html#cb287-2"></a>statement 1a </span>
+<span id="cb287-3"><a href="advanced-programming-in-r.html#cb287-3"></a>statement 1b </span>
+<span id="cb287-4"><a href="advanced-programming-in-r.html#cb287-4"></a>statement 1c </span>
+<span id="cb287-5"><a href="advanced-programming-in-r.html#cb287-5"></a>} <span class="cf">else</span> { </span>
+<span id="cb287-6"><a href="advanced-programming-in-r.html#cb287-6"></a>statement 2a </span>
+<span id="cb287-7"><a href="advanced-programming-in-r.html#cb287-7"></a>statement 2b </span>
+<span id="cb287-8"><a href="advanced-programming-in-r.html#cb287-8"></a>statement 2c </span>
+<span id="cb287-9"><a href="advanced-programming-in-r.html#cb287-9"></a>}</span></code></pre></div>
+<p>The group of statements between a “{” and a “}” are treated as one statement by the if and else.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>There is a vectorized version of the if/else construct, the <code>ifelse()</code> function. This has the form <code>ifelse(condition, a, b)</code> and returns a vector of the length of its longest argument, with elements <code>a[i]</code> if <code>condition[i]</code> is true, otherwise <code>b[i]</code>.</li>
+</ol>
+<div id="iterations" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Iterations</h3>
+<p>An iteration is, in principle, a loop or repeatedly executed instruction cycle, with only a few changes in each cycle. In programming languages that are not matrix or array-oriented, like C, Fortran, even a simple matrix multiplication needs three nested loops (over rows, columns, and the indices). Since R is matrix-oriented, these operations are much more efficient and easy to formulate in mathematical terms. This means they are faster than loops and the code is much easier to read and write.</p>
+<p>Note: whenever possible, try to avoid loops. 99% of the time, an operation on matrices is much more elegant as well as much faster. Try to use vectorized statements, or functions like apply or tapply.</p>
+<p>Here is an example, calculated on an IBM PC. If we define a vector x with 50,000 elements, and assign the square of x to y, without using a loop, the following two lines take about 2 seconds to execute.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="advanced-programming-in-r.html#cb288-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100000</span></span>
+<span id="cb288-2"><a href="advanced-programming-in-r.html#cb288-2"></a>y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<p>On the other hand, using an explicit loop statement (for) over the values of x and y, respectively, results in the code</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="advanced-programming-in-r.html#cb289-1"></a><span class="co"># Initialization</span></span>
+<span id="cb289-2"><a href="advanced-programming-in-r.html#cb289-2"></a>x &lt;-<span class="st"> </span>y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>              </span>
+<span id="cb289-3"><a href="advanced-programming-in-r.html#cb289-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>) </span>
+<span id="cb289-4"><a href="advanced-programming-in-r.html#cb289-4"></a>  y[i] &lt;-<span class="st"> </span>x[i]<span class="op">^</span><span class="dv">2</span> </span></code></pre></div>
+<p>and does exactly the same as the two lines above. You can see that the first expressions are easier to read and on top of that, the second little program needs about 2 minutes to execute, or about 60 times longer than the first program.</p>
+<p>We will treat the different forms of loops, for and while, in more detail in the following.</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>for</strong> loop
+The for statement loops over all elements in a list or vector:</li>
+</ol>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="advanced-programming-in-r.html#cb290-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> sequence) {R commends}</span></code></pre></div>
+<p>Try these examples at the R prompt.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="advanced-programming-in-r.html#cb291-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) </span>
+<span id="cb291-2"><a href="advanced-programming-in-r.html#cb291-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb291-3"><a href="advanced-programming-in-r.html#cb291-3"></a>fnord &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Cheese&quot;</span>, <span class="ot">TRUE</span>, <span class="fl">27.5</span>)</span>
+<span id="cb291-4"><a href="advanced-programming-in-r.html#cb291-4"></a><span class="cf">for</span> (i <span class="cf">in</span> fnord) <span class="kw">print</span>(i)</span></code></pre></div>
+<p>Note the colon (“:”) operator generates a sequence of integers. You can use this in places other than the for loop or array indexing, too.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>The <strong>while</strong> loop</li>
+</ol>
+<p>If you need a loop for which you don’t know in advance how many iterations there will be, you can use the “while” statement. It works like this:</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="advanced-programming-in-r.html#cb292-1"></a><span class="cf">while</span>(condition){R commends}</span></code></pre></div>
+<p>You can construct condition in the same way as for an if statement.</p>
+<p><strong>A simple while loop</strong></p>
+<p>Calculate the sum over 1, 2, 3, …, until the sum is larger than 1000.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="advanced-programming-in-r.html#cb293-1"></a>n &lt;-<span class="dv">0</span>                       <span class="co"># the iteration counter</span></span>
+<span id="cb293-2"><a href="advanced-programming-in-r.html#cb293-2"></a>sum.so.far &lt;-<span class="st"> </span><span class="dv">0</span>             <span class="co"># store the added values</span></span>
+<span id="cb293-3"><a href="advanced-programming-in-r.html#cb293-3"></a><span class="cf">while</span> (sum.so.far <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1000</span>){</span>
+<span id="cb293-4"><a href="advanced-programming-in-r.html#cb293-4"></a>  n &lt;-<span class="st"> </span>n <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb293-5"><a href="advanced-programming-in-r.html#cb293-5"></a>  sum.so.far &lt;-<span class="st"> </span>sum.so.far <span class="op">+</span><span class="st"> </span>n</span>
+<span id="cb293-6"><a href="advanced-programming-in-r.html#cb293-6"></a>} </span>
+<span id="cb293-7"><a href="advanced-programming-in-r.html#cb293-7"></a>sum.so.far</span>
+<span id="cb293-8"><a href="advanced-programming-in-r.html#cb293-8"></a><span class="co">## [1] 1035</span></span>
+<span id="cb293-9"><a href="advanced-programming-in-r.html#cb293-9"></a>n</span>
+<span id="cb293-10"><a href="advanced-programming-in-r.html#cb293-10"></a><span class="co">## [1] 45</span></span></code></pre></div>
+</div>
+</div>
+<div id="writing-functions" class="section level2">
+<h2><span class="header-section-number">9.3</span> Writing Functions</h2>
+<div id="simple-examples" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Simple examples</h3>
+<p>Our examples so far have been too short to break up into sub-programs. However, any sizeable R project will be easier to deal with if each specific task is put into its own sub-program or function, which your main program can call.</p>
+<p>Functions are used to logically break our code into simpler parts which become easy to maintain and understand. The function definition syntax of R is similar to that of JavaScript. For example:</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="advanced-programming-in-r.html#cb294-1"></a>fsum &lt;-<span class="st"> </span><span class="cf">function</span>(a, b)</span>
+<span id="cb294-2"><a href="advanced-programming-in-r.html#cb294-2"></a>{</span>
+<span id="cb294-3"><a href="advanced-programming-in-r.html#cb294-3"></a>    <span class="kw">return</span> (a <span class="op">+</span><span class="st"> </span>b)</span>
+<span id="cb294-4"><a href="advanced-programming-in-r.html#cb294-4"></a>}</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Your first R function</li>
+</ol>
+<p>It’s pretty straightforward to create your own function in R programming.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="advanced-programming-in-r.html#cb295-1"></a>mean &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb295-2"><a href="advanced-programming-in-r.html#cb295-2"></a><span class="kw">return</span>(<span class="kw">sum</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x))</span>
+<span id="cb295-3"><a href="advanced-programming-in-r.html#cb295-3"></a>}</span>
+<span id="cb295-4"><a href="advanced-programming-in-r.html#cb295-4"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</span>
+<span id="cb295-5"><a href="advanced-programming-in-r.html#cb295-5"></a><span class="co">## [1] 8</span></span>
+<span id="cb295-6"><a href="advanced-programming-in-r.html#cb295-6"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="ot">NA</span>))</span>
+<span id="cb295-7"><a href="advanced-programming-in-r.html#cb295-7"></a><span class="co">## [1] NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="advanced-programming-in-r.html#cb296-1"></a>mean &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">na.rm=</span>F) {</span>
+<span id="cb296-2"><a href="advanced-programming-in-r.html#cb296-2"></a><span class="cf">if</span> (na.rm) x &lt;-<span class="st"> </span><span class="kw">na.omit</span>(x)</span>
+<span id="cb296-3"><a href="advanced-programming-in-r.html#cb296-3"></a><span class="kw">return</span>(<span class="kw">sum</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x))</span>
+<span id="cb296-4"><a href="advanced-programming-in-r.html#cb296-4"></a>}</span>
+<span id="cb296-5"><a href="advanced-programming-in-r.html#cb296-5"></a><span class="op">!</span></span>
+<span id="cb296-6"><a href="advanced-programming-in-r.html#cb296-6"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</span>
+<span id="cb296-7"><a href="advanced-programming-in-r.html#cb296-7"></a><span class="co">## [1] FALSE</span></span>
+<span id="cb296-8"><a href="advanced-programming-in-r.html#cb296-8"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="ot">NA</span>), <span class="dt">na.rm =</span> T)</span>
+<span id="cb296-9"><a href="advanced-programming-in-r.html#cb296-9"></a><span class="co">## [1] 8</span></span></code></pre></div>
+<p>Function <code>mean</code>:</p>
+<ul>
+<li>Name: <code>mean</code></li>
+<li>Input arguments <code>x</code>, <code>na.rm = T</code>
+<ul>
+<li>names,</li>
+<li>default values</li>
+</ul></li>
+<li>Body <code>if(na.rm) x &lt;- na.omit(x)</code></li>
+<li>Output values <code>return(sum(x)/length(x))</code></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Another Example: Consider a function to calculate the two sample t-statistic, showing “all the steps”. This is an artificial example, of course, since there are other, simpler ways of achieving the same end. The function is defined as follows:</li>
+</ol>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="advanced-programming-in-r.html#cb297-1"></a>twosam &lt;-<span class="st"> </span><span class="cf">function</span>(y1, y2) {</span>
+<span id="cb297-2"><a href="advanced-programming-in-r.html#cb297-2"></a>n1 &lt;-<span class="st"> </span><span class="kw">length</span>(y1); n2 &lt;-<span class="st"> </span><span class="kw">length</span>(y2)</span>
+<span id="cb297-3"><a href="advanced-programming-in-r.html#cb297-3"></a>yb1 &lt;-<span class="st"> </span><span class="kw">mean</span>(y1); yb2 &lt;-<span class="st"> </span><span class="kw">mean</span>(y2)</span>
+<span id="cb297-4"><a href="advanced-programming-in-r.html#cb297-4"></a>s1 &lt;-<span class="st"> </span><span class="kw">var</span>(y1); s2 &lt;-<span class="st"> </span><span class="kw">var</span>(y2)</span>
+<span id="cb297-5"><a href="advanced-programming-in-r.html#cb297-5"></a>s &lt;-<span class="st"> </span>((n1 <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">*</span>s1 <span class="op">+</span><span class="st"> </span>(n2 <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span>s2)<span class="op">/</span>(n1 <span class="op">+</span><span class="st"> </span>n2 <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb297-6"><a href="advanced-programming-in-r.html#cb297-6"></a>tst &lt;-<span class="st"> </span>(yb1 <span class="op">-</span><span class="st"> </span>yb2)<span class="op">/</span><span class="kw">sqrt</span>(s <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>n1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>n2))</span>
+<span id="cb297-7"><a href="advanced-programming-in-r.html#cb297-7"></a>tst</span>
+<span id="cb297-8"><a href="advanced-programming-in-r.html#cb297-8"></a>}</span></code></pre></div>
+<p>With this function defined, you could perform two sample t-tests using a call such as</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="advanced-programming-in-r.html#cb298-1"></a>tstat &lt;-<span class="st"> </span><span class="kw">twosam</span>(data<span class="op">$</span>male, data<span class="op">$</span>female); tstat</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>The more general syntax of a function declaration is as follows:</li>
+</ol>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="advanced-programming-in-r.html#cb299-1"></a>Function<span class="op">-</span>name &lt;-<span class="st"> </span><span class="cf">function</span>(arguments){</span>
+<span id="cb299-2"><a href="advanced-programming-in-r.html#cb299-2"></a>   <span class="cf">function</span> body</span>
+<span id="cb299-3"><a href="advanced-programming-in-r.html#cb299-3"></a>   <span class="kw">return</span> (output arguments)</span>
+<span id="cb299-4"><a href="advanced-programming-in-r.html#cb299-4"></a>}</span></code></pre></div>
+<p><strong>Note 1:</strong> Instead of using return at the end, you can also simply put a variable’s name as the last expression. R returns the output of the last expression in the function, but <code>return</code> is the more proper way of returning values. Using this practice assures that the return argument is indeed the one wanted. In this fashion, a declaration like</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="advanced-programming-in-r.html#cb300-1"></a>f &lt;-<span class="st"> </span><span class="cf">function</span> (x) x<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<p>is valid, but not as proper as using <code>return (x^2)</code>.</p>
+<p><strong>Note 2:</strong> Other Control utilities for functions warning and stop</p>
+<ul>
+<li><strong>Stop</strong></li>
+</ul>
+<p>To stop the action of a function and print an error message, one can use the stop() function.</p>
+<ul>
+<li><strong>Warning</strong></li>
+</ul>
+<p>To print a warning message in unexpected situations without aborting the evaluation flow of a function, one can use the function <code>warning("...")</code>.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="advanced-programming-in-r.html#cb301-1"></a>myfct &lt;-<span class="st"> </span><span class="cf">function</span>(x1) {</span>
+<span id="cb301-2"><a href="advanced-programming-in-r.html#cb301-2"></a><span class="cf">if</span> (x1 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">print</span>(x1) </span>
+<span id="cb301-3"><a href="advanced-programming-in-r.html#cb301-3"></a><span class="cf">else</span> <span class="kw">stop</span>(<span class="st">&quot;This function did not finish, because x1 &lt; 0&quot;</span>)</span>
+<span id="cb301-4"><a href="advanced-programming-in-r.html#cb301-4"></a><span class="kw">warning</span>(<span class="st">&quot;Value needs to be &gt; 0&quot;</span>)</span>
+<span id="cb301-5"><a href="advanced-programming-in-r.html#cb301-5"></a>}</span>
+<span id="cb301-6"><a href="advanced-programming-in-r.html#cb301-6"></a><span class="kw">myfct</span>(<span class="dt">x1 =</span> <span class="dv">2</span>)</span>
+<span id="cb301-7"><a href="advanced-programming-in-r.html#cb301-7"></a><span class="kw">myfct</span>(<span class="dt">x1 =</span> <span class="dv">-2</span>)</span></code></pre></div>
+</div>
+<div id="named-arguments-and-defaults" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Named arguments and defaults</h3>
+<p>As first noted in the previous chapters, if arguments to called functions are given in the <code>name=object</code> form, they may be given in any order. Furthermore, the argument sequence may begin in the unnamed, positional form, and specify named arguments after the positional arguments.</p>
+<p>Thus if there is a function <code>fun1</code> defined by</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="advanced-programming-in-r.html#cb302-1"></a>fun1 &lt;-<span class="st"> </span><span class="cf">function</span>(data,data.frame,graph,limit) [<span class="cf">function</span> body omitted] </span></code></pre></div>
+<p>Then the function may be invoked in several ways, for example</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="advanced-programming-in-r.html#cb303-1"></a>ans &lt;-<span class="st"> </span><span class="kw">fun1</span>(d, df, <span class="dv">20</span>, T) </span>
+<span id="cb303-2"><a href="advanced-programming-in-r.html#cb303-2"></a>ans &lt;-<span class="st"> </span><span class="kw">fun1</span>(d, df, <span class="dt">graph=</span>T, <span class="dt">limit =</span> <span class="dv">20</span>) </span>
+<span id="cb303-3"><a href="advanced-programming-in-r.html#cb303-3"></a>ans &lt;-<span class="st"> </span><span class="kw">fun1</span>(<span class="dt">data =</span> d, <span class="dt">limit =</span> <span class="dv">20</span>, <span class="dt">graph =</span> T, <span class="dt">data.frame =</span> df) </span></code></pre></div>
+<p>are all equivalent.</p>
+<p>In many cases arguments can be given commonly appropriate default values, in which case they may be omitted altogether from the call when the defaults are appropriate. For example, if <code>fun1</code> were defined as</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="advanced-programming-in-r.html#cb304-1"></a>fun1 &lt;-<span class="st"> </span><span class="cf">function</span>(data, data.frame, <span class="dt">graph =</span> T, <span class="dt">limit =</span> <span class="dv">20</span>)  </span></code></pre></div>
+<p>it could be called as</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="advanced-programming-in-r.html#cb305-1"></a>ans &lt;-<span class="st"> </span><span class="kw">fun1</span>(d, df) </span></code></pre></div>
+<p>which is now equivalent to the three cases above, or as</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="advanced-programming-in-r.html#cb306-1"></a>ans &lt;-<span class="st"> </span><span class="kw">fun1</span>(d, df, <span class="dt">limit =</span> <span class="dv">10</span>) </span></code></pre></div>
+<p>which changes one of the defaults.</p>
+</div>
+</div>
+<div id="lexical-vs.-dynamic-scoping" class="section level2">
+<h2><span class="header-section-number">9.4</span> Lexical vs. Dynamic Scoping</h2>
+<div id="scoping-rules" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> Scoping rules</h3>
+<p>The scoping rules of a language determine how a value is associated with a free variable in a function. R uses <strong>lexical scoping</strong> or <strong>static scoping</strong>. An alternative to lexical scoping is <strong>dynamic scoping</strong>, which is implemented by some languages. Lexical scoping turns out to be particularly useful for simplifying statistical computations.</p>
+<p>Related to the scoping rules is how R uses the search list to bind a value to a symbol. Consider the following function.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="advanced-programming-in-r.html#cb307-1"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
+<span id="cb307-2"><a href="advanced-programming-in-r.html#cb307-2"></a>  x <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>y <span class="op">/</span><span class="st"> </span>z</span>
+<span id="cb307-3"><a href="advanced-programming-in-r.html#cb307-3"></a>}</span></code></pre></div>
+<p>This function has two formal arguments <code>x</code> and <code>y</code>. In the body of the function there is another symbol <code>z</code>. In this case <code>z</code> is called a <strong>free variable</strong>.</p>
+<p>The scoping rules of a language determine how values are assigned to free variables. Free variables are not formal arguments and are not local variables (assigned insided the function body).</p>
+<p><strong>Lexical scoping</strong> in R means that</p>
+<blockquote>
+<p>the values of free variables are searched for in the environment in which the
+function was defined.</p>
+</blockquote>
+</div>
+<div id="an-environment" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> An Environment</h3>
+<p>An <strong>environment</strong> is a collection of (symbol, value) pairs, i.e. <code>x</code> is a symbol and 3.14 might be its value. Every environment has a parent environment and it is possible for an environment to have multiple “children”. The only environment without a parent is the empty environment.</p>
+<p>A function, together with an environment, makes up what is called a closure or function closure. Most of the time we don’t need to think too much about a function and its associated environment (making up the closure), but occasionally, this setup can be very useful. The function closure model can be used to create functions that “carry around” data with them.</p>
+<p><strong>How do we associate a value to a free variable?</strong></p>
+<p>There is a search process that occurs that goes as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>If the value of a symbol is not found in the environment in which a function was defined, then the search is continued in the parent environment.</p></li>
+<li><p>The search continues down the sequence of parent environments until we hit the top-level environment; this usually the global environment (workspace) or the namespace of a package.</p></li>
+<li><p>After the top-level environment, the search continues down the search list until we hit the empty environment.</p></li>
+<li><p>If a value for a given symbol cannot be found once the empty environment is arrived at, then an error is thrown.</p></li>
+</ol>
+<p>We can use the following example to demonstrate the difference between lexical and dynamic scoping rules.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="advanced-programming-in-r.html#cb308-1"></a>y &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb308-2"><a href="advanced-programming-in-r.html#cb308-2"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb308-3"><a href="advanced-programming-in-r.html#cb308-3"></a>  y &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb308-4"><a href="advanced-programming-in-r.html#cb308-4"></a>  y<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw">g</span>(x)</span>
+<span id="cb308-5"><a href="advanced-programming-in-r.html#cb308-5"></a>}</span>
+<span id="cb308-6"><a href="advanced-programming-in-r.html#cb308-6"></a></span>
+<span id="cb308-7"><a href="advanced-programming-in-r.html#cb308-7"></a>g &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb308-8"><a href="advanced-programming-in-r.html#cb308-8"></a>  x <span class="op">*</span><span class="st"> </span>y</span>
+<span id="cb308-9"><a href="advanced-programming-in-r.html#cb308-9"></a>}</span></code></pre></div>
+<p>What is the value of the following expression?</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="advanced-programming-in-r.html#cb309-1"></a><span class="kw">f</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p>With lexical scoping the value of <code>y</code> in the function <code>g</code> is looked up in the environment in which the function was defined, in this case the global environment, so the value of <code>y</code> is 10. With dynamic scoping, the value of <code>y</code> is looked up in the environment from which the function was called (sometimes referred to as the calling environment). In R the calling environment is known as the parent frame. In this case, the value of <code>y</code> would be 2.</p>
+<p>When a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the calling environment are the same. This can sometimes give the appearance of dynamic scoping.</p>
+<p>Consider this example.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="advanced-programming-in-r.html#cb310-1"></a>g &lt;-<span class="st"> </span><span class="cf">function</span>(x) { </span>
+<span id="cb310-2"><a href="advanced-programming-in-r.html#cb310-2"></a>  a &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb310-3"><a href="advanced-programming-in-r.html#cb310-3"></a>  x <span class="op">+</span><span class="st"> </span>a <span class="op">+</span><span class="st"> </span>y   <span class="co"># &#39;y&#39; is a free variable</span></span>
+<span id="cb310-4"><a href="advanced-programming-in-r.html#cb310-4"></a>}</span>
+<span id="cb310-5"><a href="advanced-programming-in-r.html#cb310-5"></a><span class="kw">g</span>(<span class="dv">2</span>)</span>
+<span id="cb310-6"><a href="advanced-programming-in-r.html#cb310-6"></a><span class="co">## [1] 15</span></span>
+<span id="cb310-7"><a href="advanced-programming-in-r.html#cb310-7"></a></span>
+<span id="cb310-8"><a href="advanced-programming-in-r.html#cb310-8"></a>y &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb310-9"><a href="advanced-programming-in-r.html#cb310-9"></a><span class="kw">g</span>(<span class="dv">2</span>)</span>
+<span id="cb310-10"><a href="advanced-programming-in-r.html#cb310-10"></a><span class="co">## [1] 8</span></span></code></pre></div>
+<p>Here, <code>y</code> is defined in the global environment, which also happens to be where the function <code>g()</code> is defined.</p>
+</div>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">9.5</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write functions Fun1 and Fun2 such that if <code>xVec</code> is the vector <code>(x_1,x_2,...,x_n)</code>, then <code>Fun1(xVec)</code> returns the vector <span class="math inline">\((x_1,x_2^2,...,x_n^n)\)</span> and <code>Fun2(xVec)</code> returns <span class="math inline">\((x_1,x_2^2/2,...,x_n^n/n)\)</span>.</p></li>
+<li><p>Write a function which takes a single argument which is a matrix. The function should return a matrix which is the same as the function argument but every odd number is doubled. For example, the result of using the function on the matrix
+<span class="math display">\[
+\begin{bmatrix} 1&amp;1&amp;3\\2&amp;4&amp;6\\-2&amp;-1&amp;-3\end{bmatrix}
+\]</span>
+should be
+<span class="math display">\[
+\begin{bmatrix} 2&amp;2&amp;6\\10&amp;2&amp;6\\-2&amp;-2&amp;-6\end{bmatrix}
+\]</span></p></li>
+<li><p>Write a function <code>Fun3</code>, which takes two arguments <code>x</code> and <code>n</code>, and <code>x</code> is a single number and <code>n</code> is a strictly positive integer. The function returns the value of <span class="math inline">\((1+x^2/2+ ...+x^n/n)\)</span>, report the value when <code>x=2</code> and <code>n=10</code>.</p></li>
+<li><p>What does the following code return? Run the following code in your head, then confirm the output by running the R code.</p></li>
+</ol>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="advanced-programming-in-r.html#cb311-1"></a>x &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb311-2"><a href="advanced-programming-in-r.html#cb311-2"></a>f1 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb311-3"><a href="advanced-programming-in-r.html#cb311-3"></a>    <span class="cf">function</span>() {</span>
+<span id="cb311-4"><a href="advanced-programming-in-r.html#cb311-4"></a>        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb311-5"><a href="advanced-programming-in-r.html#cb311-5"></a>    }</span>
+<span id="cb311-6"><a href="advanced-programming-in-r.html#cb311-6"></a>}</span>
+<span id="cb311-7"><a href="advanced-programming-in-r.html#cb311-7"></a><span class="kw">f1</span>(<span class="dv">1</span>)()</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>What does the following code return? Run the following code in your head, then confirm the output by running the R code.</li>
+</ol>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="advanced-programming-in-r.html#cb312-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb312-2"><a href="advanced-programming-in-r.html#cb312-2"></a>h1 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb312-3"><a href="advanced-programming-in-r.html#cb312-3"></a>    y &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb312-4"><a href="advanced-programming-in-r.html#cb312-4"></a>    i1 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb312-5"><a href="advanced-programming-in-r.html#cb312-5"></a>        z &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb312-6"><a href="advanced-programming-in-r.html#cb312-6"></a>        <span class="kw">c</span>(x, y, z)</span>
+<span id="cb312-7"><a href="advanced-programming-in-r.html#cb312-7"></a>    }</span>
+<span id="cb312-8"><a href="advanced-programming-in-r.html#cb312-8"></a>    <span class="kw">i1</span>()</span>
+<span id="cb312-9"><a href="advanced-programming-in-r.html#cb312-9"></a>}</span>
+<span id="cb312-10"><a href="advanced-programming-in-r.html#cb312-10"></a><span class="kw">h1</span>()</span></code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>What does the following code return? Run the following code in your head, then confirm the output by running the R code.</li>
+</ol>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="advanced-programming-in-r.html#cb313-1"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb313-2"><a href="advanced-programming-in-r.html#cb313-2"></a>    f &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb313-3"><a href="advanced-programming-in-r.html#cb313-3"></a>        f &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb313-4"><a href="advanced-programming-in-r.html#cb313-4"></a>            x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb313-5"><a href="advanced-programming-in-r.html#cb313-5"></a>        }</span>
+<span id="cb313-6"><a href="advanced-programming-in-r.html#cb313-6"></a>        <span class="kw">f</span>(x) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb313-7"><a href="advanced-programming-in-r.html#cb313-7"></a>    }</span>
+<span id="cb313-8"><a href="advanced-programming-in-r.html#cb313-8"></a>    <span class="kw">f</span>(x) <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb313-9"><a href="advanced-programming-in-r.html#cb313-9"></a>}</span>
+<span id="cb313-10"><a href="advanced-programming-in-r.html#cb313-10"></a><span class="kw">f</span>(<span class="dv">10</span>)</span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>What does the following code return? Run the following code in your head, then confirm the output by running the R code.</li>
+</ol>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="advanced-programming-in-r.html#cb314-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb314-2"><a href="advanced-programming-in-r.html#cb314-2"></a>g1 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb314-3"><a href="advanced-programming-in-r.html#cb314-3"></a>    y &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb314-4"><a href="advanced-programming-in-r.html#cb314-4"></a>    <span class="kw">c</span>(x, y)</span>
+<span id="cb314-5"><a href="advanced-programming-in-r.html#cb314-5"></a>}</span>
+<span id="cb314-6"><a href="advanced-programming-in-r.html#cb314-6"></a><span class="kw">g1</span>()</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-wrangling-with-dplyr-and-tidyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="simulations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SCA_book.pdf", "SCA_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

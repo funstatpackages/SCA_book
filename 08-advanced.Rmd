@@ -1,0 +1,406 @@
+# Advanced Programming in R
+
+Now that you have learned the elementary commands in R and many ways of applying them, it is time to discover its advanced functionalities. This chapter introduces grouped expressions, conditional execution, loops, and deals more intensively with writing functions.
+
+## Grouped expressions 
+
+R is an expression language in the sense that its only command type is a function or expression which returns a result. Even an assignment is an expression whose result is the value assigned, and it may be used wherever any expression may be used; in particular multiple assignments are possible. 
+
+Commands may be grouped together in braces, 
+
+```{r eval=FALSE}
+{expr1 ; expr2 ;...; exprm}
+```
+
+in which case the value of the group is the result of the last expression in the group evaluated. Since such a group is also an expression it may, for example, be itself included in parentheses and used a part of an even larger expression, and so on. 
+
+## Conditional execution: `if` statements
+
+1. The language has available a conditional construction of the form
+
+```{R eval=FALSE}
+if (expr_1) expr_2 else expr_3
+```
+
+where `expr_1` must evaluate to a single logical value and the result of the entire expression is then evident.
+
+2. Here is an example of an `if` statement: 
+
+```{R eval=FALSE}
+if (x < 3) print("x less than 3") else print ("x not less than 3")
+```
+
+3. The “short-circuit” operators `&&` and `||` are often used as part of the condition in an if statement. Whereas `&` and `|` apply element-wise to vectors, `&&` and `||` apply to vectors of length one, and only evaluate their second argument if necessary.
+
+4. If you want `statement 1` and / or `statement 2` to consist of more than one statement, then the if construct looks like this: 
+
+```{R eval=FALSE}
+if (condition) { 
+statement 1a 
+statement 1b 
+statement 1c 
+} else { 
+statement 2a 
+statement 2b 
+statement 2c 
+}
+```
+
+The group of statements between a “{” and a “}” are treated as one statement by the if and else.
+
+5. There is a vectorized version of the if/else construct, the `ifelse()` function. This has the form `ifelse(condition, a, b)` and returns a vector of the length of its longest argument, with elements `a[i]` if `condition[i]` is true, otherwise `b[i]`.
+
+ 
+###	Iterations
+
+An iteration is, in principle, a loop or repeatedly executed instruction cycle, with only a few changes in each cycle. In programming languages that are not matrix or array-oriented, like C, Fortran, even a simple matrix multiplication needs three nested loops (over rows, columns, and the indices). Since R is matrix-oriented, these operations are much more efficient and easy to formulate in mathematical terms. This means they are faster than loops and the code is much easier to read and write. 
+
+Note: whenever possible, try to avoid loops. 99% of the time, an operation on matrices is much more elegant as well as much faster. Try to use vectorized statements, or functions like apply or tapply.
+
+Here is an example, calculated on an IBM PC. If we define a vector x with 50,000 elements, and assign the square of x to y, without using a loop, the following two lines take about 2 seconds to execute. 
+
+```{R eval=FALSE}
+x <- 1:100000
+y <- x^2
+```
+
+On the other hand, using an explicit loop statement (for) over the values of x and y, respectively, results in the code
+
+```{R eval=FALSE}
+# Initialization
+x <- y <- 1:100000              
+for (i in 1:100000) 
+  y[i] <- x[i]^2 
+```
+and does exactly the same as the two lines above. You can see that the first expressions are easier to read and on top of that, the second little program needs about 2 minutes to execute, or about 60 times longer than the first program. 
+
+We will treat the different forms of loops, for and while, in more detail in the following.  
+
+1.	The **for** loop 
+The for statement loops over all elements in a list or vector: 
+
+```{R eval=FALSE}
+for (variable in sequence) {R commends}
+```
+
+Try these examples at the R prompt.
+
+```{R eval=FALSE}
+for (i in 1:3) 
+  print(i)
+fnord <- list("Cheese", TRUE, 27.5)
+for (i in fnord) print(i)
+```
+
+Note the colon (“:”) operator generates a sequence of integers. You can use this in places other than the for loop or array indexing, too. 
+
+2. The **while** loop
+
+If you need a loop for which you don't know in advance how many iterations there will be, you can use the “while” statement. It works like this: 
+
+```{R eval=FALSE}
+while(condition){R commends}
+```
+
+You can construct condition in the same way as for an if statement.
+
+**A simple while loop**
+
+Calculate the sum over 1, 2, 3, ..., until the sum is larger than 1000.
+
+```{R eval=TRUE, collapse=TRUE}
+n <-0                       # the iteration counter
+sum.so.far <- 0             # store the added values
+while (sum.so.far <= 1000){
+  n <- n + 1
+  sum.so.far <- sum.so.far + n
+} 
+sum.so.far
+n
+``` 
+
+## Writing Functions
+
+### Simple examples
+
+Our examples so far have been too short to break up into sub-programs. However, any sizeable R project will be easier to deal with if each specific task is put into its own sub-program or function, which your main program can call.
+
+Functions are used to logically break our code into simpler parts which become easy to maintain and understand. The function definition syntax of R is similar to that of JavaScript. For example:
+
+```{R eval=FALSE}
+fsum <- function(a, b)
+{
+    return (a + b)
+}
+```
+
+
+1. Your first R function
+
+It’s pretty straightforward to create your own function in R programming.
+
+```{r, eval=TRUE, collapse = TRUE}
+mean <- function(x) {
+return(sum(x) / length(x))
+}
+mean(1:15)
+mean(c(1:15, NA))
+```
+
+```{r, eval=TRUE, collapse = TRUE}
+mean <- function(x, na.rm=F) {
+if (na.rm) x <- na.omit(x)
+return(sum(x) / length(x))
+}
+!
+mean(1:15)
+mean(c(1:15, NA), na.rm = T)
+```
+
+Function `mean`:
+
+* Name: `mean`
+* Input arguments `x`, `na.rm = T`
+     + names,
+     + default values
+* Body `if(na.rm) x <- na.omit(x)`
+* Output values `return(sum(x)/length(x))`
+
+
+2. Another Example: Consider a function to calculate the two sample t-statistic, showing “all the steps”. This is an artificial example, of course, since there are other, simpler ways of achieving the same end. The function is defined as follows:
+
+```{R eval=FALSE}
+twosam <- function(y1, y2) {
+n1 <- length(y1); n2 <- length(y2)
+yb1 <- mean(y1); yb2 <- mean(y2)
+s1 <- var(y1); s2 <- var(y2)
+s <- ((n1 - 1)*s1 + (n2 - 1) * s2)/(n1 + n2 - 2)
+tst <- (yb1 - yb2)/sqrt(s * (1/n1 + 1/n2))
+tst
+}
+```
+
+With this function defined, you could perform two sample t-tests using a call such as
+```{R eval=FALSE}
+tstat <- twosam(data$male, data$female); tstat
+```
+
+3. The more general syntax of a function declaration is as follows:
+```{R eval=FALSE}
+Function-name <- function(arguments){
+   function body
+   return (output arguments)
+}
+```
+
+**Note 1:** Instead of using return at the end, you can also simply put a variable’s name as the last expression. R returns the output of the last expression in the function, but `return` is the more proper way of returning values. Using this practice assures that the return argument is indeed the one wanted. In this fashion, a declaration like
+
+```{R eval=FALSE} 
+f <- function (x) x^2
+```
+is valid, but not as proper as using `return (x^2)`.
+
+**Note 2:** Other Control utilities for functions warning and stop 
+
+* **Stop**
+
+To stop the action of a function and print an error message, one can use the stop() function.
+
+* **Warning**
+
+To print a warning message in unexpected situations without aborting the evaluation flow of a function, one can use the function `warning("...")`.
+
+```{R eval=FALSE} 
+myfct <- function(x1) {
+if (x1 >= 0) print(x1) 
+else stop("This function did not finish, because x1 < 0")
+warning("Value needs to be > 0")
+}
+myfct(x1 = 2)
+myfct(x1 = -2)
+```
+
+### Named arguments and defaults 
+
+As first noted in the previous chapters, if arguments to called functions are given in the ``name=object`` form, they may be given in any order. Furthermore, the argument sequence may begin in the unnamed, positional form, and specify named arguments after the positional arguments. 
+
+Thus if there is a function `fun1` defined by 
+```{R eval=FALSE} 
+fun1 <- function(data,data.frame,graph,limit) [function body omitted] 
+```
+
+Then the function may be invoked in several ways, for example 
+
+```{R eval=FALSE} 
+ans <- fun1(d, df, 20, T) 
+ans <- fun1(d, df, graph=T, limit = 20) 
+ans <- fun1(data = d, limit = 20, graph = T, data.frame = df) 
+```
+are all equivalent.
+
+In many cases arguments can be given commonly appropriate default values, in which case they may be omitted altogether from the call when the defaults are appropriate. For example, if `fun1` were defined as 
+
+```{R eval=FALSE} 
+fun1 <- function(data, data.frame, graph = T, limit = 20)  
+```
+
+it could be called as 
+```{R eval=FALSE} 
+ans <- fun1(d, df) 
+```
+which is now equivalent to the three cases above, or as 
+
+```{R eval=FALSE} 
+ans <- fun1(d, df, limit = 10) 
+```
+which changes one of the defaults. 
+
+## Lexical vs. Dynamic Scoping
+
+### Scoping rules
+
+The scoping rules of a language determine how a value is associated with a free variable in a function. R uses **lexical scoping** or **static scoping**. An alternative to lexical scoping is **dynamic scoping**, which is implemented by some languages. Lexical scoping turns out to be particularly useful for simplifying statistical computations.
+
+Related to the scoping rules is how R uses the search list to bind a value to a symbol. Consider the following function.
+
+```{R eval=FALSE}
+f <- function(x, y){
+  x ^ 2 + y / z
+}
+```
+
+This function has two formal arguments `x` and `y`. In the body of the function there is another symbol `z`. In this case `z` is called a **free variable**. 
+
+The scoping rules of a language determine how values are assigned to free variables. Free variables are not formal arguments and are not local variables (assigned insided the function body).
+
+**Lexical scoping** in R means that
+
+>the values of free variables are searched for in the environment in which the 
+function was defined.
+
+
+### An Environment
+
+An **environment** is a collection of (symbol, value) pairs, i.e. `x` is a symbol and 3.14 might be its value. Every environment has a parent environment and it is possible for an environment to have multiple “children”. The only environment without a parent is the empty environment.
+
+A function, together with an environment, makes up what is called a closure or function closure. Most of the time we don’t need to think too much about a function and its associated environment (making up the closure), but occasionally, this setup can be very useful. The function closure model can be used to create functions that “carry around” data with them.
+
+**How do we associate a value to a free variable?** 
+
+There is a search process that occurs that goes as follows:
+
+1. If the value of a symbol is not found in the environment in which a function was defined, then the search is continued in the parent environment.
+
+2. The search continues down the sequence of parent environments until we hit the top-level environment; this usually the global environment (workspace) or the namespace of a package.
+
+3. After the top-level environment, the search continues down the search list until we hit the empty environment.
+
+4. If a value for a given symbol cannot be found once the empty environment is arrived at, then an error is thrown.
+
+We can use the following example to demonstrate the difference between lexical and dynamic scoping rules.
+
+```{R eval=TRUE}
+y <- 10
+f <- function(x) {
+  y <- 2
+  y^2 + g(x)
+}
+
+g <- function(x) {
+  x * y
+}
+```
+
+What is the value of the following expression?
+
+```{R eval=FALSE} 
+f(3)
+```
+
+With lexical scoping the value of `y` in the function `g` is looked up in the environment in which the function was defined, in this case the global environment, so the value of `y` is 10. With dynamic scoping, the value of `y` is looked up in the environment from which the function was called (sometimes referred to as the calling environment). In R the calling environment is known as the parent frame. In this case, the value of `y` would be 2.
+
+When a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the calling environment are the same. This can sometimes give the appearance of dynamic scoping.
+
+Consider this example.
+
+```{R eval=TRUE, collapse = TRUE} 
+g <- function(x) { 
+  a <- 3
+  x + a + y   # 'y' is a free variable
+}
+g(2)
+
+y <- 3
+g(2)
+```
+
+Here, `y` is defined in the global environment, which also happens to be where the function `g()` is defined.
+
+## Exercises
+
+1. Write functions Fun1 and Fun2 such that if `xVec` is the vector `(x_1,x_2,...,x_n)`, then `Fun1(xVec)` returns the vector $(x_1,x_2^2,...,x_n^n)$ and `Fun2(xVec)` returns $(x_1,x_2^2/2,...,x_n^n/n)$.
+
+2. Write a function which takes a single argument which is a matrix. The function should return a matrix which is the same as the function argument but every odd number is doubled. For example, the result of using the function on the matrix
+\[
+\begin{bmatrix} 1&1&3\\2&4&6\\-2&-1&-3\end{bmatrix}
+\]
+should be 
+\[
+\begin{bmatrix} 2&2&6\\10&2&6\\-2&-2&-6\end{bmatrix}
+\]
+
+3. Write a function `Fun3`, which takes two arguments `x` and `n`, and `x` is a single number and `n` is a strictly positive integer. The function returns the value of $(1+x^2/2+ ...+x^n/n)$, report the value when `x=2` and `n=10`.
+
+4. What does the following code return? Run the following code in your head, then confirm the output by running the R code.
+
+```{R, eval=FALSE, tidy=TRUE} 
+x <- 10
+f1 <- function(x) {
+  function() {
+    x + 10
+  }
+}
+f1(1)()
+```
+
+5. What does the following code return? Run the following code in your head, then confirm the output by running the R code.
+
+```{R, eval=FALSE, tidy=TRUE}
+x <- 1
+h1 <- function() {
+  y <- 2
+  i1<- function() {
+    z <- 3
+    c(x, y, z)
+  }
+  i1()
+}
+h1()
+```
+
+6.	What does the following code return? Run the following code in your head, then confirm the output by running the R code.
+
+```{R, eval=FALSE, tidy=TRUE}
+f <- function(x) {
+  f <- function(x) {
+    f <- function(x) { 
+    x ^ 2
+  }
+  f(x) + 1
+ }
+ f(x) * 2
+}
+f(10)
+```
+
+
+7. What does the following code return? Run the following code in your head, then confirm the output by running the R code.
+
+```{R, eval=FALSE, tidy=TRUE}
+x <- 2
+g1 <- function() {
+  y <- 1
+  c(x, y)
+}
+g1()
+```
