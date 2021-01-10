@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -311,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this chapter, we provide a very basic introduction of R Markdow. RStudio has created an R Markdown cheat sheet, which are freely available at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. More details of R Markdown can be found from <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 <p><strong>Installation</strong></p>
 <p>Like the rest of R, R Markdown is free and open source. You can install the R Markdown package from CRAN with:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="r-markdown.html#cb219-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="r-markdown.html#cb216-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
 <p>To produce PDF documents, you will also need to install
 * MiKTex: <a href="https://miktex.org/download" class="uri">https://miktex.org/download</a> (Windows users)
 * MacTeX: <a href="https://www.tug.org/mactex/mactex-download.html" class="uri">https://www.tug.org/mactex/mactex-download.html</a> (Mac users)</p>
@@ -396,7 +395,7 @@ Usually, LaTeX commands will work.</p>
 <p><strong>Rendering Output</strong></p>
 <p>There are two ways to render an R Markdown document into its final output format. If you are using RStudio, then the “Knit” button (Ctrl+Shift+K) will render the document and display a preview of it.</p>
 <p>If you are not using RStudio then you simply need to call the rmarkdown::render function, for example:</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="r-markdown.html#cb223-1"></a>rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;input.Rmd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="r-markdown.html#cb220-1"></a>rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;input.Rmd&quot;</span>)</span></code></pre></div>
 </div>
 <div id="including-plots-and-adding-captions" class="section level2">
 <h2><span class="header-section-number">7.6</span> Including Plots and Adding Captions</h2>
@@ -413,7 +412,7 @@ Figure 7.1: An example of a simple plot.
 <h2><span class="header-section-number">7.7</span> Modifying Figures</h2>
 <p>What if we would like to change the size of the plot?</p>
 <p>The <code>fig.height</code> option lets us specify how tall we want the plot to be, the <code>fig.width</code> option lets us specify how wide we want the plot to be, and the <code>fig.align</code> option lets us specify whether we want the plot to be left-aligned, centered, or right-aligned. An example is shown in Figure <a href="r-markdown.html#fig:splot">7.2</a>.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="r-markdown.html#cb224-1"></a><span class="kw">plot</span>(trees<span class="op">$</span>Height, trees<span class="op">$</span>volume)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="r-markdown.html#cb221-1"></a><span class="kw">plot</span>(trees<span class="op">$</span>Height, trees<span class="op">$</span>volume)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:splot"></span>
 <img src="SCA_book_files/figure-html/splot-1.png" alt="A smaller version of the plot." width="432" />
 <p class="caption">
@@ -424,10 +423,10 @@ Figure 7.2: A smaller version of the plot.
 <div id="displaying-data-with-kable" class="section level2">
 <h2><span class="header-section-number">7.8</span> Displaying Data with kable</h2>
 <p>You can make nice-looking tables that are not in plain text with kable. Compare the kable to the plain-text version of the data.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="r-markdown.html#cb225-1"></a><span class="kw">kable</span>(pressure, </span>
-<span id="cb225-2"><a href="r-markdown.html#cb225-2"></a>      <span class="dt">caption =</span> <span class="st">&quot;A kable of the built-in pressure dataset&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="r-markdown.html#cb222-1"></a><span class="kw">kable</span>(pressure, </span>
+<span id="cb222-2"><a href="r-markdown.html#cb222-2"></a>      <span class="dt">caption =</span> <span class="st">&quot;A kable of the built-in pressure dataset&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-136">Table 7.1: </span>A kable of the built-in pressure dataset</caption>
+<caption><span id="tab:unnamed-chunk-134">Table 7.1: </span>A kable of the built-in pressure dataset</caption>
 <thead>
 <tr class="header">
 <th align="right">temperature</th>
@@ -513,7 +512,7 @@ Figure 7.2: A smaller version of the plot.
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="r-markdown.html#cb226-1"></a>pressure</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="r-markdown.html#cb223-1"></a>pressure</span></code></pre></div>
 <pre><code>##    temperature pressure
 ## 1            0   0.0002
 ## 2           20   0.0012

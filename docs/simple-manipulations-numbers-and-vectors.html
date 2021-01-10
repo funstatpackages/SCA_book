@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -294,8 +293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vectors-and-assignment" class="section level2">
 <h2><span class="header-section-number">3.1</span> Vectors and Assignment</h2>
 <p>R operates on named data structures. The simplest such structure is the numeric vector, a single entity consisting of an ordered collection of numbers. To set up a vector named x, say, consisting of five numbers, namely 10.4, 5.6, 3.1, 6.4, and 21.7, use the R command:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="simple-manipulations-numbers-and-vectors.html#cb17-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) <span class="co">#set up a vector</span></span>
-<span id="cb17-2"><a href="simple-manipulations-numbers-and-vectors.html#cb17-2"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="simple-manipulations-numbers-and-vectors.html#cb16-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) <span class="co">#set up a vector</span></span>
+<span id="cb16-2"><a href="simple-manipulations-numbers-and-vectors.html#cb16-2"></a>x</span></code></pre></div>
 <pre><code>## [1] 10.4  5.6  3.1  6.4 21.7</code></pre>
 <p>This is an assignment statement using the function <code>c()</code>, which can take an arbitrary number of vector arguments and whose value is a vector got by concatenating its arguments end to end.</p>
 <p><strong>A few remarks:</strong></p>
@@ -307,22 +306,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A number occurring by itself in an expression is taken as a vector of length one.</li>
 <li>Assignment can also be made using the function <code>assign()</code>. An equivalent way of making the same assignment as above is with:</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="simple-manipulations-numbers-and-vectors.html#cb19-1"></a><span class="kw">assign</span>(<span class="st">&quot;x&quot;</span>, <span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="simple-manipulations-numbers-and-vectors.html#cb18-1"></a><span class="kw">assign</span>(<span class="st">&quot;x&quot;</span>, <span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>))</span></code></pre></div>
 <p>The usual operator, <code>&lt;-</code>, can be thought of as a syntactic short-cut to this.</p>
 <ul>
 <li>Assignments can also be made in the other direction, using the obvious change “-&gt;” in the assignment operator. So the same assignment could be made using</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="simple-manipulations-numbers-and-vectors.html#cb20-1"></a><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) -&gt;<span class="st"> </span>x</span>
-<span id="cb20-2"><a href="simple-manipulations-numbers-and-vectors.html#cb20-2"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="simple-manipulations-numbers-and-vectors.html#cb19-1"></a><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">5.6</span>, <span class="fl">3.1</span>, <span class="fl">6.4</span>, <span class="fl">21.7</span>) -&gt;<span class="st"> </span>x</span>
+<span id="cb19-2"><a href="simple-manipulations-numbers-and-vectors.html#cb19-2"></a>x</span></code></pre></div>
 <pre><code>## [1] 10.4  5.6  3.1  6.4 21.7</code></pre>
 <p>If an expression is used as a complete command, the value is printed and lost. So now if we were to use the command</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="simple-manipulations-numbers-and-vectors.html#cb22-1"></a><span class="dv">1</span><span class="op">/</span>x <span class="co">#reciprocal of x</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="simple-manipulations-numbers-and-vectors.html#cb21-1"></a><span class="dv">1</span><span class="op">/</span>x <span class="co">#reciprocal of x</span></span></code></pre></div>
 <pre><code>## [1] 0.09615385 0.17857143 0.32258065 0.15625000 0.04608295</code></pre>
 <p>the reciprocals of the five values would be printed at the terminal (and the value of <code>x</code>, of course, unchanged), but <code>1/x</code> will be lost in R.</p>
 <p><strong>More example:</strong></p>
 <p>The following assignment</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="simple-manipulations-numbers-and-vectors.html#cb24-1"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(x, <span class="dv">0</span>, x)</span>
-<span id="cb24-2"><a href="simple-manipulations-numbers-and-vectors.html#cb24-2"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="simple-manipulations-numbers-and-vectors.html#cb23-1"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(x, <span class="dv">0</span>, x)</span>
+<span id="cb23-2"><a href="simple-manipulations-numbers-and-vectors.html#cb23-2"></a>y</span></code></pre></div>
 <pre><code>##  [1] 10.4  5.6  3.1  6.4 21.7  0.0 10.4  5.6  3.1  6.4 21.7</code></pre>
 <p>would create a vector <code>y</code> with 11 entries consisting of two copies of x with a zero in the middle place.</p>
 </div>
@@ -331,13 +330,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Vectors can be used in arithmetic expressions, in which case the operations are performed element by element.</li>
 </ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="simple-manipulations-numbers-and-vectors.html#cb26-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span>
-<span id="cb26-2"><a href="simple-manipulations-numbers-and-vectors.html#cb26-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb26-3"><a href="simple-manipulations-numbers-and-vectors.html#cb26-3"></a>v =<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="simple-manipulations-numbers-and-vectors.html#cb25-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span>
+<span id="cb25-2"><a href="simple-manipulations-numbers-and-vectors.html#cb25-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb25-3"><a href="simple-manipulations-numbers-and-vectors.html#cb25-3"></a>v =<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
 <p><strong>Note:</strong> Vectors occurring in the same expression need not all be of the same length. If they are not, the value of the expression is a vector with the same length as the longest vector which occurs in the expression. Shorter vectors in the expression are recycled as often as need be (perhaps fractionally) until they match the length of the longest vector. In particular, a constant is simply repeated.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="simple-manipulations-numbers-and-vectors.html#cb27-1"></a>x1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb27-2"><a href="simple-manipulations-numbers-and-vectors.html#cb27-2"></a>y1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
-<span id="cb27-3"><a href="simple-manipulations-numbers-and-vectors.html#cb27-3"></a>x1 <span class="op">+</span><span class="st"> </span>y1</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="simple-manipulations-numbers-and-vectors.html#cb26-1"></a>x1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb26-2"><a href="simple-manipulations-numbers-and-vectors.html#cb26-2"></a>y1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb26-3"><a href="simple-manipulations-numbers-and-vectors.html#cb26-3"></a>x1 <span class="op">+</span><span class="st"> </span>y1</span></code></pre></div>
 <pre><code>## [1]  4  7  7 10</code></pre>
 <p>Try this yourself.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -347,29 +346,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>log</code>, <code>exp</code>, <code>sin</code>, <code>cos</code>, <code>tan</code>, <code>sqrt</code>, and so on, all have their usual meaning.</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="simple-manipulations-numbers-and-vectors.html#cb29-1"></a><span class="kw">exp</span>((x <span class="op">+</span><span class="st"> </span>y)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((x <span class="op">*</span><span class="st"> </span>y))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="simple-manipulations-numbers-and-vectors.html#cb28-1"></a><span class="kw">exp</span>((x <span class="op">+</span><span class="st"> </span>y)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((x <span class="op">*</span><span class="st"> </span>y))</span></code></pre></div>
 <ul>
 <li><code>length(x)</code> is the number of elements in <code>x</code>, <code>sum(x)</code> gives the total of the elements in <code>x</code>.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Quick guide to soome built-in statistical functions in R</li>
 </ol>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="simple-manipulations-numbers-and-vectors.html#cb30-1"></a><span class="kw">mean</span>(x) <span class="co"># compute mean of variable x</span></span>
-<span id="cb30-2"><a href="simple-manipulations-numbers-and-vectors.html#cb30-2"></a><span class="kw">median</span>(x) <span class="co"># compute median of variable x</span></span>
-<span id="cb30-3"><a href="simple-manipulations-numbers-and-vectors.html#cb30-3"></a><span class="kw">sd</span>(x) <span class="co"># compute standard deviation of numbers in vector x</span></span>
-<span id="cb30-4"><a href="simple-manipulations-numbers-and-vectors.html#cb30-4"></a><span class="kw">scale</span>(x) <span class="co"># compute z-scores of numbers in vector x</span></span>
-<span id="cb30-5"><a href="simple-manipulations-numbers-and-vectors.html#cb30-5"></a><span class="kw">quantile</span>(x) <span class="co"># compute the quartiles or percentiles of vector x</span></span>
-<span id="cb30-6"><a href="simple-manipulations-numbers-and-vectors.html#cb30-6"></a><span class="kw">var</span>(x) <span class="co"># computes variance of variable x</span></span>
-<span id="cb30-7"><a href="simple-manipulations-numbers-and-vectors.html#cb30-7"></a><span class="kw">cov</span>(x,y) <span class="co"># computes variance of variables x and y</span></span>
-<span id="cb30-8"><a href="simple-manipulations-numbers-and-vectors.html#cb30-8"></a><span class="kw">cor</span>(x,y) <span class="co"># computes correlation of variables x and y</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="simple-manipulations-numbers-and-vectors.html#cb29-1"></a><span class="kw">mean</span>(x) <span class="co"># compute mean of variable x</span></span>
+<span id="cb29-2"><a href="simple-manipulations-numbers-and-vectors.html#cb29-2"></a><span class="kw">median</span>(x) <span class="co"># compute median of variable x</span></span>
+<span id="cb29-3"><a href="simple-manipulations-numbers-and-vectors.html#cb29-3"></a><span class="kw">sd</span>(x) <span class="co"># compute standard deviation of numbers in vector x</span></span>
+<span id="cb29-4"><a href="simple-manipulations-numbers-and-vectors.html#cb29-4"></a><span class="kw">scale</span>(x) <span class="co"># compute z-scores of numbers in vector x</span></span>
+<span id="cb29-5"><a href="simple-manipulations-numbers-and-vectors.html#cb29-5"></a><span class="kw">quantile</span>(x) <span class="co"># compute the quartiles or percentiles of vector x</span></span>
+<span id="cb29-6"><a href="simple-manipulations-numbers-and-vectors.html#cb29-6"></a><span class="kw">var</span>(x) <span class="co"># computes variance of variable x</span></span>
+<span id="cb29-7"><a href="simple-manipulations-numbers-and-vectors.html#cb29-7"></a><span class="kw">cov</span>(x,y) <span class="co"># computes variance of variables x and y</span></span>
+<span id="cb29-8"><a href="simple-manipulations-numbers-and-vectors.html#cb29-8"></a><span class="kw">cor</span>(x,y) <span class="co"># computes correlation of variables x and y</span></span></code></pre></div>
 <p>For example,</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="simple-manipulations-numbers-and-vectors.html#cb31-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">35</span>)</span>
-<span id="cb31-2"><a href="simple-manipulations-numbers-and-vectors.html#cb31-2"></a><span class="kw">length</span>(x)</span>
-<span id="cb31-3"><a href="simple-manipulations-numbers-and-vectors.html#cb31-3"></a><span class="co">## [1] 5</span></span>
-<span id="cb31-4"><a href="simple-manipulations-numbers-and-vectors.html#cb31-4"></a><span class="kw">sum</span>(x)</span>
-<span id="cb31-5"><a href="simple-manipulations-numbers-and-vectors.html#cb31-5"></a><span class="co">## [1] 61</span></span>
-<span id="cb31-6"><a href="simple-manipulations-numbers-and-vectors.html#cb31-6"></a>xm &lt;-<span class="st"> </span><span class="kw">mean</span>(x)</span>
-<span id="cb31-7"><a href="simple-manipulations-numbers-and-vectors.html#cb31-7"></a>xsd &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="simple-manipulations-numbers-and-vectors.html#cb30-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">35</span>)</span>
+<span id="cb30-2"><a href="simple-manipulations-numbers-and-vectors.html#cb30-2"></a><span class="kw">length</span>(x)</span>
+<span id="cb30-3"><a href="simple-manipulations-numbers-and-vectors.html#cb30-3"></a><span class="co">## [1] 5</span></span>
+<span id="cb30-4"><a href="simple-manipulations-numbers-and-vectors.html#cb30-4"></a><span class="kw">sum</span>(x)</span>
+<span id="cb30-5"><a href="simple-manipulations-numbers-and-vectors.html#cb30-5"></a><span class="co">## [1] 61</span></span>
+<span id="cb30-6"><a href="simple-manipulations-numbers-and-vectors.html#cb30-6"></a>xm &lt;-<span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb30-7"><a href="simple-manipulations-numbers-and-vectors.html#cb30-7"></a>xsd &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(x))</span></code></pre></div>
 </div>
 <div id="generating-regular-sequences" class="section level2">
 <h2><span class="header-section-number">3.3</span> Generating Regular Sequences</h2>
@@ -386,37 +385,37 @@ Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code>
 <li>The next two parameters to <code>seq()</code> may be named <code>by=value</code> and <code>length=value</code>, which specify a step size and a length for the sequence, respectively. If neither of these is given, the default <code>by=1</code> is assumed.</li>
 </ul>
 <p>For example,</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="simple-manipulations-numbers-and-vectors.html#cb32-1"></a><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">.2</span>) -&gt;<span class="st"> </span>s3</span>
-<span id="cb32-2"><a href="simple-manipulations-numbers-and-vectors.html#cb32-2"></a>s3</span>
-<span id="cb32-3"><a href="simple-manipulations-numbers-and-vectors.html#cb32-3"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
-<span id="cb32-4"><a href="simple-manipulations-numbers-and-vectors.html#cb32-4"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
-<span id="cb32-5"><a href="simple-manipulations-numbers-and-vectors.html#cb32-5"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
-<span id="cb32-6"><a href="simple-manipulations-numbers-and-vectors.html#cb32-6"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
-<span id="cb32-7"><a href="simple-manipulations-numbers-and-vectors.html#cb32-7"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span>
-<span id="cb32-8"><a href="simple-manipulations-numbers-and-vectors.html#cb32-8"></a>s4 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">length =</span> <span class="dv">51</span>, <span class="dt">from =</span> <span class="dv">-5</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</span>
-<span id="cb32-9"><a href="simple-manipulations-numbers-and-vectors.html#cb32-9"></a>s4</span>
-<span id="cb32-10"><a href="simple-manipulations-numbers-and-vectors.html#cb32-10"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
-<span id="cb32-11"><a href="simple-manipulations-numbers-and-vectors.html#cb32-11"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
-<span id="cb32-12"><a href="simple-manipulations-numbers-and-vectors.html#cb32-12"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
-<span id="cb32-13"><a href="simple-manipulations-numbers-and-vectors.html#cb32-13"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
-<span id="cb32-14"><a href="simple-manipulations-numbers-and-vectors.html#cb32-14"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="simple-manipulations-numbers-and-vectors.html#cb31-1"></a><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">.2</span>) -&gt;<span class="st"> </span>s3</span>
+<span id="cb31-2"><a href="simple-manipulations-numbers-and-vectors.html#cb31-2"></a>s3</span>
+<span id="cb31-3"><a href="simple-manipulations-numbers-and-vectors.html#cb31-3"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
+<span id="cb31-4"><a href="simple-manipulations-numbers-and-vectors.html#cb31-4"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
+<span id="cb31-5"><a href="simple-manipulations-numbers-and-vectors.html#cb31-5"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
+<span id="cb31-6"><a href="simple-manipulations-numbers-and-vectors.html#cb31-6"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
+<span id="cb31-7"><a href="simple-manipulations-numbers-and-vectors.html#cb31-7"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span>
+<span id="cb31-8"><a href="simple-manipulations-numbers-and-vectors.html#cb31-8"></a>s4 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">length =</span> <span class="dv">51</span>, <span class="dt">from =</span> <span class="dv">-5</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</span>
+<span id="cb31-9"><a href="simple-manipulations-numbers-and-vectors.html#cb31-9"></a>s4</span>
+<span id="cb31-10"><a href="simple-manipulations-numbers-and-vectors.html#cb31-10"></a><span class="co">##  [1] -5.0 -4.8 -4.6 -4.4 -4.2 -4.0 -3.8 -3.6 -3.4 -3.2 -3.0</span></span>
+<span id="cb31-11"><a href="simple-manipulations-numbers-and-vectors.html#cb31-11"></a><span class="co">## [12] -2.8 -2.6 -2.4 -2.2 -2.0 -1.8 -1.6 -1.4 -1.2 -1.0 -0.8</span></span>
+<span id="cb31-12"><a href="simple-manipulations-numbers-and-vectors.html#cb31-12"></a><span class="co">## [23] -0.6 -0.4 -0.2  0.0  0.2  0.4  0.6  0.8  1.0  1.2  1.4</span></span>
+<span id="cb31-13"><a href="simple-manipulations-numbers-and-vectors.html#cb31-13"></a><span class="co">## [34]  1.6  1.8  2.0  2.2  2.4  2.6  2.8  3.0  3.2  3.4  3.6</span></span>
+<span id="cb31-14"><a href="simple-manipulations-numbers-and-vectors.html#cb31-14"></a><span class="co">## [45]  3.8  4.0  4.2  4.4  4.6  4.8  5.0</span></span></code></pre></div>
 <ul>
 <li>The fifth parameter may be named along=vector, which, if used must be the only parameter, and creates a sequence <code>1, 2, ..., length(vector)</code>, or the empty sequence if the vector is empty (as it can be).</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>A related function is <code>rep()</code>, which can be used for replicating an object in various complicated ways. The simplest form is</li>
 </ol>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="simple-manipulations-numbers-and-vectors.html#cb33-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
-<span id="cb33-2"><a href="simple-manipulations-numbers-and-vectors.html#cb33-2"></a></span>
-<span id="cb33-3"><a href="simple-manipulations-numbers-and-vectors.html#cb33-3"></a>s5 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">times =</span> <span class="dv">5</span>)</span>
-<span id="cb33-4"><a href="simple-manipulations-numbers-and-vectors.html#cb33-4"></a>s5</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="simple-manipulations-numbers-and-vectors.html#cb32-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb32-2"><a href="simple-manipulations-numbers-and-vectors.html#cb32-2"></a></span>
+<span id="cb32-3"><a href="simple-manipulations-numbers-and-vectors.html#cb32-3"></a>s5 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">times =</span> <span class="dv">5</span>)</span>
+<span id="cb32-4"><a href="simple-manipulations-numbers-and-vectors.html#cb32-4"></a>s5</span></code></pre></div>
 <pre><code>##  [1]  0  5  9 12 35  0  5  9 12 35  0  5  9 12 35  0  5  9
 ## [19] 12 35  0  5  9 12 35</code></pre>
 <p>which will put five copies of <code>x</code> end-to-end in <code>s5</code>. Another useful version is</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="simple-manipulations-numbers-and-vectors.html#cb35-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
-<span id="cb35-2"><a href="simple-manipulations-numbers-and-vectors.html#cb35-2"></a></span>
-<span id="cb35-3"><a href="simple-manipulations-numbers-and-vectors.html#cb35-3"></a>s6 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">each =</span> <span class="dv">5</span>)</span>
-<span id="cb35-4"><a href="simple-manipulations-numbers-and-vectors.html#cb35-4"></a>s6</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="simple-manipulations-numbers-and-vectors.html#cb34-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb34-2"><a href="simple-manipulations-numbers-and-vectors.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="simple-manipulations-numbers-and-vectors.html#cb34-3"></a>s6 &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dt">each =</span> <span class="dv">5</span>)</span>
+<span id="cb34-4"><a href="simple-manipulations-numbers-and-vectors.html#cb34-4"></a>s6</span></code></pre></div>
 <pre><code>##  [1]  0  0  0  0  0  5  5  5  5  5  9  9  9  9  9 12 12 12
 ## [19] 12 12 35 35 35 35 35</code></pre>
 <p>which repeats each element of <code>x</code> five times before moving on to the next.</p>
@@ -433,19 +432,19 @@ Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code>
 <li>Logical vectors are generated by conditions.</li>
 </ol>
 <p>For example,</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="simple-manipulations-numbers-and-vectors.html#cb37-1"></a>temp &lt;-<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="simple-manipulations-numbers-and-vectors.html#cb36-1"></a>temp &lt;-<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span></code></pre></div>
 <p>sets <code>temp</code> as a vector of the same length as <code>x</code> with values <code>FALSE</code> corresponding to elements of <code>x</code> where the condition is not met and TRUE where it is.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>The logical operators are <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code> for exact equality and <code>!=</code> for inequality. In addition if <code>c1</code> and <code>c2</code> are logical expressions, then <code>c1&amp;c2</code> is their intersection (“and”), <code>c1|c2</code> is their union (“or”), and <code>!c1</code> is the negation of <code>c1</code>.</li>
 </ol>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="simple-manipulations-numbers-and-vectors.html#cb38-1"></a>z =<span class="st"> </span><span class="dv">12</span></span>
-<span id="cb38-2"><a href="simple-manipulations-numbers-and-vectors.html#cb38-2"></a>(<span class="dv">8</span> <span class="op">&lt;</span><span class="st"> </span>z) <span class="op">&amp;</span><span class="st"> </span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">15</span>) <span class="co">#Does z belong the interval (8,15)</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="simple-manipulations-numbers-and-vectors.html#cb37-1"></a>z =<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb37-2"><a href="simple-manipulations-numbers-and-vectors.html#cb37-2"></a>(<span class="dv">8</span> <span class="op">&lt;</span><span class="st"> </span>z) <span class="op">&amp;</span><span class="st"> </span>(z <span class="op">&lt;</span><span class="st"> </span><span class="dv">15</span>) <span class="co">#Does z belong the interval (8,15)</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Logical vectors may be used in ordinary arithmetic, in which case they are coerced into numeric vectors, <code>FALSE</code> becoming 0 and <code>TRUE</code> becoming 1.</li>
 </ol>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="simple-manipulations-numbers-and-vectors.html#cb40-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">1</span>)</span>
-<span id="cb40-2"><a href="simple-manipulations-numbers-and-vectors.html#cb40-2"></a><span class="kw">sum</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="co">#number of &quot;1&quot; in x</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="simple-manipulations-numbers-and-vectors.html#cb39-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">1</span>)</span>
+<span id="cb39-2"><a href="simple-manipulations-numbers-and-vectors.html#cb39-2"></a><span class="kw">sum</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="co">#number of &quot;1&quot; in x</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
 <div id="missing-values" class="section level2">
@@ -456,18 +455,18 @@ Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code>
 <li>The function <code>is.na(x)</code> gives a logical vector of the same size as <code>x</code> with value TRUE if and only if the corresponding element in <code>x</code> is <code>NA</code>.</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="simple-manipulations-numbers-and-vectors.html#cb42-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="ot">NA</span>)</span>
-<span id="cb42-2"><a href="simple-manipulations-numbers-and-vectors.html#cb42-2"></a>ind &lt;-<span class="st"> </span><span class="kw">is.na</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="simple-manipulations-numbers-and-vectors.html#cb41-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="ot">NA</span>)</span>
+<span id="cb41-2"><a href="simple-manipulations-numbers-and-vectors.html#cb41-2"></a>ind &lt;-<span class="st"> </span><span class="kw">is.na</span>(z)</span></code></pre></div>
 <ul>
 <li>Notice that the logical expression <code>x == NA</code> is quite different from <code>is.na(x)</code> since <code>N</code>A is not really a value but a marker for a quantity that is not available. Thus, <code>x == NA</code> is a vector of the same length as <code>x</code>, all of whose values are <code>NA</code> as the logical expression itself is incomplete and hence undecidable.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Note that there is a second kind of “missing” values which are produced by numerical computation, the so-called Not a Number, NaN values. Examples are</li>
 </ol>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="simple-manipulations-numbers-and-vectors.html#cb43-1"></a><span class="dv">0</span> <span class="op">/</span><span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="simple-manipulations-numbers-and-vectors.html#cb42-1"></a><span class="dv">0</span> <span class="op">/</span><span class="st"> </span><span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
 <p>or</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="simple-manipulations-numbers-and-vectors.html#cb45-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="ot">Inf</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="simple-manipulations-numbers-and-vectors.html#cb44-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="ot">Inf</span></span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
 <p>which both give <code>NaN</code> since the result cannot be defined sensibly.</p>
 <ol start="3" style="list-style-type: decimal">
@@ -483,13 +482,13 @@ Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code>
 <li><p>The <code>paste()</code> function takes an arbitrary number of arguments and concatenates them one by one into character strings. Any numbers given among the arguments are coerced into character strings in an evident way, that is, in the same way, they would be if they were printed. The arguments are by default separated in the result by a single blank character, but this can be changed by the named parameter, sep=string, which changes it to string, possibly empty.</p></li>
 </ol>
 <p>For example,</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="simple-manipulations-numbers-and-vectors.html#cb47-1"></a><span class="kw">paste</span>(<span class="st">&quot;I like&quot;</span>, <span class="st">&quot;Statistics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="simple-manipulations-numbers-and-vectors.html#cb46-1"></a><span class="kw">paste</span>(<span class="st">&quot;I like&quot;</span>, <span class="st">&quot;Statistics&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;I like Statistics&quot;</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="simple-manipulations-numbers-and-vectors.html#cb49-1"></a>x =<span class="st"> </span><span class="dv">2</span></span>
-<span id="cb49-2"><a href="simple-manipulations-numbers-and-vectors.html#cb49-2"></a><span class="kw">paste</span>(<span class="st">&quot;the value of x is&quot;</span>, x)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="simple-manipulations-numbers-and-vectors.html#cb48-1"></a>x =<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb48-2"><a href="simple-manipulations-numbers-and-vectors.html#cb48-2"></a><span class="kw">paste</span>(<span class="st">&quot;the value of x is&quot;</span>, x)</span></code></pre></div>
 <pre><code>## [1] &quot;the value of x is 2&quot;</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="simple-manipulations-numbers-and-vectors.html#cb51-1"></a>labs &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>), <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb51-2"><a href="simple-manipulations-numbers-and-vectors.html#cb51-2"></a>labs</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="simple-manipulations-numbers-and-vectors.html#cb50-1"></a>labs &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>), <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb50-2"><a href="simple-manipulations-numbers-and-vectors.html#cb50-2"></a>labs</span></code></pre></div>
 <pre><code>##  [1] &quot;X1&quot;  &quot;Y2&quot;  &quot;X3&quot;  &quot;Y4&quot;  &quot;X5&quot;  &quot;Y6&quot;  &quot;X7&quot;  &quot;Y8&quot;  &quot;X9&quot; 
 ## [10] &quot;Y10&quot;</code></pre>
 <p>This makes <code>labs</code> into the vector repeated 5 times to match the sequence <code>1:10</code>.</p>
@@ -501,20 +500,20 @@ Put <code>n &lt;- 10</code> and you can compare the sequences <code>1:n-1</code>
 <li>A logical vector.
 In this case, the index vector must be of the same length as the vector from which elements are to be selected. Values corresponding to <code>TRUE</code> in the index vector are selected, and those corresponding to <code>FALSE</code> are omitted. For example</li>
 </ol>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="simple-manipulations-numbers-and-vectors.html#cb53-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">!</span><span class="kw">is.na</span>(x)]</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="simple-manipulations-numbers-and-vectors.html#cb52-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">!</span><span class="kw">is.na</span>(x)]</span></code></pre></div>
 <p>creates (or re-creates) an object <code>y</code> which will contain the non-missing values of <code>x</code>, in the same order. Note that if <code>x</code> has missing values, <code>y</code> will be shorter than <code>x</code>.</p>
 <p>Also,</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="simple-manipulations-numbers-and-vectors.html#cb54-1"></a>(x<span class="op">+</span><span class="dv">1</span>)[(<span class="op">!</span><span class="kw">is.na</span>(x)) <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] -&gt;<span class="st"> </span>z</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="simple-manipulations-numbers-and-vectors.html#cb53-1"></a>(x<span class="op">+</span><span class="dv">1</span>)[(<span class="op">!</span><span class="kw">is.na</span>(x)) <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] -&gt;<span class="st"> </span>z</span></code></pre></div>
 <p>creates an object <code>z</code> and places in it the values of the vector <code>x+1</code> for which the corresponding value in <code>x</code> was both non-missing and positive.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>A vector of positive integral quantities.</li>
 </ol>
 <p>In this case, the index vector’s values must lie in the set {1, 2, …, <code>length(x)</code>}. The corresponding elements of the vector are selected and concatenated, in that order, in the result. The index vector can be of any length, and the result is of the same length as the index vector. For example, <code>x[6]</code> is the sixth component of <code>x</code> and</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="simple-manipulations-numbers-and-vectors.html#cb55-1"></a>x[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="simple-manipulations-numbers-and-vectors.html#cb54-1"></a>x[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
 <p>selects the first 10 elements of <code>x</code> (assuming <code>length(x)</code> is not less than 10). Also,</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="simple-manipulations-numbers-and-vectors.html#cb56-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
-<span id="cb56-2"><a href="simple-manipulations-numbers-and-vectors.html#cb56-2"></a></span>
-<span id="cb56-3"><a href="simple-manipulations-numbers-and-vectors.html#cb56-3"></a><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)[<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">times =</span> <span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="simple-manipulations-numbers-and-vectors.html#cb55-1"></a><span class="kw">options</span>(<span class="dt">width =</span> <span class="dv">60</span>)</span>
+<span id="cb55-2"><a href="simple-manipulations-numbers-and-vectors.html#cb55-2"></a></span>
+<span id="cb55-3"><a href="simple-manipulations-numbers-and-vectors.html#cb55-3"></a><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)[<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">times =</span> <span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>##  [1] &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot; &quot;y&quot; &quot;x&quot; &quot;x&quot; &quot;y&quot;
 ## [15] &quot;y&quot; &quot;x&quot;</code></pre>
 <p>produces a character vector of length 16 consisting of “x”, “y”, “y”, “x” repeated four times.</p>
@@ -522,28 +521,28 @@ In this case, the index vector must be of the same length as the vector from whi
 <li>A vector of negative integral quantities.
 Such an index vector specifies the values to be excluded rather than included. Thus</li>
 </ol>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="simple-manipulations-numbers-and-vectors.html#cb58-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="simple-manipulations-numbers-and-vectors.html#cb57-1"></a>y &lt;-<span class="st"> </span>x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)]</span></code></pre></div>
 <p>gives <code>y</code> all but the first five elements of <code>x</code>.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>A vector of character strings.</li>
 </ol>
 <p>This possibility only applies where an object has a names attribute to identify its components. In this case, a sub-vector of the names vector may be used in the same way as the positive integral labels in item 2 further above.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="simple-manipulations-numbers-and-vectors.html#cb59-1"></a>fruit &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span>
-<span id="cb59-2"><a href="simple-manipulations-numbers-and-vectors.html#cb59-2"></a><span class="kw">names</span>(fruit) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;peach&quot;</span>)</span>
-<span id="cb59-3"><a href="simple-manipulations-numbers-and-vectors.html#cb59-3"></a>fruit</span>
-<span id="cb59-4"><a href="simple-manipulations-numbers-and-vectors.html#cb59-4"></a><span class="co">## orange banana  apple  peach </span></span>
-<span id="cb59-5"><a href="simple-manipulations-numbers-and-vectors.html#cb59-5"></a><span class="co">##      5     10      1     20</span></span>
-<span id="cb59-6"><a href="simple-manipulations-numbers-and-vectors.html#cb59-6"></a>fruit[<span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;orange&quot;</span>)]</span>
-<span id="cb59-7"><a href="simple-manipulations-numbers-and-vectors.html#cb59-7"></a><span class="co">##  apple orange </span></span>
-<span id="cb59-8"><a href="simple-manipulations-numbers-and-vectors.html#cb59-8"></a><span class="co">##      1      5</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="simple-manipulations-numbers-and-vectors.html#cb58-1"></a>fruit &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb58-2"><a href="simple-manipulations-numbers-and-vectors.html#cb58-2"></a><span class="kw">names</span>(fruit) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;peach&quot;</span>)</span>
+<span id="cb58-3"><a href="simple-manipulations-numbers-and-vectors.html#cb58-3"></a>fruit</span>
+<span id="cb58-4"><a href="simple-manipulations-numbers-and-vectors.html#cb58-4"></a><span class="co">## orange banana  apple  peach </span></span>
+<span id="cb58-5"><a href="simple-manipulations-numbers-and-vectors.html#cb58-5"></a><span class="co">##      5     10      1     20</span></span>
+<span id="cb58-6"><a href="simple-manipulations-numbers-and-vectors.html#cb58-6"></a>fruit[<span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;orange&quot;</span>)]</span>
+<span id="cb58-7"><a href="simple-manipulations-numbers-and-vectors.html#cb58-7"></a><span class="co">##  apple orange </span></span>
+<span id="cb58-8"><a href="simple-manipulations-numbers-and-vectors.html#cb58-8"></a><span class="co">##      1      5</span></span></code></pre></div>
 <p>The advantage is that alphanumeric names are often easier to remember than numeric indices. This option is particularly useful in connection with data frames, as we shall see later.</p>
 <p>An indexed expression can also appear on the receiving end of an assignment, in which case the assignment operation is performed only on those elements of the vector. The expression must be of the form <code>vector[index_vector]</code> as having an arbitrary expression in place of the vector name does not make much sense here.</p>
 <p>The vector assigned must match the length of the index vector, and in the case of a logical index vector, it must again be the same length as the vector it is indexing. For example,</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="simple-manipulations-numbers-and-vectors.html#cb60-1"></a>x[<span class="kw">is.na</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="simple-manipulations-numbers-and-vectors.html#cb59-1"></a>x[<span class="kw">is.na</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
 <p>replaces any missing values in <code>x</code> by zeros and</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="simple-manipulations-numbers-and-vectors.html#cb61-1"></a>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="op">-</span>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="simple-manipulations-numbers-and-vectors.html#cb60-1"></a>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="op">-</span>y[y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>]</span></code></pre></div>
 <p>has the same effect as</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="simple-manipulations-numbers-and-vectors.html#cb62-1"></a>y &lt;-<span class="st"> </span><span class="kw">abs</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="simple-manipulations-numbers-and-vectors.html#cb61-1"></a>y &lt;-<span class="st"> </span><span class="kw">abs</span>(y)</span></code></pre></div>
 </div>
 <div id="exercises" class="section level2">
 <h2><span class="header-section-number">3.8</span> Exercises:</h2>
@@ -574,18 +573,18 @@ In this case, there is no space between fn and the number following.</p></li>
 <ol start="7" style="list-style-type: decimal">
 <li>Without using R, determine the result of the following computation:</li>
 </ol>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="simple-manipulations-numbers-and-vectors.html#cb63-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb63-2"><a href="simple-manipulations-numbers-and-vectors.html#cb63-2"></a>x[<span class="dv">1</span>]<span class="op">/</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>x[<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>]</span>
-<span id="cb63-3"><a href="simple-manipulations-numbers-and-vectors.html#cb63-3"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb63-4"><a href="simple-manipulations-numbers-and-vectors.html#cb63-4"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">7</span>)</span>
-<span id="cb63-5"><a href="simple-manipulations-numbers-and-vectors.html#cb63-5"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;NA&quot;</span>)</span>
-<span id="cb63-6"><a href="simple-manipulations-numbers-and-vectors.html#cb63-6"></a><span class="kw">is.na</span>(x1)</span>
-<span id="cb63-7"><a href="simple-manipulations-numbers-and-vectors.html#cb63-7"></a><span class="kw">is.na</span>(x2)</span>
-<span id="cb63-8"><a href="simple-manipulations-numbers-and-vectors.html#cb63-8"></a><span class="kw">is.na</span>(<span class="kw">paste</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">NA</span>)))</span>
-<span id="cb63-9"><a href="simple-manipulations-numbers-and-vectors.html#cb63-9"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>, <span class="dv">3</span>)</span>
-<span id="cb63-10"><a href="simple-manipulations-numbers-and-vectors.html#cb63-10"></a><span class="kw">mean</span>(x)</span>
-<span id="cb63-11"><a href="simple-manipulations-numbers-and-vectors.html#cb63-11"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb63-12"><a href="simple-manipulations-numbers-and-vectors.html#cb63-12"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="simple-manipulations-numbers-and-vectors.html#cb62-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb62-2"><a href="simple-manipulations-numbers-and-vectors.html#cb62-2"></a>x[<span class="dv">1</span>]<span class="op">/</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>x[<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb62-3"><a href="simple-manipulations-numbers-and-vectors.html#cb62-3"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb62-4"><a href="simple-manipulations-numbers-and-vectors.html#cb62-4"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">7</span>)</span>
+<span id="cb62-5"><a href="simple-manipulations-numbers-and-vectors.html#cb62-5"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;NA&quot;</span>)</span>
+<span id="cb62-6"><a href="simple-manipulations-numbers-and-vectors.html#cb62-6"></a><span class="kw">is.na</span>(x1)</span>
+<span id="cb62-7"><a href="simple-manipulations-numbers-and-vectors.html#cb62-7"></a><span class="kw">is.na</span>(x2)</span>
+<span id="cb62-8"><a href="simple-manipulations-numbers-and-vectors.html#cb62-8"></a><span class="kw">is.na</span>(<span class="kw">paste</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">NA</span>)))</span>
+<span id="cb62-9"><a href="simple-manipulations-numbers-and-vectors.html#cb62-9"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb62-10"><a href="simple-manipulations-numbers-and-vectors.html#cb62-10"></a><span class="kw">mean</span>(x)</span>
+<span id="cb62-11"><a href="simple-manipulations-numbers-and-vectors.html#cb62-11"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb62-12"><a href="simple-manipulations-numbers-and-vectors.html#cb62-12"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)[<span class="dv">4</span>]</span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li><p>Compute the real roots of the quadratic equation
 <span class="math display">\[
@@ -600,19 +599,19 @@ Recall the formula for the roots of a quadratic
 <li>Create a logical vector</li>
 </ol></li>
 </ol>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="simple-manipulations-numbers-and-vectors.html#cb64-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">length =</span> <span class="dv">200</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span>
-<span id="cb64-2"><a href="simple-manipulations-numbers-and-vectors.html#cb64-2"></a><span class="co"># negate this vector</span></span>
-<span id="cb64-3"><a href="simple-manipulations-numbers-and-vectors.html#cb64-3"></a><span class="op">!</span>x</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="simple-manipulations-numbers-and-vectors.html#cb63-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">length =</span> <span class="dv">200</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span>
+<span id="cb63-2"><a href="simple-manipulations-numbers-and-vectors.html#cb63-2"></a><span class="co"># negate this vector</span></span>
+<span id="cb63-3"><a href="simple-manipulations-numbers-and-vectors.html#cb63-3"></a><span class="op">!</span>x</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Compute the truth table for logical AND</li>
 </ol>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="simple-manipulations-numbers-and-vectors.html#cb65-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="simple-manipulations-numbers-and-vectors.html#cb64-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
 <pre><code> (c) Compute the truth table for logical OR</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="simple-manipulations-numbers-and-vectors.html#cb67-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="simple-manipulations-numbers-and-vectors.html#cb66-1"></a><span class="kw">c</span>(T, T, F, F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T, F, F, T)</span></code></pre></div>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Explore arithmetic with logical and numeric</li>
 </ol>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="simple-manipulations-numbers-and-vectors.html#cb68-1"></a><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(T, F, T)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="simple-manipulations-numbers-and-vectors.html#cb67-1"></a><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(T, F, T)</span></code></pre></div>
 
 </div>
 </div>

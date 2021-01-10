@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -296,26 +295,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Data Export</h2>
 <p><strong>Using function <code>cat()</code></strong></p>
 <p>The function <code>cat</code> is useful for producing output in user-defined functions.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="exportimport-data.html#cb130-1"></a><span class="kw">cat</span>(<span class="st">&quot;Good morning!&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="co">#\n: newline</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="exportimport-data.html#cb129-1"></a><span class="kw">cat</span>(<span class="st">&quot;Good morning!&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="co">#\n: newline</span></span></code></pre></div>
 <pre><code>## Good morning!</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="exportimport-data.html#cb132-1"></a><span class="kw">cat</span>(<span class="dt">file =</span> <span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;123456&quot;</span>, <span class="st">&quot;987654&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="exportimport-data.html#cb131-1"></a><span class="kw">cat</span>(<span class="dt">file =</span> <span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;123456&quot;</span>, <span class="st">&quot;987654&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p><strong>Using function <code>print()</code></strong></p>
 <p>The function <code>print</code> prints its argument. It is a generic function which means that new printing methods can be easily added for new classes.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="exportimport-data.html#cb133-1"></a><span class="kw">print</span>(<span class="st">&quot;Good morning!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="exportimport-data.html#cb132-1"></a><span class="kw">print</span>(<span class="st">&quot;Good morning!&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Good morning!&quot;</code></pre>
 <p><strong>Write a matrix or data frame to file</strong></p>
 <p>The commonest task is to write a matrix or data frame to file as a rectangular grid of numbers, possibly with row and column labels. This can be done by the functions <code>write.table</code> and <code>write</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Command to copy and paste from R into Excel or other programs. It writes the data of an R data frame object into the clipboard from where it can be pasted into other applications.</li>
 </ol>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="exportimport-data.html#cb135-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
-<span id="cb135-2"><a href="exportimport-data.html#cb135-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
-<span id="cb135-3"><a href="exportimport-data.html#cb135-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
-<span id="cb135-4"><a href="exportimport-data.html#cb135-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age,<span class="dt">height =</span> height) </span>
-<span id="cb135-5"><a href="exportimport-data.html#cb135-5"></a></span>
-<span id="cb135-6"><a href="exportimport-data.html#cb135-6"></a><span class="co"># Write village into clipboard</span></span>
-<span id="cb135-7"><a href="exportimport-data.html#cb135-7"></a><span class="kw">write.table</span>(village, <span class="st">&quot;clipboard&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">col.names =</span> <span class="ot">NA</span>, </span>
-<span id="cb135-8"><a href="exportimport-data.html#cb135-8"></a>            <span class="dt">quote =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="exportimport-data.html#cb134-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
+<span id="cb134-2"><a href="exportimport-data.html#cb134-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
+<span id="cb134-3"><a href="exportimport-data.html#cb134-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
+<span id="cb134-4"><a href="exportimport-data.html#cb134-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age,<span class="dt">height =</span> height) </span>
+<span id="cb134-5"><a href="exportimport-data.html#cb134-5"></a></span>
+<span id="cb134-6"><a href="exportimport-data.html#cb134-6"></a><span class="co"># Write village into clipboard</span></span>
+<span id="cb134-7"><a href="exportimport-data.html#cb134-7"></a><span class="kw">write.table</span>(village, <span class="st">&quot;clipboard&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">col.names =</span> <span class="ot">NA</span>, </span>
+<span id="cb134-8"><a href="exportimport-data.html#cb134-8"></a>            <span class="dt">quote =</span> F) </span></code></pre></div>
 <p><strong>Remark:</strong></p>
 <ul>
 <li><p>The argument quote is a logical value (<code>TRUE</code> or <code>FALSE</code>) or a numeric vector. If <code>TRUE</code>, any character or factor columns will be surrounded by double quotes. If <code>FALSE</code>, nothing is quoted.</p></li>
@@ -324,42 +323,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" style="list-style-type: decimal">
 <li>Write data frame to a tab-delimited text file.</li>
 </ol>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="exportimport-data.html#cb136-1"></a><span class="kw">write.delim</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>)</span>
-<span id="cb136-2"><a href="exportimport-data.html#cb136-2"></a><span class="co"># provides same results as read.delim</span></span>
-<span id="cb136-3"><a href="exportimport-data.html#cb136-3"></a><span class="kw">write.table</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="exportimport-data.html#cb135-1"></a><span class="kw">write.delim</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>)</span>
+<span id="cb135-2"><a href="exportimport-data.html#cb135-2"></a><span class="co"># provides same results as read.delim</span></span>
+<span id="cb135-3"><a href="exportimport-data.html#cb135-3"></a><span class="kw">write.table</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Write data to csv files:</li>
 </ol>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="exportimport-data.html#cb137-1"></a><span class="kw">write.csv</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="exportimport-data.html#cb136-1"></a><span class="kw">write.csv</span>(village, <span class="dt">file =</span> <span class="st">&quot;village.csv&quot;</span>)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Write matrix data to a file.</li>
 </ol>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="exportimport-data.html#cb138-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb138-2"><a href="exportimport-data.html#cb138-2"></a><span class="kw">write</span>(x, <span class="dt">file =</span> <span class="st">&quot;file path&quot;</span>, <span class="dt">ncolumns =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="exportimport-data.html#cb137-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb137-2"><a href="exportimport-data.html#cb137-2"></a><span class="kw">write</span>(x, <span class="dt">file =</span> <span class="st">&quot;file path&quot;</span>, <span class="dt">ncolumns =</span> <span class="dv">20</span>)</span></code></pre></div>
 <p>Remark: <code>write.table()</code> is the multipurpose work-horse function in base R for exporting data. The functions <code>write.csv()</code> and <code>write.delim()</code> are special cases of <code>write.table()</code> in which the defaults have been adjusted for efficiency.</p>
 <div id="rdata-files" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> <code>.RData</code> files</h3>
 <p>The best way to store objects from R is with <code>.RData</code> files. <code>.RData</code> files are specific to R and can store as many objects as you’d like within a single file.</p>
 <p>** The <code>save()</code> function</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="exportimport-data.html#cb139-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
-<span id="cb139-2"><a href="exportimport-data.html#cb139-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
-<span id="cb139-3"><a href="exportimport-data.html#cb139-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
-<span id="cb139-4"><a href="exportimport-data.html#cb139-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">height =</span> height)</span>
-<span id="cb139-5"><a href="exportimport-data.html#cb139-5"></a></span>
-<span id="cb139-6"><a href="exportimport-data.html#cb139-6"></a><span class="co"># Save the object as a new .RData file</span></span>
-<span id="cb139-7"><a href="exportimport-data.html#cb139-7"></a><span class="kw">save</span>(village, <span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="exportimport-data.html#cb138-1"></a>age &lt;-<span class="st"> </span><span class="dv">18</span><span class="op">:</span><span class="dv">29</span></span>
+<span id="cb138-2"><a href="exportimport-data.html#cb138-2"></a>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">76.1</span>, <span class="dv">77</span>, <span class="fl">78.1</span>, <span class="fl">78.2</span>, <span class="fl">78.8</span>, <span class="fl">79.7</span>, <span class="fl">79.9</span>, <span class="fl">81.1</span>, <span class="fl">81.2</span>, </span>
+<span id="cb138-3"><a href="exportimport-data.html#cb138-3"></a>            <span class="fl">81.8</span>, <span class="fl">82.8</span>, <span class="fl">83.5</span>)</span>
+<span id="cb138-4"><a href="exportimport-data.html#cb138-4"></a>village &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">height =</span> height)</span>
+<span id="cb138-5"><a href="exportimport-data.html#cb138-5"></a></span>
+<span id="cb138-6"><a href="exportimport-data.html#cb138-6"></a><span class="co"># Save the object as a new .RData file</span></span>
+<span id="cb138-7"><a href="exportimport-data.html#cb138-7"></a><span class="kw">save</span>(village, <span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
 <p>To save selected objects into one <code>.RData</code> file, use the <code>save()</code> function. When you run the <code>save()</code> function with specific objects as arguments, (like <code>save(a, b, c, file = "myobjects.RData")</code> all of those objects will be saved in a single file called <code>myobjects.RData</code>. For example, let’s create a few objects corresponding to a study.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="exportimport-data.html#cb140-1"></a><span class="co"># Create two objects</span></span>
-<span id="cb140-2"><a href="exportimport-data.html#cb140-2"></a>student.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
-<span id="cb140-3"><a href="exportimport-data.html#cb140-3"></a>                        <span class="dt">sex =</span> <span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), </span>
-<span id="cb140-4"><a href="exportimport-data.html#cb140-4"></a>                        <span class="dt">score =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">97</span>, <span class="dv">62</span>, <span class="dv">82</span>))</span>
-<span id="cb140-5"><a href="exportimport-data.html#cb140-5"></a></span>
-<span id="cb140-6"><a href="exportimport-data.html#cb140-6"></a>score.by.sex &lt;-<span class="st"> </span><span class="kw">aggregate</span>(score <span class="op">~</span><span class="st"> </span>sex, </span>
-<span id="cb140-7"><a href="exportimport-data.html#cb140-7"></a>                          <span class="dt">FUN =</span> mean, </span>
-<span id="cb140-8"><a href="exportimport-data.html#cb140-8"></a>                          <span class="dt">data =</span> student.df)</span>
-<span id="cb140-9"><a href="exportimport-data.html#cb140-9"></a></span>
-<span id="cb140-10"><a href="exportimport-data.html#cb140-10"></a><span class="co"># Save two objects as a new .RData file</span></span>
-<span id="cb140-11"><a href="exportimport-data.html#cb140-11"></a><span class="kw">save</span>(student.df, score.by.sex, <span class="dt">file =</span> <span class="st">&quot;data/student.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="exportimport-data.html#cb139-1"></a><span class="co"># Create two objects</span></span>
+<span id="cb139-2"><a href="exportimport-data.html#cb139-2"></a>student.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
+<span id="cb139-3"><a href="exportimport-data.html#cb139-3"></a>                        <span class="dt">sex =</span> <span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), </span>
+<span id="cb139-4"><a href="exportimport-data.html#cb139-4"></a>                        <span class="dt">score =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">97</span>, <span class="dv">62</span>, <span class="dv">82</span>))</span>
+<span id="cb139-5"><a href="exportimport-data.html#cb139-5"></a></span>
+<span id="cb139-6"><a href="exportimport-data.html#cb139-6"></a>score.by.sex &lt;-<span class="st"> </span><span class="kw">aggregate</span>(score <span class="op">~</span><span class="st"> </span>sex, </span>
+<span id="cb139-7"><a href="exportimport-data.html#cb139-7"></a>                          <span class="dt">FUN =</span> mean, </span>
+<span id="cb139-8"><a href="exportimport-data.html#cb139-8"></a>                          <span class="dt">data =</span> student.df)</span>
+<span id="cb139-9"><a href="exportimport-data.html#cb139-9"></a></span>
+<span id="cb139-10"><a href="exportimport-data.html#cb139-10"></a><span class="co"># Save two objects as a new .RData file</span></span>
+<span id="cb139-11"><a href="exportimport-data.html#cb139-11"></a><span class="kw">save</span>(student.df, score.by.sex, <span class="dt">file =</span> <span class="st">&quot;data/student.rda&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="data-import" class="section level2">
@@ -367,11 +366,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-load-function" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> The <code>load()</code> function</h3>
 <p>To load an <code>.RData</code> file, that is, to import all of the objects contained in the .RData file into your current workspace, use the <code>load()</code> function. For example, to load the three specific objects that I saved earlier (<code>study1.df</code>, <code>score.by.sex</code>) in <code>study1.rda</code>, I’d run the following:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="exportimport-data.html#cb141-1"></a><span class="co"># Load objects in village.rda into my workspace</span></span>
-<span id="cb141-2"><a href="exportimport-data.html#cb141-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="exportimport-data.html#cb140-1"></a><span class="co"># Load objects in village.rda into my workspace</span></span>
+<span id="cb140-2"><a href="exportimport-data.html#cb140-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/village.rda&quot;</span>)</span></code></pre></div>
 <p>To load all of the objects in the workspace that we have saved to the data folder in a working directory named <code>projectnew.rda</code>, we can run the following:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="exportimport-data.html#cb142-1"></a><span class="co"># Load objects in projectnew.rda into my workspace</span></span>
-<span id="cb142-2"><a href="exportimport-data.html#cb142-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/projectnew.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="exportimport-data.html#cb141-1"></a><span class="co"># Load objects in projectnew.rda into my workspace</span></span>
+<span id="cb141-2"><a href="exportimport-data.html#cb141-2"></a><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;data/projectnew.rda&quot;</span>)</span></code></pre></div>
 </div>
 <div id="the-read.table-function" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> The <code>read.table()</code> function</h3>
@@ -385,22 +384,22 @@ If variables are to be held mainly in data frames, as we strongly suggest they s
 <p>By default, numeric items (except row labels) are read as numeric variables and non-numeric variables, such as name and gender in the above example, as factors.</p>
 <p>The function <code>read.table()</code> can then be used to read the data frame directly. For the file, scores_names.txt, you might want to omit, including the row labels, directly and use the default labels.
 In this case, the file may omit the row label column as in the following.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="exportimport-data.html#cb143-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>) </span>
-<span id="cb143-2"><a href="exportimport-data.html#cb143-2"></a>scores[[<span class="st">&#39;gender&#39;</span>]]</span>
-<span id="cb143-3"><a href="exportimport-data.html#cb143-3"></a>scores[[<span class="st">&#39;aptitude&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="exportimport-data.html#cb142-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb142-2"><a href="exportimport-data.html#cb142-2"></a>scores[[<span class="st">&#39;gender&#39;</span>]]</span>
+<span id="cb142-3"><a href="exportimport-data.html#cb142-3"></a>scores[[<span class="st">&#39;aptitude&#39;</span>]]</span></code></pre></div>
 <p>where the <code>header=TRUE</code> option specifies that the first line is a line of headings, and hence, by implication from the form of the file, that no explicit row labels are given. This can be changed if necessary.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="exportimport-data.html#cb144-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, </span>
-<span id="cb144-2"><a href="exportimport-data.html#cb144-2"></a>                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>, </span>
-<span id="cb144-3"><a href="exportimport-data.html#cb144-3"></a>                                    <span class="st">&quot;integer&quot;</span>, <span class="st">&quot;integer&quot;</span>), </span>
-<span id="cb144-4"><a href="exportimport-data.html#cb144-4"></a>                     <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb144-5"><a href="exportimport-data.html#cb144-5"></a><span class="op">&gt;</span><span class="st"> </span>scores[[<span class="st">&#39;gender&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="exportimport-data.html#cb143-1"></a>scores &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;scores_names.txt&quot;</span>, </span>
+<span id="cb143-2"><a href="exportimport-data.html#cb143-2"></a>                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>, </span>
+<span id="cb143-3"><a href="exportimport-data.html#cb143-3"></a>                                    <span class="st">&quot;integer&quot;</span>, <span class="st">&quot;integer&quot;</span>), </span>
+<span id="cb143-4"><a href="exportimport-data.html#cb143-4"></a>                     <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb143-5"><a href="exportimport-data.html#cb143-5"></a><span class="op">&gt;</span><span class="st"> </span>scores[[<span class="st">&#39;gender&#39;</span>]]</span></code></pre></div>
 <p>If the values are separated by commas or another “delimiter,” we have to specify the delaminating character(s). For example, look at the file <code>reading.txt</code> on the Blackboard folder.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="exportimport-data.html#cb145-1"></a>reading &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;reading.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb145-2"><a href="exportimport-data.html#cb145-2"></a></span>
-<span id="cb145-3"><a href="exportimport-data.html#cb145-3"></a><span class="co"># names() is to get or set the names of an object.</span></span>
-<span id="cb145-4"><a href="exportimport-data.html#cb145-4"></a><span class="kw">names</span>(reading) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Week1&quot;</span>, <span class="st">&quot;Week2&quot;</span>, <span class="st">&quot;Week3&quot;</span>, </span>
-<span id="cb145-5"><a href="exportimport-data.html#cb145-5"></a>                   <span class="st">&quot;Week4&quot;</span>, <span class="st">&quot;Week5&quot;</span>) </span>
-<span id="cb145-6"><a href="exportimport-data.html#cb145-6"></a><span class="kw">print</span>(reading)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="exportimport-data.html#cb144-1"></a>reading &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;reading.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb144-2"><a href="exportimport-data.html#cb144-2"></a></span>
+<span id="cb144-3"><a href="exportimport-data.html#cb144-3"></a><span class="co"># names() is to get or set the names of an object.</span></span>
+<span id="cb144-4"><a href="exportimport-data.html#cb144-4"></a><span class="kw">names</span>(reading) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Week1&quot;</span>, <span class="st">&quot;Week2&quot;</span>, <span class="st">&quot;Week3&quot;</span>, </span>
+<span id="cb144-5"><a href="exportimport-data.html#cb144-5"></a>                   <span class="st">&quot;Week4&quot;</span>, <span class="st">&quot;Week5&quot;</span>) </span>
+<span id="cb144-6"><a href="exportimport-data.html#cb144-6"></a><span class="kw">print</span>(reading)</span></code></pre></div>
 <p>If <code>sep = ""</code> (the default for read.table) the separator is ‘white space’, that is one or more spaces, tabs, newlines or carriage returns.</p>
 </div>
 <div id="the-scan-function" class="section level3">
@@ -409,8 +408,8 @@ In this case, the file may omit the row label column as in the following.</p>
 <ol style="list-style-type: decimal">
 <li>The function <code>scan()</code> at its simplest can do the same as c. It saves you having to type the commas though:</li>
 </ol>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="exportimport-data.html#cb146-1"></a>z &lt;-<span class="st"> </span><span class="kw">scan</span>()</span>
-<span id="cb146-2"><a href="exportimport-data.html#cb146-2"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="exportimport-data.html#cb145-1"></a>z &lt;-<span class="st"> </span><span class="kw">scan</span>()</span>
+<span id="cb145-2"><a href="exportimport-data.html#cb145-2"></a>z</span></code></pre></div>
 <p>Note that we start typing the numbers in <code>z</code>. If we hit the return key once we continue on a new row, if we hit it twice in a row, the scan stops. This can be fairly convenient when entering in a few data points (10-40 say).</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Using scan with a file</li>
@@ -419,19 +418,19 @@ In this case, the file may omit the row label column as in the following.</p>
 <pre><code>1 2 3
 4</code></pre>
 <p>Then, the command</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="exportimport-data.html#cb148-1"></a>x =<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="exportimport-data.html#cb147-1"></a>x =<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>)</span></code></pre></div>
 <p>will read the contents into your R session.
 Now suppose you had some formatting between the numbers you want to get rid of for example this is now your file <code>ReadWithScan.txt</code></p>
 <pre><code>1, 2, 3,
 4</code></pre>
 <p>then</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exportimport-data.html#cb150-1"></a>x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="exportimport-data.html#cb149-1"></a>x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;ReadWithScan.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <p>works.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>The function scan has many arguments in common with <code>read.table</code>. One additional argument is what, which specifies a list of modes of variables to be read from the file. If the list is named, the names are used for the components of the returned list. Modes can be numeric, character or complex, and are usually specified by an example, e.g., 0 or "".</li>
 </ol>
 <p>Suppose the data vectors are of equal length and are to be read in parallel. Further, suppose that there are three vectors, the first of mode character and the remaining two of mode numeric, and the file is ‘input.dat’. The first step is to use scan() to read in the three vectors as a list, as follows:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exportimport-data.html#cb151-1"></a>inp &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="st">&quot;&quot;</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exportimport-data.html#cb150-1"></a>inp &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="st">&quot;&quot;</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span></code></pre></div>
 <p>Read 3 records:</p>
 <pre><code>[[1]]
 [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
@@ -442,20 +441,20 @@ Now suppose you had some formatting between the numbers you want to get rid of f
 [[3]]
 [1] 1 3 7</code></pre>
 <p>The second argument is a dummy list structure that establishes the mode of the three vectors to be read. The result, held in <code>inp</code>, is a list whose components are the three vectors read in. To separate the data items into three separate vectors, use assignments like</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exportimport-data.html#cb153-1"></a>label &lt;-<span class="st"> </span>inp[[<span class="dv">1</span>]]; x &lt;-<span class="st"> </span>inp[[<span class="dv">2</span>]]; y &lt;-<span class="st"> </span>inp[[<span class="dv">3</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exportimport-data.html#cb152-1"></a>label &lt;-<span class="st"> </span>inp[[<span class="dv">1</span>]]; x &lt;-<span class="st"> </span>inp[[<span class="dv">2</span>]]; y &lt;-<span class="st"> </span>inp[[<span class="dv">3</span>]]</span></code></pre></div>
 <p>More conveniently, the dummy list can have named components, in which case the names can be used to access the vectors read in. For example,</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exportimport-data.html#cb154-1"></a><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="dt">id =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exportimport-data.html#cb153-1"></a><span class="kw">scan</span>(<span class="st">&quot;ReadWithScan2.txt&quot;</span>, <span class="kw">list</span>(<span class="dt">id =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>))</span></code></pre></div>
 <p>There are more elaborate input facilities available and these are detailed in the manuals.</p>
 </div>
 <div id="the-read.csv-function" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> The <code>read.csv()</code> function</h3>
 <p>Alternatively, you may have data from a spreadsheet. The simplest way to enter this into R is through a file format. Typically, this is a CSV format (comma-separated values). First, save the data from the spreadsheet as a CSV file say <code>data.csv</code>. Then the R command <code>read.csv</code> will read it in as follows</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exportimport-data.html#cb155-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exportimport-data.html#cb154-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
 <p>CSV file can be comma delimited or tab or any other delimiter specified by parameter <code>sep =</code>. If the parameter <code>header =</code> is <code>TRUE</code>, then the first row will be treated as the row names.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exportimport-data.html#cb156-1"></a><span class="kw">read.csv</span>(file, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, </span>
-<span id="cb156-2"><a href="exportimport-data.html#cb156-2"></a>         <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...) </span>
-<span id="cb156-3"><a href="exportimport-data.html#cb156-3"></a><span class="kw">read.csv2</span>(file, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, </span>
-<span id="cb156-4"><a href="exportimport-data.html#cb156-4"></a>          <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...)		    </span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exportimport-data.html#cb155-1"></a><span class="kw">read.csv</span>(file, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, </span>
+<span id="cb155-2"><a href="exportimport-data.html#cb155-2"></a>         <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...) </span>
+<span id="cb155-3"><a href="exportimport-data.html#cb155-3"></a><span class="kw">read.csv2</span>(file, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, </span>
+<span id="cb155-4"><a href="exportimport-data.html#cb155-4"></a>          <span class="dt">fill =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>, ...)		    </span></code></pre></div>
 <ul>
 <li><code>file</code>: file name</li>
 <li><code>header</code>: 1st line as header or not, logical</li>
@@ -485,34 +484,34 @@ r17	2	1	0	1	2	0	1	0
 r18	1	1	0	0	1	0	1	2
 r19	0	1	1	1	1	0	0	1
 r20	0	0	2	1	1	0	0	1</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="exportimport-data.html#cb158-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;readcsv.csv&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) </span>
-<span id="cb158-2"><a href="exportimport-data.html#cb158-2"></a><span class="kw">is.data.frame</span>(x) </span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="exportimport-data.html#cb157-1"></a>x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;readcsv.csv&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) </span>
+<span id="cb157-2"><a href="exportimport-data.html#cb157-2"></a><span class="kw">is.data.frame</span>(x) </span></code></pre></div>
 </div>
 <div id="import-an-excel-file-into-r" class="section level3">
 <h3><span class="header-section-number">5.2.5</span> Import an Excel file into R</h3>
 <p>You can import an excel file using the <code>readxl</code> package. To start, here is a template that you can use to import an Excel file into R:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="exportimport-data.html#cb159-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb159-2"><a href="exportimport-data.html#cb159-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="exportimport-data.html#cb158-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb158-2"><a href="exportimport-data.html#cb158-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>)</span></code></pre></div>
 <p>If you want to import a specific sheet within the Excel file, you may use this template:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="exportimport-data.html#cb160-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb160-2"><a href="exportimport-data.html#cb160-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of the file&gt;&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;sheet name&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="exportimport-data.html#cb159-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb159-2"><a href="exportimport-data.html#cb159-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of the file&gt;&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;sheet name&quot;</span>) </span></code></pre></div>
 <p>If you want to set a three column excel sheet to contain the data as dates in the first column, characters in the second, and numeric values in the third, you would need the following lines of code:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="exportimport-data.html#cb161-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb161-2"><a href="exportimport-data.html#cb161-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>,</span>
-<span id="cb161-3"><a href="exportimport-data.html#cb161-3"></a>           <span class="dt">col_types =</span> <span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;text&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="exportimport-data.html#cb160-1"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb160-2"><a href="exportimport-data.html#cb160-2"></a><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>,</span>
+<span id="cb160-3"><a href="exportimport-data.html#cb160-3"></a>           <span class="dt">col_types =</span> <span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;text&quot;</span>))</span></code></pre></div>
 </div>
 <div id="accessing-built-in-datasets" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> Accessing built-in datasets</h3>
 <p>Around 100 datasets are supplied with R (in package datasets), and others are available in packages (including the recommended packages supplied with R). To see the list of datasets currently available use <code>data()</code>.</p>
 <p>As from R version 2.0.0 all the datasets supplied with R are available directly by name.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="exportimport-data.html#cb162-1"></a>AirPassengers</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="exportimport-data.html#cb161-1"></a>AirPassengers</span></code></pre></div>
 <p>However, many packages still use the earlier convention in which data was also used to load datasets into R, for example,</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="exportimport-data.html#cb163-1"></a><span class="kw">data</span>(AirPassengers)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="exportimport-data.html#cb162-1"></a><span class="kw">data</span>(AirPassengers)</span></code></pre></div>
 <p>and this can still be used with the standard packages. In most cases this will load an R object of the same name. However, in a few cases it loads several objects, so see the on-line help for the object to see what to expect.</p>
 <p><strong>Loading data from other R packages</strong></p>
 <p>To access data from a particular package, use the package argument, for example,</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="exportimport-data.html#cb164-1"></a><span class="kw">data</span>(<span class="dt">package =</span> <span class="st">&quot;rpart&quot;</span>)</span>
-<span id="cb164-2"><a href="exportimport-data.html#cb164-2"></a><span class="kw">data</span>(Puromycin, <span class="dt">package =</span> <span class="st">&quot;datasets&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="exportimport-data.html#cb163-1"></a><span class="kw">data</span>(<span class="dt">package =</span> <span class="st">&quot;rpart&quot;</span>)</span>
+<span id="cb163-2"><a href="exportimport-data.html#cb163-2"></a><span class="kw">data</span>(Puromycin, <span class="dt">package =</span> <span class="st">&quot;datasets&quot;</span>)</span></code></pre></div>
 <p>Figure <a href="exportimport-data.html#fig:import">5.1</a> shows a subset oof supported file formats.</p>
 <div class="figure" style="text-align: center"><span id="fig:import"></span>
 <img src="figures/import.png" alt="A non-inclusive list of supported file formats." width="90%" />

@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -292,34 +291,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Statistical Computing Using R</h1>
 <p class="author"><em>Lily Wang</em></p>
-<p class="date"><em>2021-01-09</em></p>
+<p class="date"><em>2021-01-10</em></p>
 </div>
 <div id="preface" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Preface</h1>
 <div id="what-you-will-learn" class="section level2">
 <h2><span class="header-section-number">1.1</span> What you will learn</h2>
-<p>This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.</p>
-</div>
-<div id="prerequisites" class="section level2">
-<h2><span class="header-section-number">1.2</span> Prerequisites</h2>
-</div>
-<div id="data-sets-used-in-labs-and-exercises" class="section level2">
-<h2><span class="header-section-number">1.3</span> Data Sets Used in Labs and Exercises</h2>
-<p>In this textbook, we illustrate statistical learning methods using applications
-from marketing, finance, biology, and other areas. The ISLR package available on the book website contains a number of data sets that are required in order to perform the labs and exercises associated with this book. One other data set is contained in the MASS library, and yet another is part of the base R distribution. Table 1.1 contains a summary of the data
-sets required to perform the labs and exercises. A couple of these data sets
-are also available as text files on the book website, for use in Chapter 2.</p>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<p>This book introduces modern statistical computing for students with some experience with computer programming. It covers both programming concepts and statistical computing concepts. Programming concepts will include data manipulations, data structures, flow control, functions and variable scope, regular expressions, and matrix manipulations. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualize it and model it. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualizing and exploring data. Statistical computing topics will focus on the tools that are useful for tackling modern data analysis problems and using statistical methods to extract meaning from data.</p>
 </div>
 <div id="acknowledgements" class="section level2">
-<h2><span class="header-section-number">1.4</span> Acknowledgements</h2>
+<h2><span class="header-section-number">1.2</span> Acknowledgements</h2>
+<p>I am very appreciative of all the contributors to this immense open source project of R and R-Studio. I couldn’t have made this book without your contributions and the packages that you have developed. A special thanks go to <a href="https://people.wm.edu/~gwang01/index.html">Dr. Guannan Wang</a> and Miss Zhiling Gu for their help with the book. I would also like to thank Yihui Xie <span class="citation">(Xie <a href="#ref-xie2020bookdown" role="doc-biblioref">2020</a>)</span> for his R Markdown package, which simplifies the writing of this book by having all content written in R Markdown.</p>
+</div>
+<div id="about-the-author" class="section level2">
+<h2><span class="header-section-number">1.3</span> About the Author</h2>
+<p>Dr. Lily Wang is a tenured Professor of Statistics at Iowa State University. She received her Ph.D. in Statistics from Michigan State University in 2007. Prior to joining Iowa State in 2014, she was a tenure-track Assistant/tenured Associate Professor in the Department of Statistics at the University of Georgia 2007-2013/2013-2014. Her primary areas of research include developing cutting-edge statistical non/semi-parametric methods, statistical learning of large datasets with complex features, methodologies for functional data, imaging data, and spatiotemporal data, survey sampling, and the application of statistics to problems in economics, engineering, neuroimaging, epidemiology, environmental studies, and biomedical science.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-xie2020bookdown">
+<p>Xie, Yihui. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
 </div>
 </div>
             </section>

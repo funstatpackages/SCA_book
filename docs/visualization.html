@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -297,16 +296,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Suppose a group of 25 people are surveyed as to their beer-drinking preference. The categories were (1) Domestic can, (2) Domestic bottle, (3) Microbrew, and (4) import. The raw data is</p>
 <pre><code>3 4 1 1 3 4 3 3 1 3 2 1 2 1 2 3 2 3 1 1 1 1 4 3 1</code></pre>
 <p>Let’s make a barplot of both frequencies and proportions. First, we use the <code>scan</code> function to read in the data:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="visualization.html#cb166-1"></a>beer &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, </span>
-<span id="cb166-2"><a href="visualization.html#cb166-2"></a>    <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="visualization.html#cb165-1"></a>beer &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, </span>
+<span id="cb165-2"><a href="visualization.html#cb165-2"></a>    <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code></pre></div>
 <p>then we plot a bar chart:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="visualization.html#cb167-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb167-2"><a href="visualization.html#cb167-2"></a><span class="co"># This isn&#39;t correct</span></span>
-<span id="cb167-3"><a href="visualization.html#cb167-3"></a><span class="kw">barplot</span>(beer) </span>
-<span id="cb167-4"><a href="visualization.html#cb167-4"></a><span class="co"># Yes, call with summarized data</span></span>
-<span id="cb167-5"><a href="visualization.html#cb167-5"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer))     </span>
-<span id="cb167-6"><a href="visualization.html#cb167-6"></a><span class="co"># Divide by n for proportion</span></span>
-<span id="cb167-7"><a href="visualization.html#cb167-7"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(beer)) </span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="visualization.html#cb166-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb166-2"><a href="visualization.html#cb166-2"></a><span class="co"># This isn&#39;t correct</span></span>
+<span id="cb166-3"><a href="visualization.html#cb166-3"></a><span class="kw">barplot</span>(beer) </span>
+<span id="cb166-4"><a href="visualization.html#cb166-4"></a><span class="co"># Yes, call with summarized data</span></span>
+<span id="cb166-5"><a href="visualization.html#cb166-5"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer))     </span>
+<span id="cb166-6"><a href="visualization.html#cb166-6"></a><span class="co"># Divide by n for proportion</span></span>
+<span id="cb166-7"><a href="visualization.html#cb166-7"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(beer)) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:barplots"></span>
 <img src="SCA_book_files/figure-html/barplots-1.png" alt="Bar chart examples" width="672" />
 <p class="caption">
@@ -318,7 +317,7 @@ Figure 6.1: Bar chart examples
 <li><p>The second shows the use of the table command to create summarized data, and the result of this is sent to barplot creating the barplot of frequencies shown.</p></li>
 <li><p>Finally, the command</p></li>
 </ol>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="visualization.html#cb168-1"></a><span class="kw">table</span>(beer)<span class="op">/</span><span class="kw">length</span>(beer)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="visualization.html#cb167-1"></a><span class="kw">table</span>(beer)<span class="op">/</span><span class="kw">length</span>(beer)</span></code></pre></div>
 <pre><code>## beer
 ##    1    2    3    4 
 ## 0.40 0.16 0.32 0.12</code></pre>
@@ -326,8 +325,8 @@ Figure 6.1: Bar chart examples
 <ol start="4" style="list-style-type: decimal">
 <li>This is ugly, you can change the color by specifying <code>col</code>; see Figure <a href="visualization.html#fig:barplotc">6.2</a>.</li>
 </ol>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="visualization.html#cb170-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(beer),</span>
-<span id="cb170-2"><a href="visualization.html#cb170-2"></a>        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>, <span class="st">&quot;lightcyan&quot;</span>, <span class="st">&quot;cornsilk&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="visualization.html#cb169-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(beer) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(beer),</span>
+<span id="cb169-2"><a href="visualization.html#cb169-2"></a>        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>, <span class="st">&quot;lightcyan&quot;</span>, <span class="st">&quot;cornsilk&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:barplotc"></span>
 <img src="SCA_book_files/figure-html/barplotc-1.png" alt="A colored bar chart example" width="50%" />
 <p class="caption">
@@ -338,19 +337,19 @@ Figure 6.2: A colored bar chart example
 <div id="pie-charts" class="section level2">
 <h2><span class="header-section-number">6.2</span> Pie charts</h2>
 <p>The same data can be studied with pie charts using the <code>pie</code> function. Here are some simple examples illustrating the usage (similar to <code>barplot()</code>, but with some added features. See Figure <a href="visualization.html#fig:pies">6.3</a>.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="visualization.html#cb171-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb171-2"><a href="visualization.html#cb171-2"></a></span>
-<span id="cb171-3"><a href="visualization.html#cb171-3"></a><span class="co"># Store the table result</span></span>
-<span id="cb171-4"><a href="visualization.html#cb171-4"></a>beer.counts &lt;-<span class="st"> </span><span class="kw">table</span>(beer) </span>
-<span id="cb171-5"><a href="visualization.html#cb171-5"></a><span class="co"># First pie -- kind of dull</span></span>
-<span id="cb171-6"><a href="visualization.html#cb171-6"></a><span class="kw">pie</span>(beer.counts)     </span>
-<span id="cb171-7"><a href="visualization.html#cb171-7"></a><span class="co"># Give names</span></span>
-<span id="cb171-8"><a href="visualization.html#cb171-8"></a><span class="kw">names</span>(beer.counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;domestic</span><span class="ch">\n</span><span class="st"> can&quot;</span>, <span class="st">&quot;Domestic</span><span class="ch">\n</span><span class="st"> bottle&quot;</span>,</span>
-<span id="cb171-9"><a href="visualization.html#cb171-9"></a>                       <span class="st">&quot;Microbrew&quot;</span>, <span class="st">&quot;Import&quot;</span>) </span>
-<span id="cb171-10"><a href="visualization.html#cb171-10"></a><span class="co"># Prints out names</span></span>
-<span id="cb171-11"><a href="visualization.html#cb171-11"></a><span class="kw">pie</span>(beer.counts)          </span>
-<span id="cb171-12"><a href="visualization.html#cb171-12"></a><span class="co"># Now with colors</span></span>
-<span id="cb171-13"><a href="visualization.html#cb171-13"></a><span class="kw">pie</span>(beer.counts, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;green2&quot;</span>, <span class="st">&quot;cyan&quot;</span>, <span class="st">&quot;white&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="visualization.html#cb170-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb170-2"><a href="visualization.html#cb170-2"></a></span>
+<span id="cb170-3"><a href="visualization.html#cb170-3"></a><span class="co"># Store the table result</span></span>
+<span id="cb170-4"><a href="visualization.html#cb170-4"></a>beer.counts &lt;-<span class="st"> </span><span class="kw">table</span>(beer) </span>
+<span id="cb170-5"><a href="visualization.html#cb170-5"></a><span class="co"># First pie -- kind of dull</span></span>
+<span id="cb170-6"><a href="visualization.html#cb170-6"></a><span class="kw">pie</span>(beer.counts)     </span>
+<span id="cb170-7"><a href="visualization.html#cb170-7"></a><span class="co"># Give names</span></span>
+<span id="cb170-8"><a href="visualization.html#cb170-8"></a><span class="kw">names</span>(beer.counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;domestic</span><span class="ch">\n</span><span class="st"> can&quot;</span>, <span class="st">&quot;Domestic</span><span class="ch">\n</span><span class="st"> bottle&quot;</span>,</span>
+<span id="cb170-9"><a href="visualization.html#cb170-9"></a>                       <span class="st">&quot;Microbrew&quot;</span>, <span class="st">&quot;Import&quot;</span>) </span>
+<span id="cb170-10"><a href="visualization.html#cb170-10"></a><span class="co"># Prints out names</span></span>
+<span id="cb170-11"><a href="visualization.html#cb170-11"></a><span class="kw">pie</span>(beer.counts)          </span>
+<span id="cb170-12"><a href="visualization.html#cb170-12"></a><span class="co"># Now with colors</span></span>
+<span id="cb170-13"><a href="visualization.html#cb170-13"></a><span class="kw">pie</span>(beer.counts, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;green2&quot;</span>, <span class="st">&quot;cyan&quot;</span>, <span class="st">&quot;white&quot;</span>)) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:pies"></span>
 <img src="SCA_book_files/figure-html/pies-1.png" alt="Pie chart plotting examples." width="672" />
 <p class="caption">
@@ -365,14 +364,14 @@ Figure 6.3: Pie chart plotting examples.
 <p>If the data set is relatively small, the stem-and-leaf diagram is handy for seeing the shape of the distribution and the values. The number on the left of the bar is the stem, the number on the right the digit. You put them together to find the observation.</p>
 <p>Suppose you have the box score of a basketball game and find the following points per game for players on both teams:</p>
 <pre><code>2 3 16 23 14 12 4 13 2 0 0 0 6 28 31 14 4 8 2 5</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="visualization.html#cb173-1"></a>scores &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">13</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">28</span>, <span class="dv">31</span>, </span>
-<span id="cb173-2"><a href="visualization.html#cb173-2"></a>    <span class="dv">14</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">5</span>)</span>
-<span id="cb173-3"><a href="visualization.html#cb173-3"></a><span class="co"># What exactly is the name?</span></span>
-<span id="cb173-4"><a href="visualization.html#cb173-4"></a><span class="kw">apropos</span>(<span class="st">&quot;stem&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="visualization.html#cb172-1"></a>scores &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">13</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">28</span>, <span class="dv">31</span>, </span>
+<span id="cb172-2"><a href="visualization.html#cb172-2"></a>    <span class="dv">14</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb172-3"><a href="visualization.html#cb172-3"></a><span class="co"># What exactly is the name?</span></span>
+<span id="cb172-4"><a href="visualization.html#cb172-4"></a><span class="kw">apropos</span>(<span class="st">&quot;stem&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;R_system_version&quot; &quot;stem&quot;             &quot;system&quot;          
 ## [4] &quot;system.file&quot;      &quot;system.time&quot;      &quot;system2&quot;</code></pre>
 <p>To create a stem and leaf chart is simple:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="visualization.html#cb175-1"></a><span class="kw">stem</span>(scores)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="visualization.html#cb174-1"></a><span class="kw">stem</span>(scores)</span></code></pre></div>
 <pre><code>## 
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
@@ -382,7 +381,7 @@ Figure 6.3: Pie chart plotting examples.
 ##   3 | 1</code></pre>
 <p>Notice we use <code>apropos()</code> to help find the name for the function. It is <code>stem()</code> and not <code>stemleaf()</code>. The <code>apropos()</code> command is convenient when you think you know the function’s name but aren’t sure.</p>
 <p>Suppose we wanted to break up the categories into groups of 5. We can do so by setting the “scale”</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="visualization.html#cb177-1"></a><span class="kw">stem</span>(scores, <span class="dt">scale =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="visualization.html#cb176-1"></a><span class="kw">stem</span>(scores, <span class="dt">scale =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
@@ -401,12 +400,12 @@ Figure 6.3: Pie chart plotting examples.
 <pre><code>29.6 28.2 19.6 13.7 13.0 7.8 3.4 2.0 1.9 1.0 0.7 0.4 0.4 0.3
 0.3 0.3 0.3 0.3 0.2 0.2 0.2 0.1 0.1 0.1 0.1 0.1</code></pre>
 <p>We now make some histograms:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="visualization.html#cb180-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.6</span>, <span class="fl">28.2</span>, <span class="fl">19.6</span>, <span class="fl">13.7</span>, <span class="fl">13.0</span>, <span class="fl">7.8</span>, <span class="fl">3.4</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">1.0</span>, </span>
-<span id="cb180-2"><a href="visualization.html#cb180-2"></a>       <span class="fl">0.7</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, </span>
-<span id="cb180-3"><a href="visualization.html#cb180-3"></a>       <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
-<span id="cb180-4"><a href="visualization.html#cb180-4"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb180-5"><a href="visualization.html#cb180-5"></a><span class="kw">hist</span>(x) <span class="co"># frequencies</span></span>
-<span id="cb180-6"><a href="visualization.html#cb180-6"></a><span class="kw">hist</span>(x, <span class="dt">probability =</span> <span class="ot">TRUE</span>) <span class="co"># proportions (or probabilities)</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="visualization.html#cb179-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.6</span>, <span class="fl">28.2</span>, <span class="fl">19.6</span>, <span class="fl">13.7</span>, <span class="fl">13.0</span>, <span class="fl">7.8</span>, <span class="fl">3.4</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">1.0</span>, </span>
+<span id="cb179-2"><a href="visualization.html#cb179-2"></a>       <span class="fl">0.7</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, </span>
+<span id="cb179-3"><a href="visualization.html#cb179-3"></a>       <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb179-4"><a href="visualization.html#cb179-4"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb179-5"><a href="visualization.html#cb179-5"></a><span class="kw">hist</span>(x) <span class="co"># frequencies</span></span>
+<span id="cb179-6"><a href="visualization.html#cb179-6"></a><span class="kw">hist</span>(x, <span class="dt">probability =</span> <span class="ot">TRUE</span>) <span class="co"># proportions (or probabilities)</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:hist"></span>
 <img src="SCA_book_files/figure-html/hist-1.png" alt="Examples of histogram." width="75%" />
 <p class="caption">
@@ -415,11 +414,11 @@ Figure 6.4: Examples of histogram.
 </div>
 <p>Two graphs are shown in Figure <a href="visualization.html#fig:hist">6.4</a>. The first is the default graph which makes a histogram of frequencies (total counts). The second does a histogram of proportions which makes the total area add to 1. This is preferred as it relates better to the concept of a probability density. Note the only difference is the scale on the y axis.</p>
 <p>The basic histogram has a predefined set of break points for the bins. If you want, you can specify the number of breaks or your own break points; see Figure <a href="visualization.html#fig:hist2">6.5</a>.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="visualization.html#cb181-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb181-2"><a href="visualization.html#cb181-2"></a><span class="co"># Specify 10 breaks, or just hist(x, 10)</span></span>
-<span id="cb181-3"><a href="visualization.html#cb181-3"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="dv">10</span>)</span>
-<span id="cb181-4"><a href="visualization.html#cb181-4"></a><span class="co"># Specify break points</span></span>
-<span id="cb181-5"><a href="visualization.html#cb181-5"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="kw">max</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="visualization.html#cb180-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb180-2"><a href="visualization.html#cb180-2"></a><span class="co"># Specify 10 breaks, or just hist(x, 10)</span></span>
+<span id="cb180-3"><a href="visualization.html#cb180-3"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb180-4"><a href="visualization.html#cb180-4"></a><span class="co"># Specify break points</span></span>
+<span id="cb180-5"><a href="visualization.html#cb180-5"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="kw">max</span>(x)))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:hist2"></span>
 <img src="SCA_book_files/figure-html/hist2-1.png" alt="More examples of histogram." width="75%" />
 <p class="caption">
@@ -436,8 +435,8 @@ Figure 6.5: More examples of histogram.
 <p>Example: Suppose we have 11 observations:</p>
 <pre><code>7 9.5 10 11 10 10 8 11 18 13 11.5</code></pre>
 <p>Figure <a href="visualization.html#fig:boxplot">6.6</a> shows a basic boxplot.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="visualization.html#cb183-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="fl">9.5</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">13</span>, <span class="fl">11.5</span>)</span>
-<span id="cb183-2"><a href="visualization.html#cb183-2"></a><span class="kw">boxplot</span>(x, <span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="visualization.html#cb182-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="fl">9.5</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">13</span>, <span class="fl">11.5</span>)</span>
+<span id="cb182-2"><a href="visualization.html#cb182-2"></a><span class="kw">boxplot</span>(x, <span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:boxplot"></span>
 <img src="SCA_book_files/figure-html/boxplot-1.png" alt="An example of boxplot." width="75%" />
 <p class="caption">
@@ -445,8 +444,8 @@ Figure 6.6: An example of boxplot.
 </p>
 </div>
 <p>We can add axis labels, a main title and color the box using simple commands; see Figure <a href="visualization.html#fig:boxplot2">6.7</a>.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="visualization.html#cb184-1"></a><span class="kw">boxplot</span>(x, <span class="dt">xlab =</span> <span class="st">&quot;Single sample&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Value axis&quot;</span>, </span>
-<span id="cb184-2"><a href="visualization.html#cb184-2"></a>        <span class="dt">main =</span> <span class="st">&quot;Simple Box plot&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="visualization.html#cb183-1"></a><span class="kw">boxplot</span>(x, <span class="dt">xlab =</span> <span class="st">&quot;Single sample&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Value axis&quot;</span>, </span>
+<span id="cb183-2"><a href="visualization.html#cb183-2"></a>        <span class="dt">main =</span> <span class="st">&quot;Simple Box plot&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:boxplot2"></span>
 <img src="SCA_book_files/figure-html/boxplot2-1.png" alt="An example of boxplot with title and colored box." width="75%" />
 <p class="caption">
@@ -466,14 +465,14 @@ Figure 6.7: An example of boxplot with title and colored box.
 64	F
 62	S
 63	S</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="visualization.html#cb186-1"></a>growth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">75</span>, <span class="dv">72</span>, <span class="dv">73</span>, <span class="dv">61</span>, <span class="dv">67</span>, <span class="dv">64</span>, <span class="dv">62</span>, <span class="dv">63</span>)</span>
-<span id="cb186-2"><a href="visualization.html#cb186-2"></a>sugar &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;S&quot;</span>)</span>
-<span id="cb186-3"><a href="visualization.html#cb186-3"></a>fly &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">growth =</span> growth, <span class="dt">sugar =</span> sugar)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="visualization.html#cb185-1"></a>growth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">75</span>, <span class="dv">72</span>, <span class="dv">73</span>, <span class="dv">61</span>, <span class="dv">67</span>, <span class="dv">64</span>, <span class="dv">62</span>, <span class="dv">63</span>)</span>
+<span id="cb185-2"><a href="visualization.html#cb185-2"></a>sugar &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;S&quot;</span>)</span>
+<span id="cb185-3"><a href="visualization.html#cb185-3"></a>fly &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">growth =</span> growth, <span class="dt">sugar =</span> sugar)</span></code></pre></div>
 <p>To plot these we use the boxplot command with slightly different syntax e.g. <code>boxplot(y ~ x)</code>. This model syntax is used widely in R for setting-up regression analyses for example.</p>
 <p>To create a summary boxplot in Figure <a href="visualization.html#fig:sideboxplot">6.8</a> we type something like:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="visualization.html#cb187-1"></a><span class="kw">boxplot</span>(growth <span class="op">~</span><span class="st"> </span>sugar, <span class="dt">data =</span> fly, <span class="dt">xlab =</span> <span class="st">&quot;Sugar type&quot;</span>, </span>
-<span id="cb187-2"><a href="visualization.html#cb187-2"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Growth&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;bisque&quot;</span>, <span class="dt">range =</span> <span class="dv">0</span>)</span>
-<span id="cb187-3"><a href="visualization.html#cb187-3"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Growth against sugar type&quot;</span>, <span class="dt">font.main =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="visualization.html#cb186-1"></a><span class="kw">boxplot</span>(growth <span class="op">~</span><span class="st"> </span>sugar, <span class="dt">data =</span> fly, <span class="dt">xlab =</span> <span class="st">&quot;Sugar type&quot;</span>, </span>
+<span id="cb186-2"><a href="visualization.html#cb186-2"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Growth&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;bisque&quot;</span>, <span class="dt">range =</span> <span class="dv">0</span>)</span>
+<span id="cb186-3"><a href="visualization.html#cb186-3"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Growth against sugar type&quot;</span>, <span class="dt">font.main =</span> <span class="dv">4</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sideboxplot"></span>
 <img src="SCA_book_files/figure-html/sideboxplot-1.png" alt="An example of side by side boxplot." width="75%" />
 <p class="caption">
@@ -489,12 +488,12 @@ Figure 6.8: An example of side by side boxplot.
 <div id="basic-command" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> Basic command</h3>
 <p>As usual with R there are many additional parameters that you can add to customize your plots. The basic command is:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="visualization.html#cb188-1"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="visualization.html#cb187-1"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
 <p>where <code>x</code> is the name of your x-variable and <code>y</code> is the name of your y-variable. This is fine if you have two variables but if they are part of a bigger data set, then you can use command</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="visualization.html#cb189-1"></a><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data =</span> your.data)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="visualization.html#cb188-1"></a><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data =</span> your.data)</span></code></pre></div>
 <p>Note the use of the model syntax. This model syntax is used widely in R for setting-up ANOVA and regression analyses for example (see also it’s use in the boxplot).</p>
 <p>R comes with a number of data sets built-in; these are used in the examples and can be useful to ‘play with’. For example, the data set cars contains two variables speed and dist. To see a basic scatter plot like Figure <a href="visualization.html#fig:scatter1">6.9</a> try the following:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="visualization.html#cb190-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="visualization.html#cb189-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter1"></span>
 <img src="SCA_book_files/figure-html/scatter1-1.png" alt="A simple example of scatterplot." width="75%" />
 <p class="caption">
@@ -504,8 +503,8 @@ Figure 6.9: A simple example of scatterplot.
 <p>This basic scatterplot takes the axes labels from the variables and uses open circles as the plotting symbol.</p>
 <p><strong>Additional commands with regression fit</strong></p>
 <p>As usual with R we have a wealth of additional commands at our disposal to beef up the display. A useful additional command is to add a line of best-fit. This is a command that adds to the current plot (like the <code>title()</code> command). For the above example we’d type:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="visualization.html#cb191-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</span>
-<span id="cb191-2"><a href="visualization.html#cb191-2"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars))</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="visualization.html#cb190-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</span>
+<span id="cb190-2"><a href="visualization.html#cb190-2"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter2"></span>
 <img src="SCA_book_files/figure-html/scatter2-1.png" alt="A scatterplot with fitted regression line." width="75%" />
 <p class="caption">
@@ -514,10 +513,10 @@ Figure 6.10: A scatterplot with fitted regression line.
 </div>
 <p>The basic command uses <code>abline(a, b)</code>, where <code>a=slope</code> and <code>b=intercept</code>. Here we use a linear model command to calculate the best-fit equation for us (try typing the <code>lm()</code> command separately, you get the intercept and slope) as shown in Figure <a href="visualization.html#fig:scatter2">6.10</a>.</p>
 <p>If we combine this with a couple of extra lines we can produce a better looking plot in Figure <a href="visualization.html#fig:scatter3">6.11</a>:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="visualization.html#cb192-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars, <span class="dt">xlab =</span> <span class="st">&quot;Speed&quot;</span>,</span>
-<span id="cb192-2"><a href="visualization.html#cb192-2"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Distance&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb192-3"><a href="visualization.html#cb192-3"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Scatter plot with best-fit line&quot;</span>, <span class="dt">font.main=</span> <span class="dv">4</span>)</span>
-<span id="cb192-4"><a href="visualization.html#cb192-4"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="visualization.html#cb191-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars, <span class="dt">xlab =</span> <span class="st">&quot;Speed&quot;</span>,</span>
+<span id="cb191-2"><a href="visualization.html#cb191-2"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Distance&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb191-3"><a href="visualization.html#cb191-3"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Scatter plot with best-fit line&quot;</span>, <span class="dt">font.main=</span> <span class="dv">4</span>)</span>
+<span id="cb191-4"><a href="visualization.html#cb191-4"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter3"></span>
 <img src="SCA_book_files/figure-html/scatter3-1.png" alt="A better-looking scatterplot with fitted regression line." width="75%" />
 <p class="caption">
@@ -529,10 +528,10 @@ Figure 6.11: A better-looking scatterplot with fitted regression line.
 <div id="more-useful-commands" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> More useful commands</h3>
 <p>We can alter the plotting symbol using the command pch=n, where n is a simple number. We can also alter the range of the x and y axes using <code>xlim=c(lower, upper)</code> and <code>ylim=c(lower, upper)</code>. The size of the plotted points is manipulated using the <code>cex=n</code> command, where `n= the magnification’ factor. Here are some commands that illustrate these parameters:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="visualization.html#cb193-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>), </span>
-<span id="cb193-2"><a href="visualization.html#cb193-2"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">20</span>, <span class="dv">120</span>), <span class="dt">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb193-3"><a href="visualization.html#cb193-3"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars))</span>
-<span id="cb193-4"><a href="visualization.html#cb193-4"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Scatterplot with altered y-axis and larger symbols&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="visualization.html#cb192-1"></a><span class="kw">plot</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">25</span>), </span>
+<span id="cb192-2"><a href="visualization.html#cb192-2"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">20</span>, <span class="dv">120</span>), <span class="dt">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb192-3"><a href="visualization.html#cb192-3"></a><span class="kw">abline</span>(<span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars))</span>
+<span id="cb192-4"><a href="visualization.html#cb192-4"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Scatterplot with altered y-axis and larger symbols&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:scatter4"></span>
 <img src="SCA_book_files/figure-html/scatter4-1.png" alt="A scatterplot with fitted regression line and larger symbols." width="75%" />
 <p class="caption">
@@ -544,22 +543,22 @@ Figure 6.12: A scatterplot with fitted regression line and larger symbols.
 <div id="an-example-with-multiple-symbols" class="section level3">
 <h3><span class="header-section-number">6.6.3</span> An example with multiple symbols</h3>
 <p>You have a data set called <code>blood.txt</code> which includes the variables <code>Subject</code>, <code>Gender</code>, <code>AgeGroup</code>, <code>RBC</code> (red blood cells), <code>WBC</code> (white blood cells) and <code>Chol</code> (Cholesterol). This data set has already been provided. Figure <a href="visualization.html#fig:scatternew">6.13</a> shows a better-looking example with multiple symbols</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="visualization.html#cb194-1"></a><span class="co"># Read the dataset</span></span>
-<span id="cb194-2"><a href="visualization.html#cb194-2"></a>blood &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/blood.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>, <span class="dt">na.strings =</span> <span class="st">&quot;.&quot;</span>, </span>
-<span id="cb194-3"><a href="visualization.html#cb194-3"></a>                    <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>, </span>
-<span id="cb194-4"><a href="visualization.html#cb194-4"></a>                                   <span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>,</span>
-<span id="cb194-5"><a href="visualization.html#cb194-5"></a>                                 <span class="st">&quot;double&quot;</span>, <span class="st">&quot;double&quot;</span>, <span class="st">&quot;double&quot;</span>),)</span>
-<span id="cb194-6"><a href="visualization.html#cb194-6"></a></span>
-<span id="cb194-7"><a href="visualization.html#cb194-7"></a><span class="co"># Assign the names to the above dataset</span></span>
-<span id="cb194-8"><a href="visualization.html#cb194-8"></a><span class="kw">names</span>(blood) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;BloodType&quot;</span>, <span class="st">&quot;AgeGroup&quot;</span>, </span>
-<span id="cb194-9"><a href="visualization.html#cb194-9"></a>               <span class="st">&quot;WBC&quot;</span>, <span class="st">&quot;RBC&quot;</span>, <span class="st">&quot;Chol&quot;</span>)</span>
-<span id="cb194-10"><a href="visualization.html#cb194-10"></a></span>
-<span id="cb194-11"><a href="visualization.html#cb194-11"></a><span class="co"># Draw a scatterplot</span></span>
-<span id="cb194-12"><a href="visualization.html#cb194-12"></a><span class="kw">plot</span>(blood<span class="op">$</span>WBC, blood<span class="op">$</span>RBC, <span class="dt">xlab =</span> <span class="st">&quot;WBC&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;RBC&quot;</span>, </span>
-<span id="cb194-13"><a href="visualization.html#cb194-13"></a>     <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">9</span>))</span>
-<span id="cb194-14"><a href="visualization.html#cb194-14"></a></span>
-<span id="cb194-15"><a href="visualization.html#cb194-15"></a><span class="co"># Provide a legend</span></span>
-<span id="cb194-16"><a href="visualization.html#cb194-16"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;AB&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;O&quot;</span>), <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="visualization.html#cb193-1"></a><span class="co"># Read the dataset</span></span>
+<span id="cb193-2"><a href="visualization.html#cb193-2"></a>blood &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/blood.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>, <span class="dt">na.strings =</span> <span class="st">&quot;.&quot;</span>, </span>
+<span id="cb193-3"><a href="visualization.html#cb193-3"></a>                    <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>, </span>
+<span id="cb193-4"><a href="visualization.html#cb193-4"></a>                                   <span class="st">&quot;character&quot;</span>, <span class="st">&quot;character&quot;</span>,</span>
+<span id="cb193-5"><a href="visualization.html#cb193-5"></a>                                 <span class="st">&quot;double&quot;</span>, <span class="st">&quot;double&quot;</span>, <span class="st">&quot;double&quot;</span>),)</span>
+<span id="cb193-6"><a href="visualization.html#cb193-6"></a></span>
+<span id="cb193-7"><a href="visualization.html#cb193-7"></a><span class="co"># Assign the names to the above dataset</span></span>
+<span id="cb193-8"><a href="visualization.html#cb193-8"></a><span class="kw">names</span>(blood) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;BloodType&quot;</span>, <span class="st">&quot;AgeGroup&quot;</span>, </span>
+<span id="cb193-9"><a href="visualization.html#cb193-9"></a>               <span class="st">&quot;WBC&quot;</span>, <span class="st">&quot;RBC&quot;</span>, <span class="st">&quot;Chol&quot;</span>)</span>
+<span id="cb193-10"><a href="visualization.html#cb193-10"></a></span>
+<span id="cb193-11"><a href="visualization.html#cb193-11"></a><span class="co"># Draw a scatterplot</span></span>
+<span id="cb193-12"><a href="visualization.html#cb193-12"></a><span class="kw">plot</span>(blood<span class="op">$</span>WBC, blood<span class="op">$</span>RBC, <span class="dt">xlab =</span> <span class="st">&quot;WBC&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;RBC&quot;</span>, </span>
+<span id="cb193-13"><a href="visualization.html#cb193-13"></a>     <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">9</span>))</span>
+<span id="cb193-14"><a href="visualization.html#cb193-14"></a></span>
+<span id="cb193-15"><a href="visualization.html#cb193-15"></a><span class="co"># Provide a legend</span></span>
+<span id="cb193-16"><a href="visualization.html#cb193-16"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;AB&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;O&quot;</span>), <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:scatternew"></span>
 <img src="SCA_book_files/figure-html/scatternew-1.png" alt="A scatterplot with multiple symbols and legend." width="672" />
 <p class="caption">
@@ -600,10 +599,10 @@ type = &quot;n&quot;	Produces a graph with nothing it it! This can be used to cr
 11	Nov	-42.0
 12	Dec	-30.4</code></pre>
 <p>The file was read in using the standard <code>read.table()</code> command</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="visualization.html#cb197-1"></a>vostok =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/vostok.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="visualization.html#cb196-1"></a>vostok =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/vostok.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p>so it contains two columns; month is a factor and temp is a numeric variable. If we attempt to plot the whole variable e.g. <code>plot(temp ~ month)</code> we get a horrid mess (try it and see). This is because the month is a factor and cannot be represented on an x, y scatter plot.</p>
 <p>However, if we plot the temperature alone we get the beginnings of something sensible:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="visualization.html#cb198-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="visualization.html#cb197-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:temp"></span>
 <img src="SCA_book_files/figure-html/temp-1.png" alt="A plot the temperature alone." width="75%" />
 <p class="caption">
@@ -615,7 +614,7 @@ Figure 6.14: A plot the temperature alone.
 <p><strong>Custom axes</strong></p>
 <p>When we look at the time series plot produced above we see that the x-axis needs a bit of work. Since the plot was made from a single variable (<code>temp</code>) there are no values for <code>x</code> and R substitutes a numeric index.</p>
 <p>We need to scrap the current axes and start again with our own. It is simple to produce a plot with no axes, merely add (<code>axes=F</code>) to the plot command; see <a href="visualization.html#fig:temp2">6.15</a> below.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="visualization.html#cb199-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="visualization.html#cb198-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:temp2"></span>
 <img src="SCA_book_files/figure-html/temp2-1.png" alt="A plot the temperature without of axes." width="75%" />
 <p class="caption">
@@ -623,7 +622,7 @@ Figure 6.15: A plot the temperature without of axes.
 </p>
 </div>
 <p>However, R appends default labels to the axes so we need to get rid of those too:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="visualization.html#cb200-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="visualization.html#cb199-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:temp3"></span>
 <img src="SCA_book_files/figure-html/temp3-1.png" alt="A plot the temperature without of axes or labels." width="75%" />
 <p class="caption">
@@ -633,8 +632,8 @@ Figure 6.16: A plot the temperature without of axes or labels.
 <p>That does the job; see Figure <a href="visualization.html#fig:temp3">6.16</a>. We are going to add axis labels of course so could have specified them now but I use the "" double (double) quotes to illustrate how to produce blank ones (setting xlab= F produces a label FALSE so we have to use "").</p>
 <p>To add an axis we use the <code>axis()</code> command. Axis 1 is the bottom of the plot (i.e. the x-axis), axis 2 is the left side of the plot (the y-axis). We can also specify the top (3) and the right side (4) if we wish. In it’s simplest form <code>axis(n)</code> adds in the axis specified with it’s default parameters. This won’t do here because the default x-axis contains only index information. We need to tell R where to find the labels associated with the axis.</p>
 <p>To generate an axis we need to specify the length of it and the labels to be used. Figure <a href="visualization.html#fig:temp4">6.17</a> is what we need for our temperature example:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="visualization.html#cb201-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb201-2"><a href="visualization.html#cb201-2"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vostok<span class="op">$</span>temp), <span class="dt">labels =</span> vostok<span class="op">$</span>month)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="visualization.html#cb200-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb200-2"><a href="visualization.html#cb200-2"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vostok<span class="op">$</span>temp), <span class="dt">labels =</span> vostok<span class="op">$</span>month)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:temp4"></span>
 <img src="SCA_book_files/figure-html/temp4-1.png" alt="A plot of temperature. with time x-axis." width="75%" />
 <p class="caption">
@@ -642,11 +641,11 @@ Figure 6.17: A plot of temperature. with time x-axis.
 </p>
 </div>
 <p>Now we need to add in the y-axis and the axis labels. We could also add a title and perhaps the whole thing would look better if the dots were joined up to make a lineplot (which was after all the point of the exercise). Here is the whole series of commands from start to finish. Figure <a href="visualization.html#fig:temp5">6.18</a> shows the final time series plot.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="visualization.html#cb202-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span>
-<span id="cb202-2"><a href="visualization.html#cb202-2"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vostok<span class="op">$</span>temp), <span class="dt">labels =</span> vostok<span class="op">$</span>month)</span>
-<span id="cb202-3"><a href="visualization.html#cb202-3"></a><span class="kw">axis</span>(<span class="dv">2</span>)</span>
-<span id="cb202-4"><a href="visualization.html#cb202-4"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Time Series&quot;</span>, <span class="dt">font.main =</span> <span class="dv">4</span>, <span class="dt">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Mean Temp C&quot;</span>)</span>
-<span id="cb202-5"><a href="visualization.html#cb202-5"></a><span class="kw">box</span>() <span class="co">#adds a border around the plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="visualization.html#cb201-1"></a><span class="kw">plot</span>(vostok<span class="op">$</span>temp, <span class="dt">axes =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span>
+<span id="cb201-2"><a href="visualization.html#cb201-2"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vostok<span class="op">$</span>temp), <span class="dt">labels =</span> vostok<span class="op">$</span>month)</span>
+<span id="cb201-3"><a href="visualization.html#cb201-3"></a><span class="kw">axis</span>(<span class="dv">2</span>)</span>
+<span id="cb201-4"><a href="visualization.html#cb201-4"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Time Series&quot;</span>, <span class="dt">font.main =</span> <span class="dv">4</span>, <span class="dt">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Mean Temp C&quot;</span>)</span>
+<span id="cb201-5"><a href="visualization.html#cb201-5"></a><span class="kw">box</span>() <span class="co">#adds a border around the plot</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:temp5"></span>
 <img src="SCA_book_files/figure-html/temp5-1.png" alt="A time series plot of temperature." width="75%" />
 <p class="caption">
@@ -662,21 +661,19 @@ Figure 6.18: A time series plot of temperature.
 <div id="scatter-plots" class="section level3">
 <h3><span class="header-section-number">6.8.1</span> Scatter plots</h3>
 <p>Simple scatterplots can be created using the R code below. The color, the size and the shape of points can be changed using the function <code>geom_point()</code> as follows:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="visualization.html#cb203-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
-<pre><code>## Warning: replacing previous import &#39;vctrs::data_frame&#39; by
-## &#39;tibble::data_frame&#39; when loading &#39;dplyr&#39;</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="visualization.html#cb205-1"></a><span class="co"># Read the data</span></span>
-<span id="cb205-2"><a href="visualization.html#cb205-2"></a>blood &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/blood.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>, <span class="dt">na.strings =</span> <span class="st">&quot;.&quot;</span>, </span>
-<span id="cb205-3"><a href="visualization.html#cb205-3"></a>                    <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="st">&quot;character&quot;</span>,</span>
-<span id="cb205-4"><a href="visualization.html#cb205-4"></a>                                   <span class="st">&quot;character&quot;</span>,<span class="st">&quot;character&quot;</span>,</span>
-<span id="cb205-5"><a href="visualization.html#cb205-5"></a>                                   <span class="st">&quot;double&quot;</span>,<span class="st">&quot;double&quot;</span>,<span class="st">&quot;double&quot;</span>),)</span>
-<span id="cb205-6"><a href="visualization.html#cb205-6"></a><span class="co"># Assign the names to the above dataset</span></span>
-<span id="cb205-7"><a href="visualization.html#cb205-7"></a><span class="kw">names</span>(blood) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;BloodType&quot;</span>, <span class="st">&quot;AgeGroup&quot;</span>, </span>
-<span id="cb205-8"><a href="visualization.html#cb205-8"></a>               <span class="st">&quot;WBC&quot;</span>, <span class="st">&quot;RBC&quot;</span>, <span class="st">&quot;Chol&quot;</span>)</span>
-<span id="cb205-9"><a href="visualization.html#cb205-9"></a>blood<span class="op">$</span>BloodType &lt;-<span class="st"> </span><span class="kw">as.factor</span>(blood<span class="op">$</span>BloodType)</span>
-<span id="cb205-10"><a href="visualization.html#cb205-10"></a><span class="co"># Change point shapes by the levels of cyl</span></span>
-<span id="cb205-11"><a href="visualization.html#cb205-11"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType)) <span class="op">+</span></span>
-<span id="cb205-12"><a href="visualization.html#cb205-12"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="visualization.html#cb202-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb202-2"><a href="visualization.html#cb202-2"></a><span class="co"># Read the data</span></span>
+<span id="cb202-3"><a href="visualization.html#cb202-3"></a>blood &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/blood.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>, <span class="dt">na.strings =</span> <span class="st">&quot;.&quot;</span>, </span>
+<span id="cb202-4"><a href="visualization.html#cb202-4"></a>                    <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="st">&quot;character&quot;</span>,</span>
+<span id="cb202-5"><a href="visualization.html#cb202-5"></a>                                   <span class="st">&quot;character&quot;</span>,<span class="st">&quot;character&quot;</span>,</span>
+<span id="cb202-6"><a href="visualization.html#cb202-6"></a>                                   <span class="st">&quot;double&quot;</span>,<span class="st">&quot;double&quot;</span>,<span class="st">&quot;double&quot;</span>),)</span>
+<span id="cb202-7"><a href="visualization.html#cb202-7"></a><span class="co"># Assign the names to the above dataset</span></span>
+<span id="cb202-8"><a href="visualization.html#cb202-8"></a><span class="kw">names</span>(blood) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;BloodType&quot;</span>, <span class="st">&quot;AgeGroup&quot;</span>, </span>
+<span id="cb202-9"><a href="visualization.html#cb202-9"></a>               <span class="st">&quot;WBC&quot;</span>, <span class="st">&quot;RBC&quot;</span>, <span class="st">&quot;Chol&quot;</span>)</span>
+<span id="cb202-10"><a href="visualization.html#cb202-10"></a>blood<span class="op">$</span>BloodType &lt;-<span class="st"> </span><span class="kw">as.factor</span>(blood<span class="op">$</span>BloodType)</span>
+<span id="cb202-11"><a href="visualization.html#cb202-11"></a><span class="co"># Change point shapes by the levels of cyl</span></span>
+<span id="cb202-12"><a href="visualization.html#cb202-12"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType)) <span class="op">+</span></span>
+<span id="cb202-13"><a href="visualization.html#cb202-13"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 167 rows containing missing values
 ## (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:blood2-1"></span>
@@ -685,10 +682,10 @@ Figure 6.18: A time series plot of temperature.
 Figure 6.19: A scatterplot based on ggplot2.
 </p>
 </div>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="visualization.html#cb207-1"></a><span class="co"># Change point shapes and colors</span></span>
-<span id="cb207-2"><a href="visualization.html#cb207-2"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType, </span>
-<span id="cb207-3"><a href="visualization.html#cb207-3"></a>                  <span class="dt">color =</span> BloodType)) <span class="op">+</span></span>
-<span id="cb207-4"><a href="visualization.html#cb207-4"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="visualization.html#cb204-1"></a><span class="co"># Change point shapes and colors</span></span>
+<span id="cb204-2"><a href="visualization.html#cb204-2"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType, </span>
+<span id="cb204-3"><a href="visualization.html#cb204-3"></a>                  <span class="dt">color =</span> BloodType)) <span class="op">+</span></span>
+<span id="cb204-4"><a href="visualization.html#cb204-4"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 167 rows containing missing values
 ## (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:blood2-2"></span>
@@ -697,10 +694,10 @@ Figure 6.19: A scatterplot based on ggplot2.
 Figure 6.20: A scatterplot based on ggplot2.
 </p>
 </div>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="visualization.html#cb209-1"></a><span class="co"># Change point shapes, colors and size</span></span>
-<span id="cb209-2"><a href="visualization.html#cb209-2"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType, </span>
-<span id="cb209-3"><a href="visualization.html#cb209-3"></a>                  <span class="dt">color =</span> BloodType, <span class="dt">size =</span> Chol)) <span class="op">+</span></span>
-<span id="cb209-4"><a href="visualization.html#cb209-4"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="visualization.html#cb206-1"></a><span class="co"># Change point shapes, colors and size</span></span>
+<span id="cb206-2"><a href="visualization.html#cb206-2"></a><span class="kw">ggplot</span>(blood, <span class="kw">aes</span>(<span class="dt">x =</span> WBC, <span class="dt">y =</span> RBC, <span class="dt">shape =</span> BloodType, </span>
+<span id="cb206-3"><a href="visualization.html#cb206-3"></a>                  <span class="dt">color =</span> BloodType, <span class="dt">size =</span> Chol)) <span class="op">+</span></span>
+<span id="cb206-4"><a href="visualization.html#cb206-4"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 337 rows containing missing values
 ## (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:blood2-3"></span>
@@ -713,20 +710,20 @@ Figure 6.21: A scatterplot based on ggplot2.
 <div id="creating-maps-with-ggplot2" class="section level3">
 <h3><span class="header-section-number">6.8.2</span> Creating maps with <code>ggplot2</code></h3>
 <p>We will learn how to make choropleth maps, sometimes called heat maps, using the <code>ggplot2</code> package. A <strong>choropleth map</strong> is a map that shows a geographic landscape with units such as countries, states, or watersheds where each unit is colored according to a particular value.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="visualization.html#cb211-1"></a><span class="co"># Read map and data</span></span>
-<span id="cb211-2"><a href="visualization.html#cb211-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb211-3"><a href="visualization.html#cb211-3"></a><span class="kw">library</span>(maps)</span>
-<span id="cb211-4"><a href="visualization.html#cb211-4"></a><span class="co"># load United States state map data</span></span>
-<span id="cb211-5"><a href="visualization.html#cb211-5"></a>MainStates &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;state&quot;</span>)</span>
-<span id="cb211-6"><a href="visualization.html#cb211-6"></a><span class="co"># read the state population data</span></span>
-<span id="cb211-7"><a href="visualization.html#cb211-7"></a>StatePopulation &lt;-<span class="st"> </span></span>
-<span id="cb211-8"><a href="visualization.html#cb211-8"></a><span class="st">  </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ds4stats/r-tutorials/master/intro-maps/data/StatePopulation.csv&quot;</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="visualization.html#cb208-1"></a><span class="co"># Read map and data</span></span>
+<span id="cb208-2"><a href="visualization.html#cb208-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb208-3"><a href="visualization.html#cb208-3"></a><span class="kw">library</span>(maps)</span>
+<span id="cb208-4"><a href="visualization.html#cb208-4"></a><span class="co"># load United States state map data</span></span>
+<span id="cb208-5"><a href="visualization.html#cb208-5"></a>MainStates &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;state&quot;</span>)</span>
+<span id="cb208-6"><a href="visualization.html#cb208-6"></a><span class="co"># read the state population data</span></span>
+<span id="cb208-7"><a href="visualization.html#cb208-7"></a>StatePopulation &lt;-<span class="st"> </span></span>
+<span id="cb208-8"><a href="visualization.html#cb208-8"></a><span class="st">  </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ds4stats/r-tutorials/master/intro-maps/data/StatePopulation.csv&quot;</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Your first map</li>
 </ol>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="visualization.html#cb212-1"></a><span class="kw">qplot</span>(long, lat, <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">data =</span> MainStates)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
-<img src="SCA_book_files/figure-html/unnamed-chunk-128-1.png" alt="Your first map." width="75%" />
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="visualization.html#cb209-1"></a><span class="kw">qplot</span>(long, lat, <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">data =</span> MainStates)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
+<img src="SCA_book_files/figure-html/unnamed-chunk-126-1.png" alt="Your first map." width="75%" />
 <p class="caption">
 Figure 6.22: Your first map.
 </p>
@@ -734,13 +731,13 @@ Figure 6.22: Your first map.
 <ol start="2" style="list-style-type: decimal">
 <li>Making a base map</li>
 </ol>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="visualization.html#cb213-1"></a><span class="co">#plot all states with ggplot2, using black borders and light blue fill</span></span>
-<span id="cb213-2"><a href="visualization.html#cb213-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb213-3"><a href="visualization.html#cb213-3"></a><span class="st">  </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MainStates, </span>
-<span id="cb213-4"><a href="visualization.html#cb213-4"></a>               <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group),</span>
-<span id="cb213-5"><a href="visualization.html#cb213-5"></a>                <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-129"></span>
-<img src="SCA_book_files/figure-html/unnamed-chunk-129-1.png" alt="A base map." width="75%" />
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="visualization.html#cb210-1"></a><span class="co">#plot all states with ggplot2, using black borders and light blue fill</span></span>
+<span id="cb210-2"><a href="visualization.html#cb210-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb210-3"><a href="visualization.html#cb210-3"></a><span class="st">  </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MainStates, </span>
+<span id="cb210-4"><a href="visualization.html#cb210-4"></a>               <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group),</span>
+<span id="cb210-5"><a href="visualization.html#cb210-5"></a>                <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
+<img src="SCA_book_files/figure-html/unnamed-chunk-127-1.png" alt="A base map." width="75%" />
 <p class="caption">
 Figure 6.23: A base map.
 </p>
@@ -749,19 +746,19 @@ Figure 6.23: A base map.
 <li>Customizing your choropleth map</li>
 </ol>
 <p>Now that we have created a base map of the mainland states, we will color each state according to its population. The first step is to use the <code>dplyr</code> package to merge the <code>MainStates</code> and <code>StatePopulation</code> files.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="visualization.html#cb214-1"></a><span class="co"># Use the dplyr package to merge MainStates and StatePopulation</span></span>
-<span id="cb214-2"><a href="visualization.html#cb214-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb214-3"><a href="visualization.html#cb214-3"></a>MergedStates &lt;-<span class="st"> </span><span class="kw">inner_join</span>(MainStates, StatePopulation, </span>
-<span id="cb214-4"><a href="visualization.html#cb214-4"></a>                           <span class="dt">by =</span> <span class="st">&quot;region&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="visualization.html#cb215-1"></a><span class="co"># Create a Choropleth map of the United States</span></span>
-<span id="cb215-2"><a href="visualization.html#cb215-2"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>()</span>
-<span id="cb215-3"><a href="visualization.html#cb215-3"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MergedStates, </span>
-<span id="cb215-4"><a href="visualization.html#cb215-4"></a>          <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, </span>
-<span id="cb215-5"><a href="visualization.html#cb215-5"></a>              <span class="dt">fill =</span> population<span class="op">/</span><span class="dv">1000000</span>), </span>
-<span id="cb215-6"><a href="visualization.html#cb215-6"></a>          <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size =</span> <span class="fl">0.2</span>) </span>
-<span id="cb215-7"><a href="visualization.html#cb215-7"></a>p</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-131"></span>
-<img src="SCA_book_files/figure-html/unnamed-chunk-131-1.png" alt="A customized choropleth map." width="75%" />
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="visualization.html#cb211-1"></a><span class="co"># Use the dplyr package to merge MainStates and StatePopulation</span></span>
+<span id="cb211-2"><a href="visualization.html#cb211-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb211-3"><a href="visualization.html#cb211-3"></a>MergedStates &lt;-<span class="st"> </span><span class="kw">inner_join</span>(MainStates, StatePopulation, </span>
+<span id="cb211-4"><a href="visualization.html#cb211-4"></a>                           <span class="dt">by =</span> <span class="st">&quot;region&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="visualization.html#cb212-1"></a><span class="co"># Create a Choropleth map of the United States</span></span>
+<span id="cb212-2"><a href="visualization.html#cb212-2"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>()</span>
+<span id="cb212-3"><a href="visualization.html#cb212-3"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MergedStates, </span>
+<span id="cb212-4"><a href="visualization.html#cb212-4"></a>          <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, </span>
+<span id="cb212-5"><a href="visualization.html#cb212-5"></a>              <span class="dt">fill =</span> population<span class="op">/</span><span class="dv">1000000</span>), </span>
+<span id="cb212-6"><a href="visualization.html#cb212-6"></a>          <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size =</span> <span class="fl">0.2</span>) </span>
+<span id="cb212-7"><a href="visualization.html#cb212-7"></a>p</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-129"></span>
+<img src="SCA_book_files/figure-html/unnamed-chunk-129-1.png" alt="A customized choropleth map." width="75%" />
 <p class="caption">
 Figure 6.24: A customized choropleth map.
 </p>
@@ -772,31 +769,31 @@ Figure 6.24: A customized choropleth map.
 <li><p>Border color (<code>white</code>) and line thickness (<code>0.2</code>) are specifically defined within this <code>geom</code>.</p></li>
 </ul>
 <p>Once a map is created, it is often helpful to modify color schemes, determine how to address missing values (<code>na.values</code>) and formalize labels. Notice that we assigned the graph a name, <code>p</code>. This is particularly useful as we add new components to the graph.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="visualization.html#cb216-1"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_continuous</span>(<span class="dt">name =</span> <span class="st">&quot;Population(millions)&quot;</span>, </span>
-<span id="cb216-2"><a href="visualization.html#cb216-2"></a>            <span class="dt">low =</span> <span class="st">&quot;lightgreen&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>), </span>
-<span id="cb216-3"><a href="visualization.html#cb216-3"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">35</span>), <span class="dt">na.value =</span> <span class="st">&quot;grey50&quot;</span>) <span class="op">+</span></span>
-<span id="cb216-4"><a href="visualization.html#cb216-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;State Population in the Mainland United States&quot;</span>)</span>
-<span id="cb216-5"><a href="visualization.html#cb216-5"></a>p</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
-<img src="SCA_book_files/figure-html/unnamed-chunk-132-1.png" alt="A customized choropleth map filled in with green coloor." width="672" />
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="visualization.html#cb213-1"></a>p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_continuous</span>(<span class="dt">name =</span> <span class="st">&quot;Population(millions)&quot;</span>, </span>
+<span id="cb213-2"><a href="visualization.html#cb213-2"></a>            <span class="dt">low =</span> <span class="st">&quot;lightgreen&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>), </span>
+<span id="cb213-3"><a href="visualization.html#cb213-3"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">35</span>), <span class="dt">na.value =</span> <span class="st">&quot;grey50&quot;</span>) <span class="op">+</span></span>
+<span id="cb213-4"><a href="visualization.html#cb213-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;State Population in the Mainland United States&quot;</span>)</span>
+<span id="cb213-5"><a href="visualization.html#cb213-5"></a>p</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-130"></span>
+<img src="SCA_book_files/figure-html/unnamed-chunk-130-1.png" alt="A customized choropleth map filled in with green coloor." width="672" />
 <p class="caption">
 Figure 6.25: A customized choropleth map filled in with green coloor.
 </p>
 </div>
 <p>It is also possible to overlay two polygon maps. The code below creates county borders with a small line size and then adds a thicker line to represent state borders. The <code>alpha = .3</code> causes the fill in the state map to be transparent, allowing us to see the county map behind the state map.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="visualization.html#cb217-1"></a>AllCounty &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;county&quot;</span>)</span>
-<span id="cb217-2"><a href="visualization.html#cb217-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data=</span>AllCounty, </span>
-<span id="cb217-3"><a href="visualization.html#cb217-3"></a>                        <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group), </span>
-<span id="cb217-4"><a href="visualization.html#cb217-4"></a>                        <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, </span>
-<span id="cb217-5"><a href="visualization.html#cb217-5"></a>                        <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
-<span id="cb217-6"><a href="visualization.html#cb217-6"></a>                        <span class="dt">size =</span> <span class="fl">.1</span> ) <span class="op">+</span></span>
-<span id="cb217-7"><a href="visualization.html#cb217-7"></a><span class="st">  </span></span>
-<span id="cb217-8"><a href="visualization.html#cb217-8"></a><span class="st">          </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MainStates, </span>
-<span id="cb217-9"><a href="visualization.html#cb217-9"></a>                       <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group), </span>
-<span id="cb217-10"><a href="visualization.html#cb217-10"></a>                       <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>,</span>
-<span id="cb217-11"><a href="visualization.html#cb217-11"></a>                       <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">.3</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
-<img src="SCA_book_files/figure-html/unnamed-chunk-133-1.png" alt="A county map." width="480" />
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="visualization.html#cb214-1"></a>AllCounty &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;county&quot;</span>)</span>
+<span id="cb214-2"><a href="visualization.html#cb214-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data=</span>AllCounty, </span>
+<span id="cb214-3"><a href="visualization.html#cb214-3"></a>                        <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group), </span>
+<span id="cb214-4"><a href="visualization.html#cb214-4"></a>                        <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, </span>
+<span id="cb214-5"><a href="visualization.html#cb214-5"></a>                        <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
+<span id="cb214-6"><a href="visualization.html#cb214-6"></a>                        <span class="dt">size =</span> <span class="fl">.1</span> ) <span class="op">+</span></span>
+<span id="cb214-7"><a href="visualization.html#cb214-7"></a><span class="st">  </span></span>
+<span id="cb214-8"><a href="visualization.html#cb214-8"></a><span class="st">          </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> MainStates, </span>
+<span id="cb214-9"><a href="visualization.html#cb214-9"></a>                       <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group), </span>
+<span id="cb214-10"><a href="visualization.html#cb214-10"></a>                       <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightblue&quot;</span>,</span>
+<span id="cb214-11"><a href="visualization.html#cb214-11"></a>                       <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">.3</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-131"></span>
+<img src="SCA_book_files/figure-html/unnamed-chunk-131-1.png" alt="A county map." width="480" />
 <p class="caption">
 Figure 6.26: A county map.
 </p>

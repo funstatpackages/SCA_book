@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -314,12 +313,12 @@ Figure 10.1: Popular distributions.
 </div>
 <p>Prefix the name given here by ‘d’ for the density, ‘p’ for the CDF, ‘q’ for the quantile function and ‘r’ for simulation (random deviates). The first argument is <code>x</code> for <code>dxxx</code>, q for <code>pxxx</code>, <code>p</code> for <code>qxxx</code> and <code>n</code> for <code>rxxx</code> (except for <code>rhyper</code> and <code>rwilcox</code>, for which it is <code>nn</code>, for example, <code>rwilcox(nn,m,n)</code>). In not quite all cases is the non-centrality parameter ncp are currently available: see the on-line help for details.</p>
 <p>In not quite all cases is the non-centrality parameter <code>ncp</code> are currently available: see the on-line help for details.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="simulations.html#cb315-1"></a><span class="co"># 2-tailed p-value for t distribution</span></span>
-<span id="cb315-2"><a href="simulations.html#cb315-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pt</span>(<span class="op">-</span><span class="fl">2.43</span>, <span class="dt">df =</span> <span class="dv">13</span>)</span>
-<span id="cb315-3"><a href="simulations.html#cb315-3"></a><span class="co">## [1] 0.0303309</span></span>
-<span id="cb315-4"><a href="simulations.html#cb315-4"></a><span class="co"># upper 1% point for an F(2, 7) distribution</span></span>
-<span id="cb315-5"><a href="simulations.html#cb315-5"></a><span class="kw">qf</span>(<span class="fl">0.01</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb315-6"><a href="simulations.html#cb315-6"></a><span class="co">## [1] 9.546578</span></span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="simulations.html#cb312-1"></a><span class="co"># 2-tailed p-value for t distribution</span></span>
+<span id="cb312-2"><a href="simulations.html#cb312-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pt</span>(<span class="op">-</span><span class="fl">2.43</span>, <span class="dt">df =</span> <span class="dv">13</span>)</span>
+<span id="cb312-3"><a href="simulations.html#cb312-3"></a><span class="co">## [1] 0.0303309</span></span>
+<span id="cb312-4"><a href="simulations.html#cb312-4"></a><span class="co"># upper 1% point for an F(2, 7) distribution</span></span>
+<span id="cb312-5"><a href="simulations.html#cb312-5"></a><span class="kw">qf</span>(<span class="fl">0.01</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb312-6"><a href="simulations.html#cb312-6"></a><span class="co">## [1] 9.546578</span></span></code></pre></div>
 </div>
 <div id="more-examples" class="section level2">
 <h2><span class="header-section-number">10.2</span> More Examples</h2>
@@ -328,91 +327,91 @@ Figure 10.1: Popular distributions.
 <li>Uniform</li>
 </ol>
 <p>Uniform numbers are ones that are “equally likely” to be in the specified range. Often these numbers are in [0, 1] for computers, but in practice can be between [a, b] where a, b depend upon the problem. An example might be the time you wait at a traffic light. This might be uniform on [0, 2].</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="simulations.html#cb316-1"></a><span class="kw">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at light</span></span>
-<span id="cb316-2"><a href="simulations.html#cb316-2"></a><span class="co">## [1] 0.7824067</span></span>
-<span id="cb316-3"><a href="simulations.html#cb316-3"></a><span class="kw">runif</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at 5 lights</span></span>
-<span id="cb316-4"><a href="simulations.html#cb316-4"></a><span class="co">## [1] 0.9249893 0.7762880 0.8049703 0.3579272 1.9033175</span></span>
-<span id="cb316-5"><a href="simulations.html#cb316-5"></a><span class="kw">runif</span>(<span class="dv">5</span>) <span class="co"># 5 random numbers in [0,1]</span></span>
-<span id="cb316-6"><a href="simulations.html#cb316-6"></a><span class="co">## [1] 0.4537281 0.3267524 0.9654153 0.7074819 0.6445426</span></span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="simulations.html#cb313-1"></a><span class="kw">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at light</span></span>
+<span id="cb313-2"><a href="simulations.html#cb313-2"></a><span class="co">## [1] 0.7824067</span></span>
+<span id="cb313-3"><a href="simulations.html#cb313-3"></a><span class="kw">runif</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="co"># time at 5 lights</span></span>
+<span id="cb313-4"><a href="simulations.html#cb313-4"></a><span class="co">## [1] 0.9249893 0.7762880 0.8049703 0.3579272 1.9033175</span></span>
+<span id="cb313-5"><a href="simulations.html#cb313-5"></a><span class="kw">runif</span>(<span class="dv">5</span>) <span class="co"># 5 random numbers in [0,1]</span></span>
+<span id="cb313-6"><a href="simulations.html#cb313-6"></a><span class="co">## [1] 0.4537281 0.3267524 0.9654153 0.7074819 0.6445426</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Binomial</li>
 </ol>
 <p>The binomial random numbers are discrete random numbers. They have the distribution of the number of successes in <code>n</code> independent Bernoulli trials where a Bernoulli trial results in success or failure, success with probability <code>p</code>.</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="simulations.html#cb317-1"></a><span class="co"># Compute P(X &lt;= 5) for X Binomial(8, 0.9)</span></span>
-<span id="cb317-2"><a href="simulations.html#cb317-2"></a><span class="kw">pbinom</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="fl">0.9</span>)</span>
-<span id="cb317-3"><a href="simulations.html#cb317-3"></a><span class="co">## [1] 0.03809179</span></span>
-<span id="cb317-4"><a href="simulations.html#cb317-4"></a><span class="co"># Compute P(45 &lt; X &lt; 55) for X Binomial(100, 0.5)</span></span>
-<span id="cb317-5"><a href="simulations.html#cb317-5"></a><span class="kw">pbinom</span>(<span class="dv">54</span>, <span class="dv">100</span>, <span class="fl">0.5</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
-<span id="cb317-6"><a href="simulations.html#cb317-6"></a><span class="co">## [1] 0.6317984</span></span>
-<span id="cb317-7"><a href="simulations.html#cb317-7"></a><span class="co"># Find the 0.05 quantile for X Binomial(16, 0.5)</span></span>
-<span id="cb317-8"><a href="simulations.html#cb317-8"></a><span class="kw">qbinom</span>(<span class="fl">0.05</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
-<span id="cb317-9"><a href="simulations.html#cb317-9"></a><span class="co">## [1] 42</span></span>
-<span id="cb317-10"><a href="simulations.html#cb317-10"></a><span class="co"># Generate 100 random variables from Binomial(20, 0.2)</span></span>
-<span id="cb317-11"><a href="simulations.html#cb317-11"></a><span class="kw">rbinom</span>(<span class="dv">100</span>, <span class="dv">20</span>, <span class="fl">0.2</span>)</span>
-<span id="cb317-12"><a href="simulations.html#cb317-12"></a><span class="co">##   [1] 3 5 4 3 4 5 0 2 5 3 3 6 6 4 2 5 4 7 5 3 3 1 1 1 4 7 6</span></span>
-<span id="cb317-13"><a href="simulations.html#cb317-13"></a><span class="co">##  [28] 3 3 5 4 5 2 4 3 5 3 8 5 8 3 7 2 4 7 5 4 3 3 1 4 7 5 4</span></span>
-<span id="cb317-14"><a href="simulations.html#cb317-14"></a><span class="co">##  [55] 2 6 4 0 1 2 3 6 4 5 1 7 6 2 4 5 4 5 5 2 3 3 4 8 4 4 6</span></span>
-<span id="cb317-15"><a href="simulations.html#cb317-15"></a><span class="co">##  [82] 5 6 3 3 4 3 5 3 5 6 8 4 0 3 4 4 2 5 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="simulations.html#cb314-1"></a><span class="co"># Compute P(X &lt;= 5) for X Binomial(8, 0.9)</span></span>
+<span id="cb314-2"><a href="simulations.html#cb314-2"></a><span class="kw">pbinom</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="fl">0.9</span>)</span>
+<span id="cb314-3"><a href="simulations.html#cb314-3"></a><span class="co">## [1] 0.03809179</span></span>
+<span id="cb314-4"><a href="simulations.html#cb314-4"></a><span class="co"># Compute P(45 &lt; X &lt; 55) for X Binomial(100, 0.5)</span></span>
+<span id="cb314-5"><a href="simulations.html#cb314-5"></a><span class="kw">pbinom</span>(<span class="dv">54</span>, <span class="dv">100</span>, <span class="fl">0.5</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
+<span id="cb314-6"><a href="simulations.html#cb314-6"></a><span class="co">## [1] 0.6317984</span></span>
+<span id="cb314-7"><a href="simulations.html#cb314-7"></a><span class="co"># Find the 0.05 quantile for X Binomial(16, 0.5)</span></span>
+<span id="cb314-8"><a href="simulations.html#cb314-8"></a><span class="kw">qbinom</span>(<span class="fl">0.05</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
+<span id="cb314-9"><a href="simulations.html#cb314-9"></a><span class="co">## [1] 42</span></span>
+<span id="cb314-10"><a href="simulations.html#cb314-10"></a><span class="co"># Generate 100 random variables from Binomial(20, 0.2)</span></span>
+<span id="cb314-11"><a href="simulations.html#cb314-11"></a><span class="kw">rbinom</span>(<span class="dv">100</span>, <span class="dv">20</span>, <span class="fl">0.2</span>)</span>
+<span id="cb314-12"><a href="simulations.html#cb314-12"></a><span class="co">##   [1] 3 5 4 3 4 5 0 2 5 3 3 6 6 4 2 5 4 7 5 3 3 1 1 1 4 7 6</span></span>
+<span id="cb314-13"><a href="simulations.html#cb314-13"></a><span class="co">##  [28] 3 3 5 4 5 2 4 3 5 3 8 5 8 3 7 2 4 7 5 4 3 3 1 4 7 5 4</span></span>
+<span id="cb314-14"><a href="simulations.html#cb314-14"></a><span class="co">##  [55] 2 6 4 0 1 2 3 6 4 5 1 7 6 2 4 5 4 5 5 2 3 3 4 8 4 4 6</span></span>
+<span id="cb314-15"><a href="simulations.html#cb314-15"></a><span class="co">##  [82] 5 6 3 3 4 3 5 3 5 6 8 4 0 3 4 4 2 5 5</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Normal</li>
 </ol>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="simulations.html#cb318-1"></a><span class="co"># Find P(Z &lt;= 1.5). </span></span>
-<span id="cb318-2"><a href="simulations.html#cb318-2"></a><span class="kw">pnorm</span>(<span class="fl">1.5</span>)</span>
-<span id="cb318-3"><a href="simulations.html#cb318-3"></a><span class="co">## [1] 0.9331928</span></span>
-<span id="cb318-4"><a href="simulations.html#cb318-4"></a><span class="co"># Find the 0.05-quantile for N(0, 1) </span></span>
-<span id="cb318-5"><a href="simulations.html#cb318-5"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>)</span>
-<span id="cb318-6"><a href="simulations.html#cb318-6"></a><span class="co">## [1] -1.644854</span></span>
-<span id="cb318-7"><a href="simulations.html#cb318-7"></a><span class="co">#Find the 0.05-quantile for N(1, 4) </span></span>
-<span id="cb318-8"><a href="simulations.html#cb318-8"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb318-9"><a href="simulations.html#cb318-9"></a><span class="co">## [1] -2.289707</span></span>
-<span id="cb318-10"><a href="simulations.html#cb318-10"></a><span class="co"># Generate 50 random variables from N(4, 2)</span></span>
-<span id="cb318-11"><a href="simulations.html#cb318-11"></a><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb318-12"><a href="simulations.html#cb318-12"></a><span class="co">##  [1]  5.6848973  2.2193532  5.5059217  4.8904319  4.8422124</span></span>
-<span id="cb318-13"><a href="simulations.html#cb318-13"></a><span class="co">##  [6]  6.2991845  2.2073596  5.7393427  5.0118233  4.6634041</span></span>
-<span id="cb318-14"><a href="simulations.html#cb318-14"></a><span class="co">## [11]  7.4799994  3.9821491  3.3475663  4.2970864  3.2402642</span></span>
-<span id="cb318-15"><a href="simulations.html#cb318-15"></a><span class="co">## [16]  5.5768822  3.6574869  4.5167635  4.4803464  5.7847276</span></span>
-<span id="cb318-16"><a href="simulations.html#cb318-16"></a><span class="co">## [21]  3.9614367  2.1237451  3.4716128  2.2309502  2.9996141</span></span>
-<span id="cb318-17"><a href="simulations.html#cb318-17"></a><span class="co">## [26]  5.3538034  6.8181437  5.9010480  3.5447031  2.7096113</span></span>
-<span id="cb318-18"><a href="simulations.html#cb318-18"></a><span class="co">## [31]  5.7679356  7.0820644  1.9846826  6.4115762  3.0144272</span></span>
-<span id="cb318-19"><a href="simulations.html#cb318-19"></a><span class="co">## [36] -0.9218229  5.6693115  3.7904313  6.4808597  4.0667339</span></span>
-<span id="cb318-20"><a href="simulations.html#cb318-20"></a><span class="co">## [41]  5.4484878  1.0128678  4.7777647  5.0230307  2.7192348</span></span>
-<span id="cb318-21"><a href="simulations.html#cb318-21"></a><span class="co">## [46]  3.6517822  4.1752274  2.0950020  1.5177391  4.1735536</span></span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="simulations.html#cb315-1"></a><span class="co"># Find P(Z &lt;= 1.5). </span></span>
+<span id="cb315-2"><a href="simulations.html#cb315-2"></a><span class="kw">pnorm</span>(<span class="fl">1.5</span>)</span>
+<span id="cb315-3"><a href="simulations.html#cb315-3"></a><span class="co">## [1] 0.9331928</span></span>
+<span id="cb315-4"><a href="simulations.html#cb315-4"></a><span class="co"># Find the 0.05-quantile for N(0, 1) </span></span>
+<span id="cb315-5"><a href="simulations.html#cb315-5"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>)</span>
+<span id="cb315-6"><a href="simulations.html#cb315-6"></a><span class="co">## [1] -1.644854</span></span>
+<span id="cb315-7"><a href="simulations.html#cb315-7"></a><span class="co">#Find the 0.05-quantile for N(1, 4) </span></span>
+<span id="cb315-8"><a href="simulations.html#cb315-8"></a><span class="kw">qnorm</span>(<span class="fl">0.05</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb315-9"><a href="simulations.html#cb315-9"></a><span class="co">## [1] -2.289707</span></span>
+<span id="cb315-10"><a href="simulations.html#cb315-10"></a><span class="co"># Generate 50 random variables from N(4, 2)</span></span>
+<span id="cb315-11"><a href="simulations.html#cb315-11"></a><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb315-12"><a href="simulations.html#cb315-12"></a><span class="co">##  [1]  5.6848973  2.2193532  5.5059217  4.8904319  4.8422124</span></span>
+<span id="cb315-13"><a href="simulations.html#cb315-13"></a><span class="co">##  [6]  6.2991845  2.2073596  5.7393427  5.0118233  4.6634041</span></span>
+<span id="cb315-14"><a href="simulations.html#cb315-14"></a><span class="co">## [11]  7.4799994  3.9821491  3.3475663  4.2970864  3.2402642</span></span>
+<span id="cb315-15"><a href="simulations.html#cb315-15"></a><span class="co">## [16]  5.5768822  3.6574869  4.5167635  4.4803464  5.7847276</span></span>
+<span id="cb315-16"><a href="simulations.html#cb315-16"></a><span class="co">## [21]  3.9614367  2.1237451  3.4716128  2.2309502  2.9996141</span></span>
+<span id="cb315-17"><a href="simulations.html#cb315-17"></a><span class="co">## [26]  5.3538034  6.8181437  5.9010480  3.5447031  2.7096113</span></span>
+<span id="cb315-18"><a href="simulations.html#cb315-18"></a><span class="co">## [31]  5.7679356  7.0820644  1.9846826  6.4115762  3.0144272</span></span>
+<span id="cb315-19"><a href="simulations.html#cb315-19"></a><span class="co">## [36] -0.9218229  5.6693115  3.7904313  6.4808597  4.0667339</span></span>
+<span id="cb315-20"><a href="simulations.html#cb315-20"></a><span class="co">## [41]  5.4484878  1.0128678  4.7777647  5.0230307  2.7192348</span></span>
+<span id="cb315-21"><a href="simulations.html#cb315-21"></a><span class="co">## [46]  3.6517822  4.1752274  2.0950020  1.5177391  4.1735536</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>The Poisson distribution is commonly used to model data that come in the form of counts.</li>
 </ol>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="simulations.html#cb319-1"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">1</span>)    <span class="co">## Counts with a mean of 1</span></span>
-<span id="cb319-2"><a href="simulations.html#cb319-2"></a><span class="co">##  [1] 1 2 1 1 1 0 1 1 1 1</span></span>
-<span id="cb319-3"><a href="simulations.html#cb319-3"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">2</span>)    <span class="co">## Counts with a mean of 2</span></span>
-<span id="cb319-4"><a href="simulations.html#cb319-4"></a><span class="co">##  [1] 2 6 4 2 1 4 4 4 3 2</span></span>
-<span id="cb319-5"><a href="simulations.html#cb319-5"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">20</span>)   <span class="co">## Counts with a mean of 20</span></span>
-<span id="cb319-6"><a href="simulations.html#cb319-6"></a><span class="co">##  [1] 22 20 23 27 17 33 26 13 31 15</span></span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="simulations.html#cb316-1"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">1</span>)    <span class="co">## Counts with a mean of 1</span></span>
+<span id="cb316-2"><a href="simulations.html#cb316-2"></a><span class="co">##  [1] 1 2 1 1 1 0 1 1 1 1</span></span>
+<span id="cb316-3"><a href="simulations.html#cb316-3"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">2</span>)    <span class="co">## Counts with a mean of 2</span></span>
+<span id="cb316-4"><a href="simulations.html#cb316-4"></a><span class="co">##  [1] 2 6 4 2 1 4 4 4 3 2</span></span>
+<span id="cb316-5"><a href="simulations.html#cb316-5"></a><span class="kw">rpois</span>(<span class="dv">10</span>, <span class="dv">20</span>)   <span class="co">## Counts with a mean of 20</span></span>
+<span id="cb316-6"><a href="simulations.html#cb316-6"></a><span class="co">##  [1] 22 20 23 27 17 33 26 13 31 15</span></span></code></pre></div>
 </div>
 <div id="setting-random-number-seed" class="section level2">
 <h2><span class="header-section-number">10.3</span> Setting Random Number Seed</h2>
 <p>When simulating any random numbers it is essential to set the random number seed. Setting the random number seed with set.seed() ensures reproducibility of the sequence of random numbers.</p>
 <p>For example, I can generate 5 Normal random numbers with <code>rnorm()</code>.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="simulations.html#cb320-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb320-2"><a href="simulations.html#cb320-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
-<span id="cb320-3"><a href="simulations.html#cb320-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="simulations.html#cb317-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb317-2"><a href="simulations.html#cb317-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
+<span id="cb317-3"><a href="simulations.html#cb317-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
 <p>Note that if I call <code>rnorm()</code> again I will of course get a different set of 5 random numbers.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="simulations.html#cb321-1"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
-<span id="cb321-2"><a href="simulations.html#cb321-2"></a><span class="co">## [1] -0.8204684  0.4874291  0.7383247  0.5757814 -0.3053884</span></span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="simulations.html#cb318-1"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)</span>
+<span id="cb318-2"><a href="simulations.html#cb318-2"></a><span class="co">## [1] -0.8204684  0.4874291  0.7383247  0.5757814 -0.3053884</span></span></code></pre></div>
 <p>If I want to reproduce the original set of random numbers, I can just reset the seed with <code>set.seed()</code>.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="simulations.html#cb322-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb322-2"><a href="simulations.html#cb322-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)    <span class="co">## Same as before</span></span>
-<span id="cb322-3"><a href="simulations.html#cb322-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="simulations.html#cb319-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb319-2"><a href="simulations.html#cb319-2"></a><span class="kw">rnorm</span>(<span class="dv">5</span>)    <span class="co">## Same as before</span></span>
+<span id="cb319-3"><a href="simulations.html#cb319-3"></a><span class="co">## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</span></span></code></pre></div>
 <p>In general, you should always set the random number seed when conducting a simulation! Otherwise, you will not be able to reconstruct the exact numbers that you produced in an analysis.</p>
 </div>
 <div id="example-normal-approximation-to-the-binomials" class="section level2">
 <h2><span class="header-section-number">10.4</span> Example: Normal Approximation to the Binomials</h2>
 <p>In our introductory level statistics, we know that we can use normal to approximate binomials. For example, X ~ BINOM(100, 0.4), let us use the binomial functions and normal approximations in R to compute <span class="math inline">\(P(35 &lt; X \leq 45)\)</span>.</p>
 <p>We first use the binomial functions in R to compute <span class="math inline">\(P(35 &lt; X \leq 45)\)</span></p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="simulations.html#cb323-1"></a><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">.4</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">35</span>, <span class="dv">100</span>, <span class="fl">.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="simulations.html#cb320-1"></a><span class="kw">pbinom</span>(<span class="dv">45</span>, <span class="dv">100</span>, <span class="fl">.4</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">35</span>, <span class="dv">100</span>, <span class="fl">.4</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6894402</code></pre>
 <p>Now according to the normal approximation and the continuity correction, we can use the normal functions in R to compute P(35.5 &lt; X ≤ 45.5):</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="simulations.html#cb325-1"></a>mu &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span></span>
-<span id="cb325-2"><a href="simulations.html#cb325-2"></a>sig &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">.4</span>))</span>
-<span id="cb325-3"><a href="simulations.html#cb325-3"></a><span class="kw">pnorm</span>(<span class="fl">45.5</span>, mu, sig) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">35.5</span>, mu, sig)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="simulations.html#cb322-1"></a>mu &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span></span>
+<span id="cb322-2"><a href="simulations.html#cb322-2"></a>sig &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="fl">.4</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">.4</span>))</span>
+<span id="cb322-3"><a href="simulations.html#cb322-3"></a><span class="kw">pnorm</span>(<span class="fl">45.5</span>, mu, sig) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">35.5</span>, mu, sig)</span></code></pre></div>
 <pre><code>## [1] 0.6900506</code></pre>
 </div>
 <div id="random-sampling-using-sample" class="section level2">
@@ -420,38 +419,38 @@ Figure 10.1: Popular distributions.
 <p>R has the ability to sample with and without replacement. That is, choose at random from a collection of things such as the numbers 1 through 6 in the dice rolling example. The sampling can be done with replacement (like dice rolling) or without replacement (like a lottery). By default sample samples without replacement each object having equal chance of being picked. You need to specify replace=TRUE if you want to sample with replacement. Furthermore, you can specify separate probabilities for each if desired.</p>
 <p>The <code>sample()</code> function draws randomly from a specified set of (scalar) objects allowing you to sample from arbitrary distributions of numbers.</p>
 <p>Here are some examples:</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="simulations.html#cb327-1"></a><span class="co"># Roll a die</span></span>
-<span id="cb327-2"><a href="simulations.html#cb327-2"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb327-3"><a href="simulations.html#cb327-3"></a><span class="co">##  [1] 3 3 1 5 5 2 6 6 2 1</span></span>
-<span id="cb327-4"><a href="simulations.html#cb327-4"></a><span class="co">## toss a coin</span></span>
-<span id="cb327-5"><a href="simulations.html#cb327-5"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb327-6"><a href="simulations.html#cb327-6"></a><span class="co">##  [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;</span></span>
-<span id="cb327-7"><a href="simulations.html#cb327-7"></a><span class="co">## pick 6 of 54 (a lottery)</span></span>
-<span id="cb327-8"><a href="simulations.html#cb327-8"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">54</span>, <span class="dv">6</span>) <span class="co"># no replacement</span></span>
-<span id="cb327-9"><a href="simulations.html#cb327-9"></a><span class="co">## [1] 25 44 15 33 20 35</span></span>
-<span id="cb327-10"><a href="simulations.html#cb327-10"></a><span class="co">## pick a card. (Fancy! Uses paste, rep)</span></span>
-<span id="cb327-11"><a href="simulations.html#cb327-11"></a>cards &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;J&quot;</span>, <span class="st">&quot;Q&quot;</span>, <span class="st">&quot;K&quot;</span>), <span class="dv">4</span>),</span>
-<span id="cb327-12"><a href="simulations.html#cb327-12"></a>               <span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
-<span id="cb327-13"><a href="simulations.html#cb327-13"></a><span class="co"># a pair of jacks, no replacement</span></span>
-<span id="cb327-14"><a href="simulations.html#cb327-14"></a><span class="kw">sample</span>(cards, <span class="dv">5</span>) </span>
-<span id="cb327-15"><a href="simulations.html#cb327-15"></a><span class="co">## [1] &quot;6 D&quot;  &quot;10 D&quot; &quot;3 D&quot;  &quot;Q D&quot;  &quot;8 S&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="simulations.html#cb324-1"></a><span class="co"># Roll a die</span></span>
+<span id="cb324-2"><a href="simulations.html#cb324-2"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb324-3"><a href="simulations.html#cb324-3"></a><span class="co">##  [1] 3 3 1 5 5 2 6 6 2 1</span></span>
+<span id="cb324-4"><a href="simulations.html#cb324-4"></a><span class="co">## toss a coin</span></span>
+<span id="cb324-5"><a href="simulations.html#cb324-5"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb324-6"><a href="simulations.html#cb324-6"></a><span class="co">##  [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;</span></span>
+<span id="cb324-7"><a href="simulations.html#cb324-7"></a><span class="co">## pick 6 of 54 (a lottery)</span></span>
+<span id="cb324-8"><a href="simulations.html#cb324-8"></a><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">54</span>, <span class="dv">6</span>) <span class="co"># no replacement</span></span>
+<span id="cb324-9"><a href="simulations.html#cb324-9"></a><span class="co">## [1] 25 44 15 33 20 35</span></span>
+<span id="cb324-10"><a href="simulations.html#cb324-10"></a><span class="co">## pick a card. (Fancy! Uses paste, rep)</span></span>
+<span id="cb324-11"><a href="simulations.html#cb324-11"></a>cards &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;J&quot;</span>, <span class="st">&quot;Q&quot;</span>, <span class="st">&quot;K&quot;</span>), <span class="dv">4</span>),</span>
+<span id="cb324-12"><a href="simulations.html#cb324-12"></a>               <span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb324-13"><a href="simulations.html#cb324-13"></a><span class="co"># a pair of jacks, no replacement</span></span>
+<span id="cb324-14"><a href="simulations.html#cb324-14"></a><span class="kw">sample</span>(cards, <span class="dv">5</span>) </span>
+<span id="cb324-15"><a href="simulations.html#cb324-15"></a><span class="co">## [1] &quot;6 D&quot;  &quot;10 D&quot; &quot;3 D&quot;  &quot;Q D&quot;  &quot;8 S&quot;</span></span></code></pre></div>
 </div>
 <div id="a-simulation-example" class="section level2">
 <h2><span class="header-section-number">10.6</span> A Simulation Example</h2>
 <ol style="list-style-type: decimal">
 <li>Toss a single die 1000 times, each time note down the number that showed up. Find the distribution of the 1000 observations</li>
 </ol>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="simulations.html#cb328-1"></a><span class="co"># distributions of a single six sided die</span></span>
-<span id="cb328-2"><a href="simulations.html#cb328-2"></a><span class="co"># generate a uniform random distribution from min to max</span></span>
-<span id="cb328-3"><a href="simulations.html#cb328-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>    <span class="co">#how many cases to generate</span></span>
-<span id="cb328-4"><a href="simulations.html#cb328-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>            <span class="co">#set parameters</span></span>
-<span id="cb328-5"><a href="simulations.html#cb328-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
-<span id="cb328-6"><a href="simulations.html#cb328-6"></a><span class="co"># generate random uniform numcases numbers from min to max </span></span>
-<span id="cb328-7"><a href="simulations.html#cb328-7"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace =</span> <span class="ot">TRUE</span>)    </span>
-<span id="cb328-8"><a href="simulations.html#cb328-8"></a><span class="co"># show the histogram</span></span>
-<span id="cb328-9"><a href="simulations.html#cb328-9"></a><span class="kw">hist</span>(x,<span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
-<span id="cb328-10"><a href="simulations.html#cb328-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases,<span class="st">&quot; roles of a single die&quot;</span>),</span>
-<span id="cb328-11"><a href="simulations.html#cb328-11"></a>     <span class="dt">breaks =</span> <span class="kw">seq</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>, <span class="dv">1</span>))  </span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="simulations.html#cb325-1"></a><span class="co"># distributions of a single six sided die</span></span>
+<span id="cb325-2"><a href="simulations.html#cb325-2"></a><span class="co"># generate a uniform random distribution from min to max</span></span>
+<span id="cb325-3"><a href="simulations.html#cb325-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>    <span class="co">#how many cases to generate</span></span>
+<span id="cb325-4"><a href="simulations.html#cb325-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>            <span class="co">#set parameters</span></span>
+<span id="cb325-5"><a href="simulations.html#cb325-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb325-6"><a href="simulations.html#cb325-6"></a><span class="co"># generate random uniform numcases numbers from min to max </span></span>
+<span id="cb325-7"><a href="simulations.html#cb325-7"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace =</span> <span class="ot">TRUE</span>)    </span>
+<span id="cb325-8"><a href="simulations.html#cb325-8"></a><span class="co"># show the histogram</span></span>
+<span id="cb325-9"><a href="simulations.html#cb325-9"></a><span class="kw">hist</span>(x,<span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb325-10"><a href="simulations.html#cb325-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases,<span class="st">&quot; roles of a single die&quot;</span>),</span>
+<span id="cb325-11"><a href="simulations.html#cb325-11"></a>     <span class="dt">breaks =</span> <span class="kw">seq</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>, <span class="dv">1</span>))  </span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:hh1"></span>
 <img src="SCA_book_files/figure-html/hh1-1.png" alt="A histogram based on 1000 roles of a single die." width="75%" />
 <p class="caption">
@@ -461,16 +460,16 @@ Figure 10.2: A histogram based on 1000 roles of a single die.
 <ol start="2" style="list-style-type: decimal">
 <li>Toss two dice 1000 times, each time note down the number that showed up and compute the average of the two dice. Find the distribution of the 1000 sample means</li>
 </ol>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="simulations.html#cb329-1"></a><span class="co"># generate a uniform random distribution from min to max </span></span>
-<span id="cb329-2"><a href="simulations.html#cb329-2"></a><span class="co"># for numcases sample size 2</span></span>
-<span id="cb329-3"><a href="simulations.html#cb329-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>      <span class="co">#how many cases to generate</span></span>
-<span id="cb329-4"><a href="simulations.html#cb329-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>              <span class="co">#set parameters</span></span>
-<span id="cb329-5"><a href="simulations.html#cb329-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
-<span id="cb329-6"><a href="simulations.html#cb329-6"></a>x1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
-<span id="cb329-7"><a href="simulations.html#cb329-7"></a>x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)       </span>
-<span id="cb329-8"><a href="simulations.html#cb329-8"></a>x.bar &lt;-<span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb329-9"><a href="simulations.html#cb329-9"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
-<span id="cb329-10"><a href="simulations.html#cb329-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases, <span class="st">&quot; roles of a pair of dice&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="simulations.html#cb326-1"></a><span class="co"># generate a uniform random distribution from min to max </span></span>
+<span id="cb326-2"><a href="simulations.html#cb326-2"></a><span class="co"># for numcases sample size 2</span></span>
+<span id="cb326-3"><a href="simulations.html#cb326-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>      <span class="co">#how many cases to generate</span></span>
+<span id="cb326-4"><a href="simulations.html#cb326-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>              <span class="co">#set parameters</span></span>
+<span id="cb326-5"><a href="simulations.html#cb326-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb326-6"><a href="simulations.html#cb326-6"></a>x1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb326-7"><a href="simulations.html#cb326-7"></a>x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)       </span>
+<span id="cb326-8"><a href="simulations.html#cb326-8"></a>x.bar &lt;-<span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb326-9"><a href="simulations.html#cb326-9"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb326-10"><a href="simulations.html#cb326-10"></a>     <span class="dt">main =</span> <span class="kw">paste</span>(numcases, <span class="st">&quot; roles of a pair of dice&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:hh2"></span>
 <img src="SCA_book_files/figure-html/hh2-1.png" alt="A histogram based on 1000 roles of a pair of dice." width="75%" />
 <p class="caption">
@@ -480,19 +479,19 @@ Figure 10.3: A histogram based on 1000 roles of a pair of dice.
 <ol start="3" style="list-style-type: decimal">
 <li>Toss k dice 1000 times, each time note down the number that showed up and compute the average of the k dice. Find the distribution of the 1000 sample means</li>
 </ol>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="simulations.html#cb330-1"></a><span class="co"># Toss k=100 dice</span></span>
-<span id="cb330-2"><a href="simulations.html#cb330-2"></a>k &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb330-3"><a href="simulations.html#cb330-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>               <span class="co">#how many samples to take? </span></span>
-<span id="cb330-4"><a href="simulations.html#cb330-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>                       <span class="co">#lowest value</span></span>
-<span id="cb330-5"><a href="simulations.html#cb330-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
-<span id="cb330-6"><a href="simulations.html#cb330-6"></a>sum &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,numcases)</span>
-<span id="cb330-7"><a href="simulations.html#cb330-7"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
-<span id="cb330-8"><a href="simulations.html#cb330-8"></a>	dice &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
-<span id="cb330-9"><a href="simulations.html#cb330-9"></a>	sum &lt;-<span class="st"> </span>sum <span class="op">+</span><span class="st"> </span>dice</span>
-<span id="cb330-10"><a href="simulations.html#cb330-10"></a>}</span>
-<span id="cb330-11"><a href="simulations.html#cb330-11"></a>x.bar &lt;-<span class="st"> </span>sum <span class="op">/</span><span class="st"> </span>k</span>
-<span id="cb330-12"><a href="simulations.html#cb330-12"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
-<span id="cb330-13"><a href="simulations.html#cb330-13"></a>     <span class="dt">main =</span> <span class="kw">paste</span>( numcases,<span class="st">&quot; roles of 100 dice&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="simulations.html#cb327-1"></a><span class="co"># Toss k=100 dice</span></span>
+<span id="cb327-2"><a href="simulations.html#cb327-2"></a>k &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb327-3"><a href="simulations.html#cb327-3"></a>numcases &lt;-<span class="st"> </span><span class="dv">1000</span>               <span class="co">#how many samples to take? </span></span>
+<span id="cb327-4"><a href="simulations.html#cb327-4"></a>min &lt;-<span class="st"> </span><span class="dv">1</span>                       <span class="co">#lowest value</span></span>
+<span id="cb327-5"><a href="simulations.html#cb327-5"></a>max &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb327-6"><a href="simulations.html#cb327-6"></a>sum &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,numcases)</span>
+<span id="cb327-7"><a href="simulations.html#cb327-7"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k){</span>
+<span id="cb327-8"><a href="simulations.html#cb327-8"></a>	dice &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, numcases, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb327-9"><a href="simulations.html#cb327-9"></a>	sum &lt;-<span class="st"> </span>sum <span class="op">+</span><span class="st"> </span>dice</span>
+<span id="cb327-10"><a href="simulations.html#cb327-10"></a>}</span>
+<span id="cb327-11"><a href="simulations.html#cb327-11"></a>x.bar &lt;-<span class="st"> </span>sum <span class="op">/</span><span class="st"> </span>k</span>
+<span id="cb327-12"><a href="simulations.html#cb327-12"></a><span class="kw">hist</span>(x.bar, <span class="dt">prob =</span> T, <span class="dt">xlim =</span> <span class="kw">range</span>(min <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, max <span class="op">+</span><span class="st"> </span><span class="fl">.5</span>),</span>
+<span id="cb327-13"><a href="simulations.html#cb327-13"></a>     <span class="dt">main =</span> <span class="kw">paste</span>( numcases,<span class="st">&quot; roles of 100 dice&quot;</span>)) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:hh3"></span>
 <img src="SCA_book_files/figure-html/hh3-1.png" alt="A histogram based on 1000 roles of 100 dice." width="75%" />
 <p class="caption">
@@ -513,14 +512,14 @@ Figure 10.4: A histogram based on 1000 roles of 100 dice.
 <ol style="list-style-type: decimal">
 <li>Use the <code>replicate</code> function</li>
 </ol>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="simulations.html#cb331-1"></a><span class="kw">replicate</span>(n, expression)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="simulations.html#cb328-1"></a><span class="kw">replicate</span>(n, expression)</span></code></pre></div>
 <p>Find the mean of 100 random standard normal numbers, and repeat it 10 times</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="simulations.html#cb332-1"></a><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="simulations.html#cb329-1"></a><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>)))</span></code></pre></div>
 <pre><code>##  [1] -0.080971362 -0.087927875  0.215721843 -0.151144052
 ##  [5]  0.064324835 -0.065627610  0.228410840 -0.006319742
 ##  [9] -0.032525699 -0.101028481</code></pre>
 <p>Find the mean of 10 random standard normal numbers, repeat it 100 times, and draw the histgram of 100 means</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="simulations.html#cb334-1"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="simulations.html#cb331-1"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>))))</span></code></pre></div>
 <div class="figure"><span id="fig:hh4"></span>
 <img src="SCA_book_files/figure-html/hh4-1.png" alt="Histogram of the mean of 10 random standard normal numbers based on 100 replications." width="75%" />
 <p class="caption">
@@ -537,18 +536,18 @@ Figure 10.5: Histogram of the mean of 10 random standard normal numbers based on
 is asymptotically normal with mean 0 and variance 1. That is, if <span class="math inline">\(n\)</span> is large enough the average is approximately normal with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
 <p>How can we check this? <strong>Simulation</strong> is an excellent way. Let’s investigate. Suppose we start with a skewed distribution, the CLT says that the average will eventually look normal. That is, it is approximately normal for large <span class="math inline">\(n\)</span>. What does “eventually” mean? What does “large” mean?</p>
 <p>An example of a skewed distribution is the exponential. Note that the exponential distribution has standard deviation equal to its mean, so we only need to specify the mean. To generate a function of exponential distribution with mean 10 (standard deviation is also 10 then)</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="simulations.html#cb335-1"></a><span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="simulations.html#cb332-1"></a><span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">10</span>)</span></code></pre></div>
 <p>Here is a function to create a single standardized average based on <span class="math inline">\(n=5\)</span> exponential random variables with mean 10:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="simulations.html#cb336-1"></a>f  &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mu =</span> <span class="dv">10</span>) {</span>
-<span id="cb336-2"><a href="simulations.html#cb336-2"></a>  (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
-<span id="cb336-3"><a href="simulations.html#cb336-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="simulations.html#cb333-1"></a>f  &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mu =</span> <span class="dv">10</span>) {</span>
+<span id="cb333-2"><a href="simulations.html#cb333-2"></a>  (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
+<span id="cb333-3"><a href="simulations.html#cb333-3"></a>}</span></code></pre></div>
 <p>But that is only one of these random numbers. We really want lots of them to see their distribution. How can we create 100 of them? We can use <code>for</code> loops.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="simulations.html#cb337-1"></a>results  &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="simulations.html#cb334-1"></a>results  &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span></code></pre></div>
 <p>We can view the results with a histogram:</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="simulations.html#cb338-1"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
-<span id="cb338-2"><a href="simulations.html#cb338-2"></a><span class="kw">hist</span>(results, <span class="dt">probability =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
-<span id="cb338-3"><a href="simulations.html#cb338-3"></a><span class="co"># plot normal curve</span></span>
-<span id="cb338-4"><a href="simulations.html#cb338-4"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="simulations.html#cb335-1"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb335-2"><a href="simulations.html#cb335-2"></a><span class="kw">hist</span>(results, <span class="dt">probability =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb335-3"><a href="simulations.html#cb335-3"></a><span class="co"># plot normal curve</span></span>
+<span id="cb335-4"><a href="simulations.html#cb335-4"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:hh5"></span>
 <img src="SCA_book_files/figure-html/hh5-1.png" alt="Histogram of the mean of 5 random exponential variables with mean 10 based on 100 replications." width="75%" />
 <p class="caption">
@@ -558,27 +557,27 @@ Figure 10.6: Histogram of the mean of 5 random exponential variables with mean 1
 <p>Repeat the above for <span class="math inline">\(n=15,~30,~50,~100\)</span>. The histogram becomes very bell shaped between <span class="math inline">\(n=15\)</span> and <span class="math inline">\(n=50\)</span>, although even at <span class="math inline">\(n=50\)</span> it appears to still be a little
 skewed.</p>
 <p>Let us put the above together.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="simulations.html#cb339-1"></a><span class="co"># create a single standardized average based on n exponential  </span></span>
-<span id="cb339-2"><a href="simulations.html#cb339-2"></a><span class="co"># random variables with mean mu:</span></span>
-<span id="cb339-3"><a href="simulations.html#cb339-3"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb339-4"><a href="simulations.html#cb339-4"></a></span>
-<span id="cb339-5"><a href="simulations.html#cb339-5"></a>f =<span class="st"> </span><span class="cf">function</span>(n, mu) {</span>
-<span id="cb339-6"><a href="simulations.html#cb339-6"></a> (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n))</span>
-<span id="cb339-7"><a href="simulations.html#cb339-7"></a>}</span>
-<span id="cb339-8"><a href="simulations.html#cb339-8"></a></span>
-<span id="cb339-9"><a href="simulations.html#cb339-9"></a><span class="co"># sample size n=5, mu=10, repeat 100 times</span></span>
-<span id="cb339-10"><a href="simulations.html#cb339-10"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
-<span id="cb339-11"><a href="simulations.html#cb339-11"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb339-12"><a href="simulations.html#cb339-12"></a>     <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
-<span id="cb339-13"><a href="simulations.html#cb339-13"></a><span class="co"># plot normal curve</span></span>
-<span id="cb339-14"><a href="simulations.html#cb339-14"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span>
-<span id="cb339-15"><a href="simulations.html#cb339-15"></a></span>
-<span id="cb339-16"><a href="simulations.html#cb339-16"></a><span class="co"># sample size n=50, repeat 100 times </span></span>
-<span id="cb339-17"><a href="simulations.html#cb339-17"></a>xvals =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
-<span id="cb339-18"><a href="simulations.html#cb339-18"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">50</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb339-19"><a href="simulations.html#cb339-19"></a>     <span class="dt">main =</span> <span class="st">&quot;n=50&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
-<span id="cb339-20"><a href="simulations.html#cb339-20"></a><span class="co"># plot normal curve</span></span>
-<span id="cb339-21"><a href="simulations.html#cb339-21"></a><span class="kw">points</span>(xvals,<span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="simulations.html#cb336-1"></a><span class="co"># create a single standardized average based on n exponential  </span></span>
+<span id="cb336-2"><a href="simulations.html#cb336-2"></a><span class="co"># random variables with mean mu:</span></span>
+<span id="cb336-3"><a href="simulations.html#cb336-3"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb336-4"><a href="simulations.html#cb336-4"></a></span>
+<span id="cb336-5"><a href="simulations.html#cb336-5"></a>f =<span class="st"> </span><span class="cf">function</span>(n, mu) {</span>
+<span id="cb336-6"><a href="simulations.html#cb336-6"></a> (<span class="kw">mean</span>(<span class="kw">rexp</span>(n, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>mu)) <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(mu <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n))</span>
+<span id="cb336-7"><a href="simulations.html#cb336-7"></a>}</span>
+<span id="cb336-8"><a href="simulations.html#cb336-8"></a></span>
+<span id="cb336-9"><a href="simulations.html#cb336-9"></a><span class="co"># sample size n=5, mu=10, repeat 100 times</span></span>
+<span id="cb336-10"><a href="simulations.html#cb336-10"></a>xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb336-11"><a href="simulations.html#cb336-11"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">5</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb336-12"><a href="simulations.html#cb336-12"></a>     <span class="dt">main =</span> <span class="st">&quot;n=5&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb336-13"><a href="simulations.html#cb336-13"></a><span class="co"># plot normal curve</span></span>
+<span id="cb336-14"><a href="simulations.html#cb336-14"></a><span class="kw">points</span>(xvals, <span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span>
+<span id="cb336-15"><a href="simulations.html#cb336-15"></a></span>
+<span id="cb336-16"><a href="simulations.html#cb336-16"></a><span class="co"># sample size n=50, repeat 100 times </span></span>
+<span id="cb336-17"><a href="simulations.html#cb336-17"></a>xvals =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">.01</span>) <span class="co"># for the density plot</span></span>
+<span id="cb336-18"><a href="simulations.html#cb336-18"></a><span class="kw">hist</span>(<span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">f</span>(<span class="dv">50</span>, <span class="dv">10</span>)), <span class="dt">probability =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb336-19"><a href="simulations.html#cb336-19"></a>     <span class="dt">main =</span> <span class="st">&quot;n=50&quot;</span>, <span class="dt">col =</span> <span class="kw">gray</span>(.<span class="dv">95</span>))</span>
+<span id="cb336-20"><a href="simulations.html#cb336-20"></a><span class="co"># plot normal curve</span></span>
+<span id="cb336-21"><a href="simulations.html#cb336-21"></a><span class="kw">points</span>(xvals,<span class="kw">dnorm</span>(xvals, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:hh6"></span>
 <img src="SCA_book_files/figure-html/hh6-1.png" alt="Histogram of the mean of 5 (left) or 50 (right) random exponential variables with mean 10 based on 100 replications." width="75%" />
 <p class="caption">
@@ -586,22 +585,22 @@ Figure 10.7: Histogram of the mean of 5 (left) or 50 (right) random exponential 
 </p>
 </div>
 <p>You can also build up a function to achieve the above simulation goals.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="simulations.html#cb340-1"></a>sim1 =<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb340-2"><a href="simulations.html#cb340-2"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))))</span>
-<span id="cb340-3"><a href="simulations.html#cb340-3"></a>}</span>
-<span id="cb340-4"><a href="simulations.html#cb340-4"></a></span>
-<span id="cb340-5"><a href="simulations.html#cb340-5"></a>sim2 =<span class="st"> </span><span class="cf">function</span>(n, m){</span>
-<span id="cb340-6"><a href="simulations.html#cb340-6"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
-<span id="cb340-7"><a href="simulations.html#cb340-7"></a>}</span>
-<span id="cb340-8"><a href="simulations.html#cb340-8"></a></span>
-<span id="cb340-9"><a href="simulations.html#cb340-9"></a>sim3 =<span class="st"> </span><span class="cf">function</span>(n, m, d){</span>
-<span id="cb340-10"><a href="simulations.html#cb340-10"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;gaussian&quot;</span>){</span>
-<span id="cb340-11"><a href="simulations.html#cb340-11"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
-<span id="cb340-12"><a href="simulations.html#cb340-12"></a>	}</span>
-<span id="cb340-13"><a href="simulations.html#cb340-13"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;uniform&quot;</span>){</span>
-<span id="cb340-14"><a href="simulations.html#cb340-14"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">runif</span>(m))))</span>
-<span id="cb340-15"><a href="simulations.html#cb340-15"></a>	}</span>
-<span id="cb340-16"><a href="simulations.html#cb340-16"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="simulations.html#cb337-1"></a>sim1 =<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb337-2"><a href="simulations.html#cb337-2"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))))</span>
+<span id="cb337-3"><a href="simulations.html#cb337-3"></a>}</span>
+<span id="cb337-4"><a href="simulations.html#cb337-4"></a></span>
+<span id="cb337-5"><a href="simulations.html#cb337-5"></a>sim2 =<span class="st"> </span><span class="cf">function</span>(n, m){</span>
+<span id="cb337-6"><a href="simulations.html#cb337-6"></a>	<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
+<span id="cb337-7"><a href="simulations.html#cb337-7"></a>}</span>
+<span id="cb337-8"><a href="simulations.html#cb337-8"></a></span>
+<span id="cb337-9"><a href="simulations.html#cb337-9"></a>sim3 =<span class="st"> </span><span class="cf">function</span>(n, m, d){</span>
+<span id="cb337-10"><a href="simulations.html#cb337-10"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;gaussian&quot;</span>){</span>
+<span id="cb337-11"><a href="simulations.html#cb337-11"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">rnorm</span>(m))))</span>
+<span id="cb337-12"><a href="simulations.html#cb337-12"></a>	}</span>
+<span id="cb337-13"><a href="simulations.html#cb337-13"></a>	<span class="cf">if</span>(d<span class="op">==</span><span class="st">&quot;uniform&quot;</span>){</span>
+<span id="cb337-14"><a href="simulations.html#cb337-14"></a>		<span class="kw">hist</span>(<span class="kw">replicate</span>(n, <span class="kw">mean</span>(<span class="kw">runif</span>(m))))</span>
+<span id="cb337-15"><a href="simulations.html#cb337-15"></a>	}</span>
+<span id="cb337-16"><a href="simulations.html#cb337-16"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="exercises" class="section level2">
@@ -620,6 +619,11 @@ Figure 10.7: Histogram of the mean of 5 (left) or 50 (right) random exponential 
 <li><p>Generate the data from normal distribution: one dataset with <span class="math inline">\(n =100\)</span>, mean = 10 and standard deviation = 10, the other dataset with <span class="math inline">\(n =100\)</span>, mean = 100 and standard deviation = 100. Make the histograms for the two datasets and compare the two distributions. How are they different? How are they similar? Are both approximately normal?</p></li>
 </ol>
 
+<div id="refs" class="references">
+<div>
+<p>Xie, Yihui. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
 </div>
 </div>
             </section>

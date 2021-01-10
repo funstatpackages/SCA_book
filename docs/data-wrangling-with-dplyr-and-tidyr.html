@@ -24,7 +24,7 @@
 <meta name="author" content="Lily Wang" />
 
 
-<meta name="date" content="2021-01-09" />
+<meta name="date" content="2021-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,9 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-sets-used-in-labs-and-exercises"><i class="fa fa-check"></i><b>1.3</b> Data Sets Used in Labs and Exercises</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.3</b> About the Author</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> R Introduction and Preliminaries</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-r-environment-and-language"><i class="fa fa-check"></i><b>2.1</b> The R Environment and Language</a></li>
@@ -296,19 +295,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The package <code>tidyr</code> addresses the common problem of reshaping your data for plotting and use by different R functions. Sometimes we want data sets where we have one row per measurement. Sometimes we want a dataframe where each measurement type has its own column, and rows are instead more aggregated groups. Moving back and forth between these formats is nontrivial, and <code>tidyr</code> gives you tools for this and more sophisticated data wrangling.</p>
 <div id="learning-dplyr" class="section level2">
 <h2><span class="header-section-number">8.1</span> Learning <code>dplyr</code></h2>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb228-1"></a><span class="co"># Load the tidyverse</span></span>
-<span id="cb228-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb228-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb228-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb228-3"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb225-1"></a><span class="co"># Load the tidyverse</span></span>
+<span id="cb225-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb225-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb225-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb225-3"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
 <p>Below we will work on COVID-19 county level infected count data, and we can obtain the data from Github R package <code>slid</code>.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-1"></a><span class="co"># Install the slid package from github</span></span>
-<span id="cb229-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-2"></a><span class="co"># library(devtools)</span></span>
-<span id="cb229-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-3"></a><span class="co"># devtools::install_github(&#39;covid19-dashboard-us/slid&#39;)</span></span>
-<span id="cb229-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-4"></a><span class="co"># Load objects in I.county into my workspace</span></span>
-<span id="cb229-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-5"></a><span class="kw">library</span>(slid)</span>
-<span id="cb229-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-6"></a><span class="kw">data</span>(I.county)</span>
-<span id="cb229-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-7"></a></span>
-<span id="cb229-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-8"></a><span class="co"># preview the data</span></span>
-<span id="cb229-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-9"></a><span class="co"># View(I.county)</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-1"></a><span class="co"># Install the slid package from github</span></span>
+<span id="cb226-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-2"></a><span class="co"># library(devtools)</span></span>
+<span id="cb226-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-3"></a><span class="co"># devtools::install_github(&#39;covid19-dashboard-us/slid&#39;)</span></span>
+<span id="cb226-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-4"></a><span class="co"># Load objects in I.county into my workspace</span></span>
+<span id="cb226-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-5"></a><span class="kw">library</span>(slid)</span>
+<span id="cb226-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-6"></a><span class="kw">data</span>(I.county)</span>
+<span id="cb226-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-7"></a></span>
+<span id="cb226-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-8"></a><span class="co"># preview the data</span></span>
+<span id="cb226-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb226-9"></a><span class="co"># View(I.county)</span></span></code></pre></div>
 <p>We’re going to learn some of the most common <code>dplyr</code> functions:</p>
 <ul>
 <li><code>select()</code>: subset columns</li>
@@ -324,23 +323,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>To select columns of a dataframe, use <code>select()</code>. The first argument to this function is the dataframe (<code>I.county</code>), and the subsequent arguments are the columns to keep, separated by commas. Alternatively, if you are selecting columns adjacent to each other, you can use a <code>:</code> to select a range of columns, read as “select columns from __ to __.”</li>
 </ol>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-1"></a><span class="co"># load the tidyverse</span></span>
-<span id="cb230-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-2"></a>dplyr<span class="op">::</span><span class="kw">select</span>(I.county, ID, County, State)</span>
-<span id="cb230-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-3"></a><span class="co"># to select a series of connected columns</span></span>
-<span id="cb230-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-4"></a>dplyr<span class="op">::</span><span class="kw">select</span>(I.county, ID, County, State, </span>
-<span id="cb230-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-5"></a>              X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb227-1"></a><span class="co"># load the tidyverse</span></span>
+<span id="cb227-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb227-2"></a>dplyr<span class="op">::</span><span class="kw">select</span>(I.county, ID, County, State)</span>
+<span id="cb227-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb227-3"></a><span class="co"># to select a series of connected columns</span></span>
+<span id="cb227-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb227-4"></a>dplyr<span class="op">::</span><span class="kw">select</span>(I.county, ID, County, State, </span>
+<span id="cb227-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb227-5"></a>              X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>To choose rows based on specific criteria, we can use the <code>filter()</code> function. The arguments after the dataframe are the condition(s) we want for our final dataframe to adhere to (e.g. <code>State</code> name is “Iowa”). We can chain a series of conditions together using commas between each condition.</li>
 </ol>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb231-1"></a><span class="co"># all Iowa counties</span></span>
-<span id="cb231-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb231-2"></a>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb228-1"></a><span class="co"># all Iowa counties</span></span>
+<span id="cb228-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb228-2"></a>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Here is an example of <code>filter()</code> function with multiple conditions:</li>
 </ol>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-1"></a><span class="co"># multiple conditions: all Iowa counties with cumulative </span></span>
-<span id="cb232-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-2"></a><span class="co"># infection count &gt; 10000</span></span>
-<span id="cb232-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-3"></a>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>, </span>
-<span id="cb232-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-4"></a>              X2020.<span class="fl">12.11</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">10000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-1"></a><span class="co"># multiple conditions: all Iowa counties with cumulative </span></span>
+<span id="cb229-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-2"></a><span class="co"># infection count &gt; 10000</span></span>
+<span id="cb229-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-3"></a>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>, </span>
+<span id="cb229-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb229-4"></a>              X2020.<span class="fl">12.11</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">10000</span>)</span></code></pre></div>
 <p>Figure <a href="data-wrangling-with-dplyr-and-tidyr.html#fig:logic">8.1</a> shows some commonly used R logic omparisons</p>
 <div class="figure" style="text-align: center"><span id="fig:logic"></span>
 <img src="figures/logic.png" alt="Some commonly used logic comparisons." width="75%" />
@@ -353,28 +352,28 @@ Figure 8.1: Some commonly used logic comparisons.
 <h2><span class="header-section-number">8.3</span> Pipes</h2>
 <p>What if you want to select and filter at the same time? There are three ways to do this: use intermediate steps, nested functions, or pipes.</p>
 <p>With intermediate steps, you create a temporary dataframe and use that as input to the next function, like this:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-1"></a>Iowa.I.county &lt;-<span class="st"> </span></span>
-<span id="cb233-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span>
-<span id="cb233-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-3"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span></span>
-<span id="cb233-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(Iowa.I.county, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-1"></a>Iowa.I.county &lt;-<span class="st"> </span></span>
+<span id="cb230-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span>
+<span id="cb230-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-3"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span></span>
+<span id="cb230-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb230-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(Iowa.I.county, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
 <p>This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.</p>
 <p>You can also nest functions (i.e. one function inside of another), like this:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb234-1"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span></span>
-<span id="cb234-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb234-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>), </span>
-<span id="cb234-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb234-3"></a>                ID, County, State, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb231-1"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span></span>
+<span id="cb231-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb231-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(dplyr<span class="op">::</span><span class="kw">filter</span>(I.county, State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>), </span>
+<span id="cb231-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb231-3"></a>                ID, County, State, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
 <p>This is handy but can be difficult to read if too many functions are nested, as R evaluates the expression from the inside out (in this case, filtering, then selecting).</p>
 <p>The last option, <strong>pipes</strong>, are a recent addition to R. <strong>Pipes</strong> let you take the output of one function and send it directly to the next, which is useful when you need to do many things to the same dataset. Pipes in R look like <code>%&gt;%</code> and are made available via the <code>magrittr</code> package, installed automatically with <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb235-1"></a>I.county <span class="op">%&gt;%</span></span>
-<span id="cb235-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb235-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb235-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb235-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-1"></a>I.county <span class="op">%&gt;%</span></span>
+<span id="cb232-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb232-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb232-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span></code></pre></div>
 <p>In the above code, we use the <strong>pipe</strong> to send the interviews dataset first through <code>filter()</code> to keep rows for the state of Iowa, then through <code>select()</code> to keep only the count in December. Since <code>%&gt;%</code> takes the object on its left and passes it as the first argument to the function on its right, we don’t need to explicitly include the <code>dataframe</code> as an argument to the <code>filter()</code> and <code>select()</code> functions anymore.</p>
 <p>Some may find it helpful to read the pipe like the word “then”. For instance, in the above example, we take the dataframe <code>I.county</code>, then we filter for rows with <code>State == "Iowa"</code>, then we select columns from <code>X2020.12.11</code> to <code>X2020.12.01</code>. The <code>dplyr</code> functions are somewhat simple, but by combining them into linear workflows with the pipe, we can accomplish more complex data wrangling operations.</p>
 <p>If we want to create a new object with this smaller version of the data, we can assign it a new name:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-1"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
-<span id="cb236-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb236-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-3"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span>
-<span id="cb236-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-4"></a></span>
-<span id="cb236-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-5"></a><span class="kw">head</span>(Iowa.I.county.DEC)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-1"></a>Iowa.I.county.DEC &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
+<span id="cb233-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb233-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-3"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)</span>
+<span id="cb233-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-4"></a></span>
+<span id="cb233-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb233-5"></a><span class="kw">head</span>(Iowa.I.county.DEC)</span></code></pre></div>
 <pre><code>##      ID    County X2020.12.11 X2020.12.10 X2020.12.09
 ## 1 19001     Adair         506         503         499
 ## 2 19003     Adams         208         206         200
@@ -402,26 +401,26 @@ Figure 8.1: Some commonly used logic comparisons.
 <p>The function <code>top_n</code> can be used to select top (or bottom) n rows (by value).</p>
 <p>This is a convenient wrapper that uses <code>filter()</code>and <code>min_rank()</code> to select the top or bottom entries in each group, ordered by <code>wt</code>.</p>
 <p>** Usage **</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb238-1"></a><span class="kw">top_n</span>(x, n, wt)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb235-1"></a><span class="kw">top_n</span>(x, n, wt)</span></code></pre></div>
 <p>** Arguments **
 * <code>x</code>: a tbl() to filter
 * <code>n</code>: number of rows to return. If <code>x</code> is grouped, this is the number of rows per group. Will include more than <code>n</code> rows if there are ties. If <code>n</code> is positive, selects the top <code>n</code> rows. If negative, selects the bottom <code>n</code> rows.
 * wt (Optional). The variable to use for ordering. If not specified, defaults to the last variable in the tbl.</p>
 <p>This argument is automatically quoted and later evaluated in the context of the data frame. It supports unquoting.</p>
 <p>Let us find the top ten counties with the largest cumulative infected count on December 11, 2020.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb239-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb239-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb239-2"></a>I.county.top10 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb239-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb239-3"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>)</span>
-<span id="cb239-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb239-4"></a>I.county.top10<span class="op">$</span>County</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb236-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-2"></a>I.county.top10 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb236-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-3"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>)</span>
+<span id="cb236-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb236-4"></a>I.county.top10<span class="op">$</span>County</span></code></pre></div>
 <pre><code>##  [1] Maricopa      LosAngeles    SanBernardino Broward      
 ##  [5] Miami-Dade    Cook          Clark         Dallas       
 ##  [9] Harris        Tarrant      
 ## 1839 Levels: Abbeville AcadiaParish Accomack Ada ... obrien</code></pre>
 <p>Let us find the top ten counties with the smallest cumulative infected count on December 11, 2020.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb241-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-2"></a>I.county.bottom10 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb241-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-3"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>)</span>
-<span id="cb241-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-4"></a>I.county.bottom10<span class="op">$</span>County</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb238-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb238-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb238-2"></a>I.county.bottom10 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb238-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb238-3"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>)</span>
+<span id="cb238-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb238-4"></a>I.county.bottom10<span class="op">$</span>County</span></code></pre></div>
 <pre><code>##  [1] Dukes        Nantucket    OglalaLakota Beaver      
 ##  [5] BoxElder     Cache        Carbon       Daggett     
 ##  [9] Duchesne     Emery        Garfield     Grand       
@@ -431,21 +430,21 @@ Figure 8.1: Some commonly used logic comparisons.
 ## [25] Weber       
 ## 1839 Levels: Abbeville AcadiaParish Accomack Ada ... obrien</code></pre>
 <p>Let us find the county with the largest cumulative infected count on December 11, 2020 for each state.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb243-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-2"></a>I.county.top1 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb243-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-3"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
-<span id="cb243-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">1</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb243-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State, County)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb240-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb240-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb240-2"></a>I.county.top1 &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb240-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb240-3"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
+<span id="cb240-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb240-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">1</span>, <span class="dt">wt =</span> X2020.<span class="fl">12.11</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb240-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb240-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State, County)</span></code></pre></div>
 </div>
 <div id="mutate" class="section level2">
 <h2><span class="header-section-number">8.5</span> Mutate</h2>
 <p>Frequently you’ll want to create new columns based on the values in existing columns, for example, to obtain the number of daily new cases based on the cumulative count. For this, we’ll use <code>mutate()</code>.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-1"></a>I.county.new &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb244-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-2"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb244-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-3"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb244-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-4"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Y2020.12.11 =</span> X2020.<span class="fl">12.11</span> <span class="op">-</span><span class="st"> </span>X2020.<span class="fl">12.10</span>)</span>
-<span id="cb244-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-5"></a></span>
-<span id="cb244-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb244-6"></a><span class="kw">head</span>(I.county.new)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-1"></a>I.county.new &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb241-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-2"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb241-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-3"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb241-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-4"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Y2020.12.11 =</span> X2020.<span class="fl">12.11</span> <span class="op">-</span><span class="st"> </span>X2020.<span class="fl">12.10</span>)</span>
+<span id="cb241-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-5"></a></span>
+<span id="cb241-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb241-6"></a><span class="kw">head</span>(I.county.new)</span></code></pre></div>
 <pre><code>##      ID    County X2020.12.11 X2020.12.10 Y2020.12.11
 ## 1 19001     Adair         506         503           3
 ## 2 19003     Adams         208         206           2
@@ -454,20 +453,20 @@ Figure 8.1: Some commonly used logic comparisons.
 ## 5 19009   Audubon         326         323           3
 ## 6 19011    Benton        1852        1847           5</code></pre>
 <p>If we want to obtain the number of daily new cases based on the cumulative count for the dates in December only, we can try the following:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-1"></a>I.county.Iowa &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb246-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span>
-<span id="cb246-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-3"></a></span>
-<span id="cb246-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-4"></a>I.county.tmp =<span class="st"> </span>I.county.Iowa[, <span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)]</span>
-<span id="cb246-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-5"></a>I.county.Iowa.new =<span class="st"> </span>I.county.Iowa</span>
-<span id="cb246-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-6"></a>I.county.Iowa.new[, <span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)] =<span class="st"> </span></span>
-<span id="cb246-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-7"></a><span class="st">  </span>I.county.tmp <span class="op">-</span><span class="st"> </span><span class="kw">cbind</span>(I.county.tmp[, <span class="dv">-1</span>], <span class="dv">0</span>)</span>
-<span id="cb246-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-8"></a></span>
-<span id="cb246-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-9"></a>I.county.Iowa.DEC =<span class="st"> </span>I.county.Iowa.new <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb246-10"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-10"></a>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)  </span>
-<span id="cb246-11"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-11"></a></span>
-<span id="cb246-12"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-12"></a>name.tmp =<span class="st"> </span><span class="kw">substring</span>(<span class="kw">names</span>(I.county.Iowa.DEC)[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)], <span class="dv">2</span>)</span>
-<span id="cb246-13"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-13"></a><span class="kw">names</span>(I.county.Iowa.DEC)[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)] =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Y&quot;</span>, name.tmp)</span>
-<span id="cb246-14"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb246-14"></a><span class="kw">head</span>(I.county.Iowa.DEC)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-1"></a>I.county.Iowa &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb243-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(State <span class="op">==</span><span class="st"> &quot;Iowa&quot;</span>)</span>
+<span id="cb243-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-3"></a></span>
+<span id="cb243-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-4"></a>I.county.tmp =<span class="st"> </span>I.county.Iowa[, <span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)]</span>
+<span id="cb243-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-5"></a>I.county.Iowa.new =<span class="st"> </span>I.county.Iowa</span>
+<span id="cb243-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-6"></a>I.county.Iowa.new[, <span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)] =<span class="st"> </span></span>
+<span id="cb243-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-7"></a><span class="st">  </span>I.county.tmp <span class="op">-</span><span class="st"> </span><span class="kw">cbind</span>(I.county.tmp[, <span class="dv">-1</span>], <span class="dv">0</span>)</span>
+<span id="cb243-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-8"></a></span>
+<span id="cb243-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-9"></a>I.county.Iowa.DEC =<span class="st"> </span>I.county.Iowa.new <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb243-10"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-10"></a>dplyr<span class="op">::</span><span class="kw">select</span>(ID, County, X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">12.01</span>)  </span>
+<span id="cb243-11"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-11"></a></span>
+<span id="cb243-12"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-12"></a>name.tmp =<span class="st"> </span><span class="kw">substring</span>(<span class="kw">names</span>(I.county.Iowa.DEC)[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)], <span class="dv">2</span>)</span>
+<span id="cb243-13"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-13"></a><span class="kw">names</span>(I.county.Iowa.DEC)[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)] =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Y&quot;</span>, name.tmp)</span>
+<span id="cb243-14"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb243-14"></a><span class="kw">head</span>(I.county.Iowa.DEC)</span></code></pre></div>
 <pre><code>##      ID    County Y2020.12.11 Y2020.12.10 Y2020.12.09
 ## 1 19001     Adair           3           4          10
 ## 2 19003     Adams           2           6           4
@@ -510,12 +509,12 @@ Figure 8.1: Some commonly used logic comparisons.
 <li><code>sd</code>: Standard deviation of a vector.</li>
 </ul>
 <p><code>group_by()</code> is often used together with <code>summarize()</code>, which collapses each group into a single-row summary of that group. <code>group_by()</code> takes as arguments the column names that contain the categorical variables for which you want to calculate the summary statistics. Once the data are grouped, you can also summarize multiple variables simultaneously (and not necessarily on the same variable). So to compute the state level infected count by <code>State</code>:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb248-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
-<span id="cb248-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb248-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
-<span id="cb248-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb248-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, </span>
-<span id="cb248-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb248-4"></a>                   <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb245-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
+<span id="cb245-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb245-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
+<span id="cb245-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb245-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">across</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, </span>
+<span id="cb245-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb245-4"></a>                   <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb250-1"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb247-1"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 326
 ##   State X2020.12.11 X2020.12.10 X2020.12.09 X2020.12.08
 ##   &lt;fct&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
@@ -573,12 +572,12 @@ Figure 8.1: Some commonly used logic comparisons.
 ## #   X2020.09.01 &lt;int&gt;, X2020.08.31 &lt;int&gt;,
 ## #   X2020.08.30 &lt;int&gt;, …</code></pre>
 <p>or we can use <code>summarise_at()</code>, which affects variables selected with a character vector or <code>vars()</code>:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
-<span id="cb252-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
-<span id="cb252-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-3"></a><span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>), </span>
-<span id="cb252-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-4"></a>               <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
-<span id="cb252-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-5"></a></span>
-<span id="cb252-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb252-6"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
+<span id="cb249-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
+<span id="cb249-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-3"></a><span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>), </span>
+<span id="cb249-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-4"></a>               <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb249-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-5"></a></span>
+<span id="cb249-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb249-6"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 326
 ##   State X2020.12.11 X2020.12.10 X2020.12.09 X2020.12.08
 ##   &lt;fct&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
@@ -636,11 +635,11 @@ Figure 8.1: Some commonly used logic comparisons.
 ## #   X2020.09.01 &lt;int&gt;, X2020.08.31 &lt;int&gt;,
 ## #   X2020.08.30 &lt;int&gt;, …</code></pre>
 <p>or we can use <code>summarise_if()</code>, which affects variables selected with a predicate function:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb254-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
-<span id="cb254-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb254-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
-<span id="cb254-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb254-3"></a><span class="st">  </span><span class="kw">summarize_if</span>(is.numeric, <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) </span>
-<span id="cb254-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb254-4"></a></span>
-<span id="cb254-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb254-5"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb251-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
+<span id="cb251-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb251-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
+<span id="cb251-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb251-3"></a><span class="st">  </span><span class="kw">summarize_if</span>(is.numeric, <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) </span>
+<span id="cb251-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb251-4"></a></span>
+<span id="cb251-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb251-5"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 327
 ##   State    ID X2020.12.11 X2020.12.10 X2020.12.09
 ##   &lt;fct&gt; &lt;int&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
@@ -698,12 +697,12 @@ Figure 8.1: Some commonly used logic comparisons.
 ## #   X2020.09.02 &lt;int&gt;, X2020.09.01 &lt;int&gt;,
 ## #   X2020.08.31 &lt;int&gt;, …</code></pre>
 <p>It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on <code>X2020.12.11</code> to put the group with the largest cumulative infected count first:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
-<span id="cb256-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
-<span id="cb256-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-3"></a><span class="st">  </span><span class="kw">summarize_if</span>(is.numeric, <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb256-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-4"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(X2020.<span class="fl">12.11</span>))</span>
-<span id="cb256-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-5"></a></span>
-<span id="cb256-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-6"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-1"></a>I.state &lt;-<span class="st"> </span>I.county <span class="op">%&gt;%</span></span>
+<span id="cb253-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-2"></a><span class="st">  </span><span class="kw">group_by</span>(State) <span class="op">%&gt;%</span></span>
+<span id="cb253-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-3"></a><span class="st">  </span><span class="kw">summarize_if</span>(is.numeric, <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb253-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-4"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(X2020.<span class="fl">12.11</span>))</span>
+<span id="cb253-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-5"></a></span>
+<span id="cb253-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb253-6"></a><span class="kw">head</span>(I.state, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 327
 ##   State     ID X2020.12.11 X2020.12.10 X2020.12.09
 ##   &lt;fct&gt;  &lt;int&gt;       &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
@@ -792,78 +791,78 @@ Figure 8.3: An illustration of inner join and full join.
 <p>The join functions are nicely illustrated in RStudio’s [Data wrangling cheatsheet][<a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a>].</p>
 <p><code>{r join, out.width = "80%", echo=FALSE, fig.align = "center",  fig.cap="An illustration of the join functions in RStudio’s Data wrangling cheatsheet."} knitr::include_graphics("figures/dplyr-joins.png")</code></p>
 <p><strong>Toy examples with joins</strong></p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb258-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-2"></a>x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key=</span> LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">5</span>)], </span>
-<span id="cb258-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-3"></a>                <span class="dt">value1 =</span> <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">4</span>), </span>
-<span id="cb258-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-4"></a>                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb258-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-5"></a>y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key=</span> LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)], </span>
-<span id="cb258-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-6"></a>                <span class="dt">value2 =</span> <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">4</span>), </span>
-<span id="cb258-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-7"></a>                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb258-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-8"></a></span>
-<span id="cb258-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-9"></a>x</span>
-<span id="cb258-10"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-10"></a><span class="co">##   key value1</span></span>
-<span id="cb258-11"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-11"></a><span class="co">## 1   A      3</span></span>
-<span id="cb258-12"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-12"></a><span class="co">## 2   B      8</span></span>
-<span id="cb258-13"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-13"></a><span class="co">## 3   C      2</span></span>
-<span id="cb258-14"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-14"></a><span class="co">## 4   E      5</span></span>
-<span id="cb258-15"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-15"></a>y</span>
-<span id="cb258-16"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-16"></a><span class="co">##   key value2</span></span>
-<span id="cb258-17"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-17"></a><span class="co">## 1   A      8</span></span>
-<span id="cb258-18"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-18"></a><span class="co">## 2   B      2</span></span>
-<span id="cb258-19"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-19"></a><span class="co">## 3   C      6</span></span>
-<span id="cb258-20"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-20"></a><span class="co">## 4   D      3</span></span></code></pre></div>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-1"></a><span class="co"># What&#39;s in both x and y?</span></span>
-<span id="cb259-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-2"></a><span class="kw">inner_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb255-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-2"></a>x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key=</span> LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">5</span>)], </span>
+<span id="cb255-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-3"></a>                <span class="dt">value1 =</span> <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb255-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-4"></a>                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb255-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-5"></a>y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key=</span> LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)], </span>
+<span id="cb255-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-6"></a>                <span class="dt">value2 =</span> <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb255-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-7"></a>                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb255-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-8"></a></span>
+<span id="cb255-9"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-9"></a>x</span>
+<span id="cb255-10"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-10"></a><span class="co">##   key value1</span></span>
+<span id="cb255-11"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-11"></a><span class="co">## 1   A      3</span></span>
+<span id="cb255-12"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-12"></a><span class="co">## 2   B      8</span></span>
+<span id="cb255-13"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-13"></a><span class="co">## 3   C      2</span></span>
+<span id="cb255-14"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-14"></a><span class="co">## 4   E      5</span></span>
+<span id="cb255-15"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-15"></a>y</span>
+<span id="cb255-16"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-16"></a><span class="co">##   key value2</span></span>
+<span id="cb255-17"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-17"></a><span class="co">## 1   A      8</span></span>
+<span id="cb255-18"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-18"></a><span class="co">## 2   B      2</span></span>
+<span id="cb255-19"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-19"></a><span class="co">## 3   C      6</span></span>
+<span id="cb255-20"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb255-20"></a><span class="co">## 4   D      3</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-1"></a><span class="co"># What&#39;s in both x and y?</span></span>
+<span id="cb256-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-2"></a><span class="kw">inner_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<span id="cb256-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-3"></a><span class="co">##   key value1 value2</span></span>
+<span id="cb256-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-4"></a><span class="co">## 1   A      3      8</span></span>
+<span id="cb256-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-5"></a><span class="co">## 2   B      8      2</span></span>
+<span id="cb256-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb256-6"></a><span class="co">## 3   C      2      6</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-1"></a><span class="co"># What&#39;s in X and bring with it the stuff that matches in Y</span></span>
+<span id="cb257-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-2"></a><span class="kw">left_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<span id="cb257-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-3"></a><span class="co">##   key value1 value2</span></span>
+<span id="cb257-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-4"></a><span class="co">## 1   A      3      8</span></span>
+<span id="cb257-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-5"></a><span class="co">## 2   B      8      2</span></span>
+<span id="cb257-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-6"></a><span class="co">## 3   C      2      6</span></span>
+<span id="cb257-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb257-7"></a><span class="co">## 4   E      5     NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-1"></a><span class="co"># What&#39;s in Y and bring with it the stuff that matches in Y</span></span>
+<span id="cb258-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-2"></a><span class="kw">right_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<span id="cb258-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-3"></a><span class="co">##   key value1 value2</span></span>
+<span id="cb258-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-4"></a><span class="co">## 1   A      3      8</span></span>
+<span id="cb258-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-5"></a><span class="co">## 2   B      8      2</span></span>
+<span id="cb258-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-6"></a><span class="co">## 3   C      2      6</span></span>
+<span id="cb258-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb258-7"></a><span class="co">## 4   D     NA      3</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-1"></a><span class="co"># Give me everything!</span></span>
+<span id="cb259-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-2"></a><span class="kw">full_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
 <span id="cb259-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-3"></a><span class="co">##   key value1 value2</span></span>
 <span id="cb259-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-4"></a><span class="co">## 1   A      3      8</span></span>
 <span id="cb259-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-5"></a><span class="co">## 2   B      8      2</span></span>
-<span id="cb259-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-6"></a><span class="co">## 3   C      2      6</span></span></code></pre></div>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-1"></a><span class="co"># What&#39;s in X and bring with it the stuff that matches in Y</span></span>
-<span id="cb260-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-2"></a><span class="kw">left_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
-<span id="cb260-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-3"></a><span class="co">##   key value1 value2</span></span>
-<span id="cb260-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-4"></a><span class="co">## 1   A      3      8</span></span>
-<span id="cb260-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-5"></a><span class="co">## 2   B      8      2</span></span>
-<span id="cb260-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-6"></a><span class="co">## 3   C      2      6</span></span>
-<span id="cb260-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-7"></a><span class="co">## 4   E      5     NA</span></span></code></pre></div>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-1"></a><span class="co"># What&#39;s in Y and bring with it the stuff that matches in Y</span></span>
-<span id="cb261-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-2"></a><span class="kw">right_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<span id="cb259-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-6"></a><span class="co">## 3   C      2      6</span></span>
+<span id="cb259-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-7"></a><span class="co">## 4   E      5     NA</span></span>
+<span id="cb259-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb259-8"></a><span class="co">## 5   D     NA      3</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-1"></a><span class="co"># Give me the stuff in X that is not in Y</span></span>
+<span id="cb260-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-2"></a><span class="kw">anti_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
+<span id="cb260-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-3"></a><span class="co">##   key value1</span></span>
+<span id="cb260-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb260-4"></a><span class="co">## 1   E      5</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-1"></a><span class="co"># Want everything that doesn&#39;t match?</span></span>
+<span id="cb261-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-2"></a><span class="kw">full_join</span>(<span class="kw">anti_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>), <span class="kw">anti_join</span>(y, x, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>), <span class="dt">by=</span> <span class="st">&quot;key&quot;</span>)</span>
 <span id="cb261-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-3"></a><span class="co">##   key value1 value2</span></span>
-<span id="cb261-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-4"></a><span class="co">## 1   A      3      8</span></span>
-<span id="cb261-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-5"></a><span class="co">## 2   B      8      2</span></span>
-<span id="cb261-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-6"></a><span class="co">## 3   C      2      6</span></span>
-<span id="cb261-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-7"></a><span class="co">## 4   D     NA      3</span></span></code></pre></div>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-1"></a><span class="co"># Give me everything!</span></span>
-<span id="cb262-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-2"></a><span class="kw">full_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
-<span id="cb262-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-3"></a><span class="co">##   key value1 value2</span></span>
-<span id="cb262-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-4"></a><span class="co">## 1   A      3      8</span></span>
-<span id="cb262-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-5"></a><span class="co">## 2   B      8      2</span></span>
-<span id="cb262-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-6"></a><span class="co">## 3   C      2      6</span></span>
-<span id="cb262-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-7"></a><span class="co">## 4   E      5     NA</span></span>
-<span id="cb262-8"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-8"></a><span class="co">## 5   D     NA      3</span></span></code></pre></div>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-1"></a><span class="co"># Give me the stuff in X that is not in Y</span></span>
-<span id="cb263-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-2"></a><span class="kw">anti_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</span>
-<span id="cb263-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-3"></a><span class="co">##   key value1</span></span>
-<span id="cb263-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-4"></a><span class="co">## 1   E      5</span></span></code></pre></div>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-1"></a><span class="co"># Want everything that doesn&#39;t match?</span></span>
-<span id="cb264-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-2"></a><span class="kw">full_join</span>(<span class="kw">anti_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>), <span class="kw">anti_join</span>(y, x, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>), <span class="dt">by=</span> <span class="st">&quot;key&quot;</span>)</span>
-<span id="cb264-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-3"></a><span class="co">##   key value1 value2</span></span>
-<span id="cb264-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-4"></a><span class="co">## 1   E      5     NA</span></span>
-<span id="cb264-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-5"></a><span class="co">## 2   D     NA      3</span></span></code></pre></div>
+<span id="cb261-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-4"></a><span class="co">## 1   E      5     NA</span></span>
+<span id="cb261-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb261-5"></a><span class="co">## 2   D     NA      3</span></span></code></pre></div>
 <p><strong>Practice with joins for real data</strong></p>
 <p>We first get the data named <code>pop.county</code> from the github R package <code>slid</code>. Note that there are four variables in this data: <code>ID</code>, <code>County</code>, <code>State</code>, <code>population</code>.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-1"></a><span class="kw">library</span>(slid)</span>
-<span id="cb265-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-2"></a><span class="kw">data</span>(I.county)</span>
-<span id="cb265-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-3"></a><span class="kw">dim</span>(I.county)</span>
-<span id="cb265-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-4"></a><span class="co">## [1] 3104  328</span></span>
-<span id="cb265-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-5"></a><span class="kw">data</span>(pop.county)</span>
-<span id="cb265-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-6"></a><span class="kw">dim</span>(pop.county)</span>
-<span id="cb265-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-7"></a><span class="co">## [1] 3142    4</span></span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-1"></a><span class="kw">library</span>(slid)</span>
+<span id="cb262-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-2"></a><span class="kw">data</span>(I.county)</span>
+<span id="cb262-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-3"></a><span class="kw">dim</span>(I.county)</span>
+<span id="cb262-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-4"></a><span class="co">## [1] 3104  328</span></span>
+<span id="cb262-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-5"></a><span class="kw">data</span>(pop.county)</span>
+<span id="cb262-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-6"></a><span class="kw">dim</span>(pop.county)</span>
+<span id="cb262-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb262-7"></a><span class="co">## [1] 3142    4</span></span></code></pre></div>
 <p>Now, we would like to join the two tables: <code>I.county</code> and <code>pop.county</code> using the <code>left_join</code> as follows:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb266-1"></a>I.county.w.pop &lt;-<span class="st"> </span><span class="kw">left_join</span>(I.county, pop.county, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb266-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb266-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(<span class="st">&quot;County.y&quot;</span>, <span class="st">&quot;State.y&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-1"></a>I.county.w.pop &lt;-<span class="st"> </span><span class="kw">left_join</span>(I.county, pop.county, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb263-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb263-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(<span class="st">&quot;County.y&quot;</span>, <span class="st">&quot;State.y&quot;</span>))</span></code></pre></div>
 <p>or we can:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb267-1"></a>I.county.w.pop &lt;-<span class="st"> </span><span class="kw">left_join</span>(I.county, </span>
-<span id="cb267-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb267-2"></a>dplyr<span class="op">::</span><span class="kw">select</span>(pop.county, <span class="kw">c</span>(ID,population)), <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-1"></a>I.county.w.pop &lt;-<span class="st"> </span><span class="kw">left_join</span>(I.county, </span>
+<span id="cb264-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb264-2"></a>dplyr<span class="op">::</span><span class="kw">select</span>(pop.county, <span class="kw">c</span>(ID,population)), <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
 </div>
 <div id="reshaping-data---change-the-layout-of-a-data-set" class="section level2">
 <h2><span class="header-section-number">8.8</span> Reshaping Data - Change the layout of a data set</h2>
@@ -876,9 +875,9 @@ Figure 8.3: An illustration of inner join and full join.
 <div id="from-wide-to-long" class="section level3">
 <h3><span class="header-section-number">8.8.1</span> From wide to long</h3>
 <p>Below we would like to change the data <code>I.state</code> from wide format to long format.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-1"></a><span class="kw">library</span>(slid)</span>
-<span id="cb268-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-2"></a><span class="kw">data</span>(I.state)</span>
-<span id="cb268-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-3"></a><span class="kw">names</span>(I.state)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-1"></a><span class="kw">library</span>(slid)</span>
+<span id="cb265-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-2"></a><span class="kw">data</span>(I.state)</span>
+<span id="cb265-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb265-3"></a><span class="kw">names</span>(I.state)</span></code></pre></div>
 <p><strong>Use <code>gather(data, key, value, …)</code></strong></p>
 <ul>
 <li><code>data</code> = the dataframe you want to morph from wide to long</li>
@@ -893,24 +892,24 @@ Figure 8.3: An illustration of inner join and full join.
 Figure 8.4: An illustration of <code>gather</code> function.
 </p>
 </div>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb269-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state <span class="op">%&gt;%</span></span>
-<span id="cb269-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb269-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State,X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>)</span>
-<span id="cb269-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb269-3"></a><span class="kw">dim</span>(I.state.wide)  </span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb266-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state <span class="op">%&gt;%</span></span>
+<span id="cb266-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb266-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State,X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>)</span>
+<span id="cb266-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb266-3"></a><span class="kw">dim</span>(I.state.wide)  </span></code></pre></div>
 <pre><code>## [1]  49 326</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb271-1"></a>I.state.long &lt;-<span class="st"> </span><span class="kw">gather</span>(I.state.wide, DATE, Death, </span>
-<span id="cb271-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb271-2"></a>X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb271-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb271-3"></a><span class="st">                       </span><span class="kw">arrange</span>(State)</span>
-<span id="cb271-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb271-4"></a><span class="kw">dim</span>(I.state.long)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-1"></a>I.state.long &lt;-<span class="st"> </span><span class="kw">gather</span>(I.state.wide, DATE, Death, </span>
+<span id="cb268-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-2"></a>X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb268-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-3"></a><span class="st">                       </span><span class="kw">arrange</span>(State)</span>
+<span id="cb268-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb268-4"></a><span class="kw">dim</span>(I.state.long)</span></code></pre></div>
 <pre><code>## [1] 15925     3</code></pre>
 <p><strong>Use <code>pivot_longer()</code></strong></p>
 <p>The function <code>pivot_longer()</code> is an updated approach to <code>gather()</code>, designed to be both simpler to use and to handle more use cases. It is recommended to use <code>pivot_longer()</code> for new code; <code>gather()</code> isn’t going away but is no longer under active development.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb273-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state <span class="op">%&gt;%</span></span>
-<span id="cb273-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb273-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State,X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>)</span>
-<span id="cb273-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb273-3"></a><span class="kw">dim</span>(I.state.wide) </span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb270-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state <span class="op">%&gt;%</span></span>
+<span id="cb270-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb270-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(State,X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>)</span>
+<span id="cb270-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb270-3"></a><span class="kw">dim</span>(I.state.wide) </span></code></pre></div>
 <pre><code>## [1]  49 326</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-1"></a>I.state.long &lt;-<span class="st"> </span>I.state.wide <span class="op">%&gt;%</span></span>
-<span id="cb275-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, </span>
-<span id="cb275-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-3"></a>  <span class="dt">names_to =</span> <span class="st">&quot;DATE&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Death&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb272-1"></a>I.state.long &lt;-<span class="st"> </span>I.state.wide <span class="op">%&gt;%</span></span>
+<span id="cb272-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb272-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(X2020.<span class="fl">12.11</span><span class="op">:</span>X2020.<span class="fl">01.22</span>, </span>
+<span id="cb272-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb272-3"></a>  <span class="dt">names_to =</span> <span class="st">&quot;DATE&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Death&quot;</span>)</span></code></pre></div>
 <p>See more complicated examples from the <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">introduction of ‘tidyr’ package</a>.</p>
 </div>
 <div id="from-long-to-wide" class="section level3">
@@ -929,14 +928,14 @@ Figure 8.4: An illustration of <code>gather</code> function.
 Figure 8.5: An illustration of <code>spread</code> function.
 </p>
 </div>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb276-1"></a>I.state.wide &lt;-<span class="st"> </span><span class="kw">spread</span>(I.state.long, DATE, Death)</span>
-<span id="cb276-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb276-2"></a><span class="kw">dim</span>(I.state.wide)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb273-1"></a>I.state.wide &lt;-<span class="st"> </span><span class="kw">spread</span>(I.state.long, DATE, Death)</span>
+<span id="cb273-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb273-2"></a><span class="kw">dim</span>(I.state.wide)</span></code></pre></div>
 <pre><code>## [1]  49 326</code></pre>
 <p><strong>Use <code>pivot_wider()</code></strong></p>
 <p>We can also use the function <code>pivot_wider()</code>, which “widens” data, increasing the number of columns and decreasing the number of rows. The inverse transformation is <code>pivot_longer()</code>.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb278-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state.long <span class="op">%&gt;%</span></span>
-<span id="cb278-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb278-2"></a><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> DATE, <span class="dt">values_from =</span> Death)</span>
-<span id="cb278-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb278-3"></a><span class="kw">dim</span>(I.state.wide)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-1"></a>I.state.wide &lt;-<span class="st"> </span>I.state.long <span class="op">%&gt;%</span></span>
+<span id="cb275-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-2"></a><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> DATE, <span class="dt">values_from =</span> Death)</span>
+<span id="cb275-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb275-3"></a><span class="kw">dim</span>(I.state.wide)</span></code></pre></div>
 <pre><code>## [1]  49 326</code></pre>
 <p>See more complicated examples from the <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">introduction of ‘tidyr’ package</a>.</p>
 </div>
@@ -945,9 +944,9 @@ Figure 8.5: An illustration of <code>spread</code> function.
 <h2><span class="header-section-number">8.9</span> Exercises</h2>
 <p>We are going to explore the basic data manipulation verbs of <code>dplyr</code> using
 <code>nycflights13::flights</code>. Install the R package <code>nycflights13</code>.</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb280-1"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb280-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb280-2"></a><span class="kw">data</span>(flights)</span>
-<span id="cb280-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb280-3"></a><span class="kw">names</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb277-1"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb277-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb277-2"></a><span class="kw">data</span>(flights)</span>
+<span id="cb277-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb277-3"></a><span class="kw">names</span>(flights)</span></code></pre></div>
 <pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;           
 ##  [4] &quot;dep_time&quot;       &quot;sched_dep_time&quot; &quot;dep_delay&quot;     
 ##  [7] &quot;arr_time&quot;       &quot;sched_arr_time&quot; &quot;arr_delay&quot;     
@@ -965,18 +964,18 @@ Figure 8.5: An illustration of <code>spread</code> function.
 <li>Sort flights to find the most delayed flights. Find the flights that left earliest.</li>
 <li>What does the following code provide?</li>
 </ol>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-1"></a>delays &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb282-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-2"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb282-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb282-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-4"></a>    <span class="dt">count =</span> <span class="kw">n</span>(),</span>
-<span id="cb282-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-5"></a>    <span class="dt">dist =</span> <span class="kw">mean</span>(distance, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb282-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-6"></a>    <span class="dt">delay =</span> <span class="kw">mean</span>(arr_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb282-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb282-7"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-1"></a>delays &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb279-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-2"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb279-3"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb279-4"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-4"></a>    <span class="dt">count =</span> <span class="kw">n</span>(),</span>
+<span id="cb279-5"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-5"></a>    <span class="dt">dist =</span> <span class="kw">mean</span>(distance, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb279-6"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-6"></a>    <span class="dt">delay =</span> <span class="kw">mean</span>(arr_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb279-7"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb279-7"></a>  )</span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li>What does the following code provide?</li>
 </ol>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb283-1"></a>by_day &lt;-<span class="st"> </span><span class="kw">group_by</span>(flights, year, month, day)</span>
-<span id="cb283-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb283-2"></a><span class="kw">summarize</span>(by_day, <span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb280-1"></a>by_day &lt;-<span class="st"> </span><span class="kw">group_by</span>(flights, year, month, day)</span>
+<span id="cb280-2"><a href="data-wrangling-with-dplyr-and-tidyr.html#cb280-2"></a><span class="kw">summarize</span>(by_day, <span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 
 </div>
 </div>

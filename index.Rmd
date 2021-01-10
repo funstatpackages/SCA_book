@@ -16,37 +16,12 @@ description: "This is a minimal example of using the bookdown package to write a
 
 ## What you will learn
 
-This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.
-
-## Prerequisites
-
-## Data Sets Used in Labs and Exercises
-
-In this textbook, we illustrate statistical learning methods using applications
-from marketing, finance, biology, and other areas. The ISLR package available on the book website contains a number of data sets that are required in order to perform the labs and exercises associated with this book. One other data set is contained in the MASS library, and yet another is part of the base R distribution. Table 1.1 contains a summary of the data
-sets required to perform the labs and exercises. A couple of these data sets
-are also available as text files on the book website, for use in Chapter 2.
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
+This book introduces modern statistical computing for students with some experience with computer programming. It covers both programming concepts and statistical computing concepts. Programming concepts will include data manipulations, data structures, flow control, functions and variable scope, regular expressions, and matrix manipulations. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualize it and model it. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualizing and exploring data. Statistical computing topics will focus on the tools that are useful for tackling modern data analysis problems and using statistical methods to extract meaning from data. 
 
 ## Acknowledgements
+
+I am very appreciative of all the contributors to this immense open source project of R and R-Studio. I couldn’t have made this book without your contributions and the packages that you have developed. A special thanks go to [Dr. Guannan Wang](https://people.wm.edu/~gwang01/index.html) and Miss Zhiling Gu for their help with the book. I would also like to thank Yihui Xie [@xie2020bookdown] for his R Markdown package, which simplifies the writing of this book by having all content written in R Markdown.
+
+## About the Author
+
+Dr. Lily Wang is a tenured Professor of Statistics at Iowa State University. She received her Ph.D. in Statistics from Michigan State University in 2007. Prior to joining Iowa State in 2014, she was a tenure-track Assistant/tenured Associate Professor in the Department of Statistics at the University of Georgia 2007-2013/2013-2014. Her primary areas of research include developing cutting-edge statistical non/semi-parametric methods, statistical learning of large datasets with complex features, methodologies for functional data, imaging data, and spatiotemporal data, survey sampling, and the application of statistics to problems in economics, engineering, neuroimaging, epidemiology, environmental studies, and biomedical science. 
